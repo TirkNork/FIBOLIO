@@ -1,63 +1,98 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import WidecardProject from "../../components/WidecardProfect";
 import "./Project.css";
 
 function ProjectInsert() {
-  // สร้าง state เพื่อเก็บค่าของแต่ละช่อง input
-  const [year, setYear] = useState("");
-  const [project, setProject] = useState("");
-  const [subject, setSubject] = useState("");
-  const [description, setDescription] = useState("");
+    const [year, setYear] = useState("");
+    const [project, setProject] = useState("");
+    const [course, setCourse] = useState("");
+    const [description, setDescription] = useState("");
+    const [images, setImages] = useState([]);
 
-  // สร้างฟังก์ชันเพื่ออัปเดตค่า state เมื่อมีการเปลี่ยนแปลงใน input แต่ละช่อง
-  const handleYearChange = (event) => {
-    setYear(event.target.value);
-  };
+    const handleYearChange = (event) => {
+        setYear(event.target.value);
+    };
 
-  const handleProjectChange = (event) => {
-    setProject(event.target.value);
-  };
+    const handleProjectChange = (event) => {
+        setProject(event.target.value);
+    };
 
-  const handleSubjectChange = (event) => {
-    setSubject(event.target.value);
-  };
+    const handleCourseChange = (event) => {
+        setCourse(event.target.value);
+    };
 
-  const handleDescriptionChange = (event) => {
-    setDescription(event.target.value);
-  };
+    const handleDescriptionChange = (event) => {
+        setDescription(event.target.value);
+    };
 
-  return (
-    <div>
-        <h3>Year</h3>
-        <input
-          type="text"
-          value={year}
-          onChange={handleYearChange}
-          placeholder="Enter year of project"/>
+    // const handleImageChange = (event) => {
+    //     const files = event.target.files;
+    //     const fileNames = Array.from(files).map(file => file.name);
+    //     setImages(fileNames);
+    // };
 
-        <h3>Project</h3>
-        <input
-          type="text"
-          value={project}
-          onChange={handleProjectChange}
-          placeholder="Enter project name"/>
+    return (
+        <div className="config">
+            <div className="header">
+                <h1>Insert Project</h1>
+            </div>
+            <div className="form-container">
+                <div className="container">
+                    <div className="input-container">
+                        <h3>Year</h3>
+                        <input
+                            type="text"
+                            value={year}
+                            onChange={handleYearChange}
+                            placeholder="Enter year of project"
+                        />
 
-        <h3>Subject</h3>
-        <input
-          type="text"
-          value={subject}
-          onChange={handleSubjectChange}
-          placeholder="Enter subject"/>
+                        <h3>Project</h3>
+                        <input
+                            type="text"
+                            value={project}
+                            onChange={handleProjectChange}
+                            placeholder="Enter project name"
+                        />
 
-        <h3>Description</h3>
-        <input
-          type="text"
-          value={description}
-          onChange={handleDescriptionChange}
-          placeholder="Enter project description"/>
-    </div>
-  );
+                        <h3>Course</h3>
+                        <input
+                            type="text"
+                            value={course}
+                            onChange={handleCourseChange}
+                            placeholder="Enter course"
+                        />
+                    </div>
+                    <div className="input-description">
+                        <h3>Description</h3>
+                        <input
+                            type="text"
+                            value={description}
+                            onChange={handleDescriptionChange}
+                            placeholder="Enter project description"
+                        />
+                    </div>
+                    <form>
+                        <div className="mb-3">
+                            <input
+                                type="file"
+                                className="form-control"
+                                // multiple
+                                // onChange={handleImageChange}
+                            />
+                        </div>
+                        {/* <div>
+                            {images.map((image, index) => (
+                                <div key={index}>{image}</div>
+                            ))}
+                        </div> */}
+                        <button className="button" >
+                            Upload
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    );
 }
 
 export default ProjectInsert;
