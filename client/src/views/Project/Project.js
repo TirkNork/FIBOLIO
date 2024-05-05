@@ -5,6 +5,23 @@ import { useNavigate } from "react-router-dom";
 import WidecardProject from "../../components/WidecardProfect";
 import "./Project.css";
 
+const mockData = [
+    {
+        id: 1,
+        year: 2020,
+        project: "NUDA",
+        course: "FRA000",
+        des: "An adjustable automatic massage pillow that is portable and works with all body types.",
+    },
+    {
+        id: 2,
+        year: 2021,
+        project: "NUDA",
+        course: "FRA000",
+        des: "An adjustable automatic massage pillow that is portable and works with all body types.",
+    }
+];
+
 function Project() {
 
     const navigate = useNavigate();
@@ -28,23 +45,6 @@ function Project() {
         setProjectList(response.data);
       });
     };
-
-    const mockData = [
-        {
-            id: 1,
-            year: 2020,
-            project: "NUDA",
-            course: "FRA000",
-            des: "An adjustable automatic massage pillow that is portable and works with all body types.",
-        },
-        {
-            id: 2,
-            year: 2021,
-            project: "NUDA",
-            course: "FRA000",
-            des: "An adjustable automatic massage pillow that is portable and works with all body types.",
-        }
-    ];
     
     return (
         <div>
@@ -65,7 +65,7 @@ function Project() {
                             </div>
                         ))} */}
                         {projectList.map((val, key) => (
-                            <div key={key} onClick={() => goToProjectDetail(val.id)}>
+                            <div key={key} onClick={() => goToProjectDetail(val.project_id)}>
                                 <WidecardProject
                                     year={val.project_year}
                                     project={val.project_name}

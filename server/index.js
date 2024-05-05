@@ -34,6 +34,17 @@ app.get("/projects", (req, res) => {
   });
 });
 
+app.get("/projects/:id", (req, res) => {
+    const id = req.params.id;
+    db.query("SELECT * FROM projects WHERE project_id = ?", [id], (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(result);
+      }
+    });
+  });
+
 app.post("/insertProjects", (req, res) => {
     const {student_id, project_name, project_year, course_id, description, img_path} = req.body;
     db.query(
