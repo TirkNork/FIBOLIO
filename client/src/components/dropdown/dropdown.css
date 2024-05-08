@@ -1,0 +1,31 @@
+select {
+    position: relative;
+    display: flex;
+    height: 56px;
+    border-radius: 8px;
+    width: 577px;
+    border: 0;
+    font-size: 20px;
+    padding-left: 12px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+/* select::value {
+    font-size: 20px;
+} */
+
+option {
+    /* position: relative;
+    display: flex; */
+    height: 168px;
+    border-radius: 8px;
+    width: 577px;
+    font-size: 20px;
+}
+
+label {
+    position: relative;
+    display: flex;
+    margin-left: 0;
+    font-size: 20px;
+}
