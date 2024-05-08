@@ -19,7 +19,7 @@ function App() {
           <Route path="/Project" element={<div className="body"><Project/></div>}></Route>   
           <Route path="/ProjectInsert" element={<div className="body"><ProjectInsert/></div>}></Route>
           <Route path="/Project/:id" element={<ProjectDetails/>} />  
-          <Route path="/Project/:id/Edit" element={<ProjectEdit/>} />      
+          <Route path="/Project/Edit/:id" element={<ProjectEdit/>} />      
         </Routes>     
       </div>      
     </BrowserRouter>

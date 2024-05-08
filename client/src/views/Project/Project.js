@@ -4,6 +4,7 @@ import Axios from "axios";
 import { useNavigate } from "react-router-dom";
 import WidecardProject from "../../components/WidecardProfect";
 import "./Project.css";
+import Dot from "../../image/icons8-more-50.png"
 
 const mockData = [
     {
@@ -23,7 +24,6 @@ const mockData = [
 ];
 
 function Project() {
-
     const navigate = useNavigate();
 
     const goToProjectDetail = (id) => {
@@ -33,19 +33,23 @@ function Project() {
     const handleInsertClick = () => {
         navigate("/ProjectInsert");
     };
+    
+    const goToProjectEdit = (id) => {
+        navigate(`/Project/Edit/${id}`);
+    };
 
     const [projectList, setProjectList] = useState([]);
 
     // useEffect(() => {
     //   getProjectList();
     // }, []);
-  
+
     // const getProjectList = () => {
     //   Axios.get("http://localhost:3001/projects").then((response) => {
     //     setProjectList(response.data);
     //   });
     // };
-    
+
     return (
         <div>
             <div className="header">
@@ -55,13 +59,22 @@ function Project() {
                 <div className="data-table">
                     <div className="row">
                         {mockData.map((val, key) => (
-                            <div key={key} onClick={() => goToProjectDetail(val.id)}>
+                            <div className="project-container">
+                                <div key={key} onClick={() => goToProjectDetail(val.id)}>
                                 <WidecardProject
                                     year={val.year}
                                     project={val.project}
                                     course={val.course}
                                     des={val.des}
                                 />
+                                </div>
+                                <div className="more-options">
+                                    <img src={Dot} alt="More Options" />
+                                    <div className="dropdown">
+                                    <button onClick={() => goToProjectEdit(val.id)}>Edit</button>
+                                        <button>Delete</button>
+                                    </div>
+                                </div>
                             </div>
                         ))}
                         {/* {projectList.map((val, key) => (
@@ -76,8 +89,8 @@ function Project() {
                         ))} */}
                     </div>
                 </div>
-                <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "20px" }}>
-                <button className="button-orange" onClick={handleInsertClick}>Insert</button>
+                <div style={{ display: "flex", justifyContent: "center", marginBottom: "20px" }}>
+                    <button className="button-orange" onClick={handleInsertClick}>Insert</button>
                 </div>
             </div>
         </div>
