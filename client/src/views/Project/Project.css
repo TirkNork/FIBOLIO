@@ -11,98 +11,177 @@
   
   h1 {
     margin-right: 20px; 
+    font-size: 48px;
   }
   
   .widecard {
     margin: 30px 0px 30px 0px;
-    transition: .3s;
+    /* transition: .3s; */
     border-radius: 10px;
     padding: .5rem;
     color: rgb(0, 0, 0);
     background: #E3E3E3;
-    font-size: 20px;
+    font-size: 16px;
     box-shadow: 3px 3px 10px #a7a7a7;
     text-align: left;
-
+    position: relative;
   }
+
+  .wide-con {
+    display: flex;
+    justify-content: space-between;
+  }
+  
 
   .widecard:hover {
     background: #DD5900;
     color: rgb(255, 255, 255);
   }
 
-  .button {
+  
+
+  .button-gray {
     height: 55px;
     width: 200px; 
-    font-size: 18px;
-    border: none;
-    border-radius: 10px;
+    font-size: 16px;
+    border: none; 
+    border-radius: 5px;
+    
   }
   
-  .button:hover{
+  .button-gray:hover{
     background-color: #dadada; 
     color: #000000;
+    box-shadow: inset 0 4px 10px 0 rgba(0,0,0,0.5);
   }
 
-.input-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; 
-    width: 60%;
-    margin-bottom: 5px;
-}
-
-.input-container input {
-    width: 100%;
-    height: 50px;
-    font-size: 20px;
-    margin-top: 5px; 
-}
-
-.input-description {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; 
-    width: 60%;
-    margin-bottom: 10px;
-}
-
-.input-description input {
-    width: 100%;
-    height: 50px;
-    font-size: 18px;
-    margin-top: 5px; 
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; 
-    height: 700px;  
-    font-size: 18px;
-    color: #ffffff;
-}
-
-.form-container {
-    margin : 0 auto;
-    margin-top: 40px ;
-    align-items: center;
-    justify-content: center;
-    background-color: #ffffff;
-    border-radius: 20px;
-    box-shadow: 0 0 10px rgba(2, 2, 2, 0.1);
-    width: 60%;
-    height: 100%;
+  .button-orange {
+    height: 55px;
+    width: 200px; 
+    font-size: 16px;
+    border: none; 
+    border-radius: 5px;
     background-color: #DD5900;
+    color: #ffffff;
+    /* box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);  */
+  }
 
-}
+  .button-orange:hover {
+    background-color: #cf5403; 
+    color: #ffffff;
+    box-shadow: inset 0 4px 10px 0 rgba(0,0,0,0.5); 
+  }
+
+  
+  .config {
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+
+  .form-container {
+    display: flex;
+  flex-direction: column;
+  }
+  
+  .container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .input-container {
+    margin-right: 20px;
+  }
+  
+  .input-description {
+    flex: 1;
+  }
+  
+  .input-description h3 {
+    margin-bottom: 5px;
+  }
+  
+  .input-description input[type="text"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .form {
+    margin-top: 20px;
+  }
+  
+  .form input[type="file"] {
+    margin-bottom: 10px;
+  }
 
 .mb-3 {
     padding: 10px;
 }
 
+.button-right {
+  padding: auto;
+}
 
 
+.project-edit-box {
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 600px;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
+  font-size: 16px;
+}
 
+.project-edit-box h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.project-edit-box form {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-edit-box label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  margin-right: auto;
+}
+
+.project-edit-box input[type="text"],
+.project-edit-box textarea {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: vertical;
+
+}
+
+.project-edit-box button {
+  padding: 10px 20px;
+  background-color: #DD5900;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.project-edit-box button:hover {
+  background-color: #c14e02;
+}
+
+.headInserth3 {
+  margin-right: auto;
+}
 

@@ -36,15 +36,15 @@ function Project() {
 
     const [projectList, setProjectList] = useState([]);
 
-    useEffect(() => {
-      getProjectList();
-    }, []);
+    // useEffect(() => {
+    //   getProjectList();
+    // }, []);
   
-    const getProjectList = () => {
-      Axios.get("http://localhost:3001/projects").then((response) => {
-        setProjectList(response.data);
-      });
-    };
+    // const getProjectList = () => {
+    //   Axios.get("http://localhost:3001/projects").then((response) => {
+    //     setProjectList(response.data);
+    //   });
+    // };
     
     return (
         <div>
@@ -54,7 +54,7 @@ function Project() {
             <div className="other-page">
                 <div className="data-table">
                     <div className="row">
-                        {/* {mockData.map((val, key) => (
+                        {mockData.map((val, key) => (
                             <div key={key} onClick={() => goToProjectDetail(val.id)}>
                                 <WidecardProject
                                     year={val.year}
@@ -63,8 +63,8 @@ function Project() {
                                     des={val.des}
                                 />
                             </div>
-                        ))} */}
-                        {projectList.map((val, key) => (
+                        ))}
+                        {/* {projectList.map((val, key) => (
                             <div key={key} onClick={() => goToProjectDetail(val.project_id)}>
                                 <WidecardProject
                                     year={val.project_year}
@@ -73,10 +73,12 @@ function Project() {
                                     des={val.description}
                                 />
                             </div>
-                        ))}
+                        ))} */}
                     </div>
                 </div>
-                <button className="button" onClick={handleInsertClick}>Insert Project</button>
+                <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "20px" }}>
+                <button className="button-orange" onClick={handleInsertClick}>Insert</button>
+                </div>
             </div>
         </div>
     );
