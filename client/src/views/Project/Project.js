@@ -33,7 +33,7 @@ function Project() {
     const handleInsertClick = () => {
         navigate("/ProjectInsert");
     };
-    
+
     const goToProjectEdit = (id) => {
         navigate(`/Project/Edit/${id}`);
     };
@@ -60,22 +60,24 @@ function Project() {
                     <div className="row">
                         {mockData.map((val, key) => (
                             <div className="project-container">
-                                <div key={key} onClick={() => goToProjectDetail(val.id)}>
-                                <WidecardProject
-                                    year={val.year}
-                                    project={val.project}
-                                    course={val.course}
-                                    des={val.des}
-                                />
-                                </div>
-                                <div className="more-options">
-                                    <img src={Dot} alt="More Options" />
-                                    <div className="dropdown">
-                                    <button onClick={() => goToProjectEdit(val.id)}>Edit</button>
-                                        <button>Delete</button>
-                                    </div>
-                                </div>
-                            </div>
+    <div className="project-details" onClick={() => goToProjectDetail(val.id)}>
+        <WidecardProject
+            year={val.year}
+            project={val.project}
+            course={val.course}
+            des={val.des}
+        />
+    </div>
+    <div className="dot-icon-container">
+        <img src={Dot} alt="More Options" className="dot-icon" />
+        <div className="more-options">
+            <div className="dropdown">
+                <button onClick={() => goToProjectEdit(val.id)}>Edit</button>
+                <button>Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
                         ))}
                         {/* {projectList.map((val, key) => (
                             <div key={key} onClick={() => goToProjectDetail(val.project_id)}>
@@ -89,10 +91,11 @@ function Project() {
                         ))} */}
                     </div>
                 </div>
-                <div style={{ display: "flex", justifyContent: "center", marginBottom: "20px" }}>
+                <div style={{ display: "flex", justifyContent: "right", marginBottom: "20px" }}>
                     <button className="button-orange" onClick={handleInsertClick}>Insert</button>
                 </div>
             </div>
+            
         </div>
     );
 }

@@ -27,14 +27,7 @@ function ProjectDetails() {
 
     const [project, setProject] = useState([]);
 
-    const handleDelete = () => {
-        navigate("/Project");
-    }
 
-    const handleEdit = () => {
-        navigate(`/Project/${id}/Edit`); 
-    }
-    const navigate = useNavigate();
 
 
     //   useEffect(() => {
@@ -70,10 +63,6 @@ function ProjectDetails() {
           <img src={val.img_path} />
         </div>
       ))} */}
-            <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "20px" }}>
-                <button className="button-orange" style={{ marginRight: "20px" }} onClick={handleEdit}>Edit</button>
-                <button className="button-orange" style={{ marginRight: "20px" }} onClick={handleDelete}>Delete</button>
-            </div>
         </div>
     );
 }

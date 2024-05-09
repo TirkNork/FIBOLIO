@@ -89,7 +89,9 @@ function ProjectEdit() {
             onChange={handleImageChange}
           />
           <br />
+          <div className="preview">
           <img src={image} alt="Project" />
+          </div>
           <br />
 
           <button type="submit">Save</button>

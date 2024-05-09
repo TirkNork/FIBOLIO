@@ -9,7 +9,7 @@ function ProjectInsert() {
   const [project, setProject] = useState("");
   const [course, setCourse] = useState("");
   const [description, setDescription] = useState("");
-  const [image, setImage] = useState(null); 
+  const [image, setImage] = useState(null);
 
   const handleYearChange = (event) => {
     setYear(event.target.value);
@@ -29,7 +29,7 @@ function ProjectInsert() {
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
-    const imageUrl = URL.createObjectURL(file); 
+    const imageUrl = URL.createObjectURL(file);
     setImage(imageUrl);
   };
 
@@ -39,7 +39,7 @@ function ProjectInsert() {
     formData.append("project", project);
     formData.append("course", course);
     formData.append("description", description);
-    formData.append("image", image); 
+    formData.append("image", image);
 
     Axios.post("http://localhost:3001/insertProjects", formData, {
       headers: {
@@ -60,40 +60,45 @@ function ProjectInsert() {
         <h1>Insert Project</h1>
       </div>
       <div className="project-edit-box">
-        <div className="form-container">
+        <div >
           <div className="container">
-            <h3 className="headInserth3">Year:</h3>
+            <label>Year:</label>
             <input
               type="text"
               value={year}
               onChange={handleYearChange}
               placeholder="Enter year of project"
             />
+            <br />
 
-            <h3 className="headInserth3">Project:</h3>
+            <label>Project:</label>
             <input
               type="text"
               value={project}
               onChange={handleProjectChange}
               placeholder="Enter project name"
             />
+            <br />
 
-            <h3 className="headInserth3">Course:</h3>
+            <label>Course:</label>
             <input
               type="text"
               value={course}
               onChange={handleCourseChange}
               placeholder="Enter course"
             />
+            <br />
 
-            <h3 className="headInserth3">Description:</h3>
+            <label>Description:</label>
             <textarea
               type="text"
               value={description}
               onChange={handleDescriptionChange}
               placeholder="Enter project description"
             />
-
+            <br />
+            
+            <label>Image:</label>
             <form>
               <div className="mb-3">
                 <input
