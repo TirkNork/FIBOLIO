@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
-import WidecardProject from "../../components/WidecardProfect";
+import WidecardProject from "../../components/WidecardProject";
 import "./Project.css";
 import Dot from "../../image/icons8-more-50.png"
 
