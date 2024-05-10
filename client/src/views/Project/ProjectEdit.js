@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Axios from "axios";
+import Cross from "../../image/cancel.png";
 
 const mockData = [
   {
@@ -30,6 +31,8 @@ function ProjectEdit() {
   const [project, setProject] = useState(null);
   const [image, setImage] = useState('');
 
+
+
   useEffect(() => {
     const foundProject = mockData.find((item) => item.id === parseInt(id));
     if (foundProject) {
@@ -58,31 +61,39 @@ function ProjectEdit() {
     setProject({ ...project, des: event.target.value });
   };
 
+  const navigate = useNavigate();
+
+  const handleBackClick = () => {
+    navigate("/Project");
+};
+
   return (
     <div>
         <div className="header">
         <h1>Edit Project</h1>
+        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'></link>
         </div>
     <div className="project-edit-box">
+    <img src={Cross} className="cross2" onClick={handleBackClick}/>
       {project && (
         <form>
-          <label>Year:</label>
+          <label>Year :</label>
           <input type="text" value={project.year} onChange={handleYearChange} />
           <br />
 
-          <label>Project:</label>
+          <label>Project :</label>
           <input type="text" value={project.project} onChange={handleProjectChange} />
           <br />
 
-          <label>Course:</label>
+          <label>Course :</label>
           <input type="text" value={project.course} onChange={handleCourseChange} />
           <br />
 
-          <label>Description:</label>
+          <label>Description :</label>
           <textarea value={project.des} onChange={handleDescriptionChange}></textarea>
           <br />
 
-          <label>Image:</label>
+          <label>Image :</label>
           <input
             type="file"
             accept="image/*"

@@ -6,10 +6,10 @@ function WidecardProject(props) {
 
   return (
     <div className="widecard">
-          <p className="secondtext">Year : {props.year}</p>
-          <p className="secondtext">Project : {props.project}</p>
-          <p className="secondtext">Course : {props.course}</p>
-          <p className="secondtext">Description : {props.des}</p>
+          <p className="secondtext"><b>Year : </b>{props.year}</p>
+          <p className="secondtext"><b>Project : </b>{props.project}</p>
+          <p className="secondtext"><b>Course : </b>{props.course}</p>
+          <p className="secondtext"><b>Description : </b>{props.des}</p>
         
       </div>
   );

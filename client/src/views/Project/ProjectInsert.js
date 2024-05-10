@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Axios from "axios";
 import "./Project.css";
+import Cross from "../../image/cancel.png";
 
 function ProjectInsert() {
   const navigate = useNavigate();
@@ -33,6 +34,12 @@ function ProjectInsert() {
     setImage(imageUrl);
   };
 
+
+
+  const handleBackClick = () => {
+    navigate("/Project");
+};
+
   const insertProject = () => {
     const formData = new FormData();
     formData.append("year", year);
@@ -57,12 +64,14 @@ function ProjectInsert() {
   return (
     <div>
       <div className="header">
+      <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'></link>
         <h1>Insert Project</h1>
       </div>
       <div className="project-edit-box">
+      <img src={Cross} className="cross2" onClick={handleBackClick}/>
         <div >
           <div className="container">
-            <label>Year:</label>
+            <label>Year :</label>
             <input
               type="text"
               value={year}
@@ -71,7 +80,7 @@ function ProjectInsert() {
             />
             <br />
 
-            <label>Project:</label>
+            <label>Project :</label>
             <input
               type="text"
               value={project}
@@ -80,7 +89,7 @@ function ProjectInsert() {
             />
             <br />
 
-            <label>Course:</label>
+            <label>Course :</label>
             <input
               type="text"
               value={course}
@@ -89,7 +98,7 @@ function ProjectInsert() {
             />
             <br />
 
-            <label>Description:</label>
+            <label>Description :</label>
             <textarea
               type="text"
               value={description}
@@ -98,7 +107,7 @@ function ProjectInsert() {
             />
             <br />
             
-            <label>Image:</label>
+            <label>Image :</label>
             <form>
               <div className="mb-3">
                 <input

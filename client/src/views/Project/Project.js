@@ -4,7 +4,9 @@ import Axios from "axios";
 import { useNavigate } from "react-router-dom";
 import WidecardProject from "../../components/WidecardProject";
 import "./Project.css";
-import Dot from "../../image/icons8-more-50.png"
+import Dot from "../../image/icons8-more-53.png"
+import Dropdown from 'react-bootstrap/Dropdown';
+
 
 const mockData = [
     {
@@ -25,6 +27,8 @@ const mockData = [
 
 function Project() {
     const navigate = useNavigate();
+    const [projectList, setProjectList] = useState([]);
+    const [showDropdown, setShowDropdown] = useState([]);
 
     const goToProjectDetail = (id) => {
         navigate(`/Project/${id}`);
@@ -38,7 +42,23 @@ function Project() {
         navigate(`/Project/Edit/${id}`);
     };
 
-    const [projectList, setProjectList] = useState([]);
+    useEffect(() => {
+        setShowDropdown(Array(mockData.length).fill(false));
+    }, []);
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (!event.target.closest('.dot-icon-container')) {
+                setShowDropdown(Array(mockData.length).fill(false));
+            }
+        };
+        
+        document.addEventListener('click', handleClickOutside);
+
+        return () => {
+            document.removeEventListener('click', handleClickOutside);
+        };
+    }, []);
 
     // useEffect(() => {
     //   getProjectList();
@@ -54,30 +74,35 @@ function Project() {
         <div>
             <div className="header">
                 <h1>Project</h1>
+                <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'></link>
             </div>
             <div className="other-page">
                 <div className="data-table">
                     <div className="row">
                         {mockData.map((val, key) => (
                             <div className="project-container">
-    <div className="project-details" onClick={() => goToProjectDetail(val.id)}>
-        <WidecardProject
-            year={val.year}
-            project={val.project}
-            course={val.course}
-            des={val.des}
-        />
-    </div>
-    <div className="dot-icon-container">
-        <img src={Dot} alt="More Options" className="dot-icon" />
-        <div className="more-options">
-            <div className="dropdown">
-                <button onClick={() => goToProjectEdit(val.id)}>Edit</button>
-                <button>Delete</button>
-            </div>
-        </div>
-    </div>
-</div>
+                                <div className="project-details" onClick={() => goToProjectDetail(val.id)}>
+                                    <WidecardProject
+                                        year={val.year}
+                                        project={val.project}
+                                        course={val.course}
+                                        des={val.des}
+                                    />
+                                </div>
+                                <div className="dot-icon-container">
+                                    <img src={Dot} alt="More Options" className="dot-icon" onClick={() => {
+                                        const updatedDropdownStatus = [...showDropdown];
+                                        updatedDropdownStatus[key] = !showDropdown[key];
+                                        setShowDropdown(updatedDropdownStatus);
+                                    }} />
+                                    <div className={`more-options ${showDropdown[key] ? 'show' : ''}`}>
+                                        <div className="dropdown">
+                                            <button onClick={() => goToProjectEdit(val.id)}>Edit</button>
+                                            <button>Delete</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         ))}
                         {/* {projectList.map((val, key) => (
                             <div key={key} onClick={() => goToProjectDetail(val.project_id)}>
@@ -95,7 +120,7 @@ function Project() {
                     <button className="button-orange" onClick={handleInsertClick}>Insert</button>
                 </div>
             </div>
-            
+
         </div>
     );
 }

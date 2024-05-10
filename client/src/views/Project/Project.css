@@ -12,6 +12,7 @@
 h1 {
   margin-right: 20px; 
   font-size: 48px;
+  font-family: 'Poppins';
 }
 
 .widecard {
@@ -60,13 +61,14 @@ h1 {
   background-color: #DD5900;
   color: #ffffff;
   cursor: pointer;
+  font-family: 'Poppins';
   /* box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);  */
 }
 
 .button-orange:hover {
   background-color: #cf5403; 
   color: #ffffff;
-  box-shadow: inset 0 4px 10px 0 rgba(0,0,0,0.5); 
+  /* box-shadow: inset 0 4px 10px 0 rgba(0,0,0,0.5);  */
 }
 
 
@@ -100,10 +102,12 @@ flex-direction: column;
 
 .form {
   margin-top: 20px;
+  font-family: 'Poppins';
 }
 
 .form input[type="file"] {
   margin-bottom: 10px;
+  font-family: 'Poppins';
 }
 
 .mb-3 {
@@ -114,6 +118,7 @@ flex-direction: column;
 
 .button-right {
 padding: auto;
+font-family: 'Poppins';
 }
 
 
@@ -126,13 +131,26 @@ max-width: 600px;
 background-color: #ffffff;
 box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
 font-size: 16px;
+
 }
 
+.project-edit-box-detail {
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 800px;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
+  font-size: 16px;
+  
+  }
 
 
 .project-edit-box form {
 display: flex;
 flex-direction: column;
+font-family: 'Poppins';
 }
 
 .project-edit-box label {
@@ -148,6 +166,13 @@ margin-bottom: 10px;
 border: 1px solid #ccc;
 border-radius: 5px;
 resize: vertical;
+font-family: 'Poppins';
+
+}
+
+.project-edit-box textarea{
+  max-height:150px; 
+  min-height:35px; 
 }
 
 .project-edit-box button {
@@ -157,6 +182,7 @@ color: #fff;
 border: none;
 border-radius: 5px;
 cursor: pointer;
+font-family: 'Poppins';
 }
 
 .project-edit-box button:hover {
@@ -191,6 +217,7 @@ position: absolute;
 top: 5px; 
 right: 10px; 
 z-index: 1; 
+cursor: pointer;
 }
 
 
@@ -212,7 +239,7 @@ box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 display: none; /* สำหรับซ่อน Dropdown เริ่มต้น */
 }
 
-.dot-icon-container:hover .dropdown {
+.dot-icon-container .dropdown {
 display: block; /* เมื่อ Hover ที่ .dot-icon-container ให้แสดง Dropdown */
 }
 
@@ -227,20 +254,58 @@ cursor: pointer;
 }
 
 .dropdown button:hover {
-background-color: #f5f5f5;
+  background-color: #f5f5f5;
 }
 
-.project-edit-box .preview {
-  margin-bottom: 10px; /* Add some space below the preview */
+
+.project-edit-box-detail .preview img {
+  max-width: 100%; 
+  max-height: 300px; 
+  border-radius: 5px; 
+  margin-top: 10px;
 }
 
-.project-edit-box .preview img {
-  max-width: 100%; /* Ensure the image does not exceed the container width */
-  max-height: 300px; /* Limit the height of the image */
-  border-radius: 5px; /* Add border-radius for aesthetics */
+.project-edit-box img {
+  max-width: 100%; 
+  max-height: 300px; 
+  border-radius: 5px; 
+  margin-top: 10px;
 }
 
-.project-edit-box .preview img {
-  margin-top: 10px; /* Add some space above the image */
+.body {
+  font-family: 'Poppins';
 }
 
+.detail {
+  font-family: 'Poppins';
+  font-size: 16px;
+  text-align: left
+}
+
+
+
+.more-options {
+  display: none;
+}
+
+.more-options.show {
+  display: block;
+}
+
+.cross2 {
+  width: 15px; 
+  height: 15px;
+  cursor: pointer;
+  position: relative;
+  right: -295px;
+  top: -10px;
+  
+}
+
+.cross {
+  width: 12px; 
+  height: 12px;
+  cursor: pointer;
+  float: right;
+  
+}

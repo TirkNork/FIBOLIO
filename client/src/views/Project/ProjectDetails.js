@@ -2,6 +2,8 @@ import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Axios from "axios";
+import Cross from "../../image/cancel.png";
+
 const mockData = [
     {
         id: 1,
@@ -24,11 +26,14 @@ const mockData = [
 function ProjectDetails() {
     const { id } = useParams();
     const data = mockData.find(item => item.id === parseInt(id));
-
     const [project, setProject] = useState([]);
+    const navigate = useNavigate();
 
+    const handleBackClick = () => {
+        navigate("/Project");
+    };
 
-
+    
 
     //   useEffect(() => {
     //     getProject();
@@ -41,20 +46,26 @@ function ProjectDetails() {
     //   };
 
     return (
-        <div>
+        <div className="backdetail">
+            <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'></link>
             <div className="header">
                 <h1>Project Details</h1>
             </div>
-            {data && (
-                <div>
-                    <p>Year: {data.year}</p>
-                    <p>Project: {data.project}</p>
-                    <p>Course: {data.course}</p>
-                    <p>Description: {data.des}</p>
-                    <img src={data.image} />
-                </div>
-            )}
-            {/* {project.map((val, key) => (
+            <div className="project-edit-box-detail">
+            {/* <button onClick={handleBackClick}>Back</button> */}
+            <img src={Cross} className="cross" onClick={handleBackClick}/>
+                {data && (
+                    <div>
+                        <p className="detail"><b>Year : </b>{data.year}</p>
+                        <p className="detail"><b>Project : </b>{data.project}</p>
+                        <p className="detail"><b>Course : </b>{data.course}</p>
+                        <p className="detail"><b>Description : </b>{data.des}</p>
+                        <div className="preview">
+                            <img src={data.image} />
+                        </div>
+                    </div>
+                )}
+                {/* {project.map((val, key) => (
         <div key={key}>
           <p>Year:{val.project_year} </p>
           <p>Project: {val.project_name}</p>
@@ -63,6 +74,7 @@ function ProjectDetails() {
           <img src={val.img_path} />
         </div>
       ))} */}
+            </div>
         </div>
     );
 }
