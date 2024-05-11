@@ -1,7 +1,7 @@
 import './app.css';
 
-import Grid from './grid';
-import CircleAndBox from './CircleAndBox';
+import Grid from '../../components/Competency_Page/grid';
+import CircleAndBox from '../../components/Competency_Page/CircleAndBox';
 
 function App() {
   return (
