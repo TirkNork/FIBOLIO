@@ -4,13 +4,13 @@
 
 .header {
   display: flex;
-  align-items: center; 
+  align-items: center;
   background-color: #E3E3E3;
   padding: 1%;
 }
 
 h1 {
-  margin-right: 20px; 
+  margin-right: 20px;
   font-size: 48px;
   font-family: 'Poppins';
 }
@@ -39,24 +39,24 @@ h1 {
 
 .button-gray {
   height: 55px;
-  width: 200px; 
+  width: 200px;
   font-size: 16px;
-  border: none; 
+  border: none;
   border-radius: 5px;
-  
+
 }
 
-.button-gray:hover{
-  background-color: #dadada; 
+.button-gray:hover {
+  background-color: #dadada;
   color: #000000;
-  box-shadow: inset 0 4px 10px 0 rgba(0,0,0,0.5);
+  box-shadow: inset 0 4px 10px 0 rgba(0, 0, 0, 0.5);
 }
 
 .button-orange {
   height: 55px;
-  width: 200px; 
+  width: 200px;
   font-size: 16px;
-  border: none; 
+  border: none;
   border-radius: 5px;
   background-color: #DD5900;
   color: #ffffff;
@@ -66,7 +66,7 @@ h1 {
 }
 
 .button-orange:hover {
-  background-color: #cf5403; 
+  background-color: #cf5403;
   color: #ffffff;
   /* box-shadow: inset 0 4px 10px 0 rgba(0,0,0,0.5);  */
 }
@@ -85,7 +85,7 @@ h1 {
 
 .form-container {
   display: flex;
-flex-direction: column;
+  flex-direction: column;
 }
 
 .container {
@@ -117,20 +117,20 @@ flex-direction: column;
 }
 
 .button-right {
-padding: auto;
-font-family: 'Poppins';
+  padding: auto;
+  font-family: 'Poppins';
 }
 
 
 .project-edit-box {
-border: 2px solid #ccc;
-border-radius: 5px;
-padding: 20px;
-margin: 20px auto;
-max-width: 600px;
-background-color: #ffffff;
-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
-font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 600px;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
 
 }
 
@@ -141,116 +141,121 @@ font-size: 16px;
   margin: 20px auto;
   max-width: 800px;
   background-color: #ffffff;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   font-size: 16px;
-  
-  }
+
+}
 
 
 .project-edit-box form {
-display: flex;
-flex-direction: column;
-font-family: 'Poppins';
+  display: flex;
+  flex-direction: column;
+  font-family: 'Poppins';
 }
 
 .project-edit-box label {
-font-weight: bold;
-margin-bottom: 5px;
-margin-right: auto;
+  font-weight: bold;
+  margin-bottom: 5px;
+  margin-right: auto;
 }
 
 .project-edit-box input[type="text"],
 .project-edit-box textarea {
-padding: 10px;
-margin-bottom: 10px;
-border: 1px solid #ccc;
-border-radius: 5px;
-resize: vertical;
-font-family: 'Poppins';
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: vertical;
+  font-family: 'Poppins';
 
 }
 
-.project-edit-box textarea{
-  max-height:150px; 
-  min-height:35px; 
+.project-edit-box textarea {
+  max-height: 150px;
+  min-height: 35px;
 }
 
 .project-edit-box button {
-padding: 10px 20px;
-background-color: #DD5900;
-color: #fff;
-border: none;
-border-radius: 5px;
-cursor: pointer;
-font-family: 'Poppins';
+  padding: 10px 20px;
+  height: 55px;
+  width: 200px;
+  margin: auto;
+  background-color: #DD5900;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Poppins';
 }
 
 .project-edit-box button:hover {
-background-color: #c14e02;
+  background-color: #c14e02;
 }
 
 .headInserth3 {
-margin-right: auto;
-font-size: 16px;
+  margin-right: auto;
+  font-size: 16px;
 }
 
 .more-options {
-position: relative;
-display: flex;
-justify-content: flex-end;
-align-items: center;
-order: 2; 
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  order: 2;
 
 }
 
 
 .project-container {
-position: relative; 
+  position: relative;
 }
 
 .project-details {
-flex-grow: 1; 
+  flex-grow: 1;
 }
 
 .dot-icon-container {
-position: absolute; 
-top: 5px; 
-right: 10px; 
-z-index: 1; 
-cursor: pointer;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  z-index: 1;
+  cursor: pointer;
 }
 
 
 
 .dot-icon {
-width: 30px; 
-height: 30px;
+  width: 30px;
+  height: 30px;
 }
 
 /* Dropdown menu */
 .more-options .dropdown {
-position: absolute;
-top: -5px;
-right: 0;
-background-color: #fff;
-border: 1px solid #ccc;
-border-radius: 5px;
-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-display: none; /* สำหรับซ่อน Dropdown เริ่มต้น */
+  position: absolute;
+  top: -5px;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: none;
+
 }
 
 .dot-icon-container .dropdown {
-display: block; /* เมื่อ Hover ที่ .dot-icon-container ให้แสดง Dropdown */
+  display: block;
 }
 
 .dropdown button {
-display: block;
-width: 100%;
-padding: 10px;
-text-align: left;
-border: none;
-background: none;
-cursor: pointer;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  text-align: left;
+  border: none;
+  background: none;
+  cursor: pointer;
 }
 
 .dropdown button:hover {
@@ -259,16 +264,16 @@ cursor: pointer;
 
 
 .project-edit-box-detail .preview img {
-  max-width: 100%; 
-  max-height: 300px; 
-  border-radius: 5px; 
+  max-width: 100%;
+  max-height: 300px;
+  border-radius: 5px;
   margin-top: 10px;
 }
 
 .project-edit-box img {
-  max-width: 100%; 
-  max-height: 300px; 
-  border-radius: 5px; 
+  max-width: 100%;
+  max-height: 300px;
+  border-radius: 5px;
   margin-top: 10px;
 }
 
@@ -293,19 +298,52 @@ cursor: pointer;
 }
 
 .cross2 {
-  width: 15px; 
+  width: 15px;
   height: 15px;
   cursor: pointer;
   position: relative;
   right: -295px;
   top: -10px;
-  
+
 }
 
 .cross {
-  width: 12px; 
+  width: 12px;
   height: 12px;
   cursor: pointer;
   float: right;
-  
+
+}
+
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  font-size: 16px;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  padding: 30px;
+  z-index: 9999;
+}
+
+
+.popup button {
+  margin: 10px;
+  height: 55px;
+  width: 200px;
+  font-size: 16px;
+  background-color: #DD5900;
+  color: #ffffff;
+  border-radius: 5px;
+  border: none;
+  font-family: 'Poppins';
+  cursor: pointer;
+}
+
+.popup button:hover{
+  background-color: #cf5403;
+
 }

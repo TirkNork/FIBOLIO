@@ -29,6 +29,8 @@ function Project() {
     const navigate = useNavigate();
     const [projectList, setProjectList] = useState([]);
     const [showDropdown, setShowDropdown] = useState([]);
+    const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
+    const [projectIdToDelete, setProjectIdToDelete] = useState(null);
 
     const goToProjectDetail = (id) => {
         navigate(`/Project/${id}`);
@@ -52,13 +54,28 @@ function Project() {
                 setShowDropdown(Array(mockData.length).fill(false));
             }
         };
-        
+
         document.addEventListener('click', handleClickOutside);
 
         return () => {
             document.removeEventListener('click', handleClickOutside);
         };
     }, []);
+
+    const handleDeleteClick = (id) => {
+        setProjectIdToDelete(id);
+        setShowDeleteConfirmation(true);
+    };
+
+    const handleCancelDelete = () => {
+        setShowDeleteConfirmation(false);
+    };
+
+    const handleConfirmDelete = (id) => {
+
+
+        setShowDeleteConfirmation(false);
+    };
 
     // useEffect(() => {
     //   getProjectList();
@@ -98,7 +115,7 @@ function Project() {
                                     <div className={`more-options ${showDropdown[key] ? 'show' : ''}`}>
                                         <div className="dropdown">
                                             <button onClick={() => goToProjectEdit(val.id)}>Edit</button>
-                                            <button>Delete</button>
+                                            <button onClick={() => handleDeleteClick(val.id)}>Delete</button>
                                         </div>
                                     </div>
                                 </div>
@@ -120,6 +137,16 @@ function Project() {
                     <button className="button-orange" onClick={handleInsertClick}>Insert</button>
                 </div>
             </div>
+
+            {showDeleteConfirmation && (
+                <div className="popup">
+                    <p>Are you sure you want to delete this project?</p>
+                    <div>
+                        <button onClick={() => handleConfirmDelete(projectIdToDelete)}>Confirm</button>
+                        <button onClick={handleCancelDelete}>Cancel</button>
+                    </div>
+                </div>
+            )}
 
         </div>
     );
