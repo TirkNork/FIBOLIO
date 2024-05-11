@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './index.css';
-import Competency_Page from '../../views/Competency_Page/Competency.js';
+import Competency_Page from './views/Competency_Page/Competency.js';
 
 
 function App() {
