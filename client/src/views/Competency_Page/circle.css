@@ -1,0 +1,14 @@
+.circle {
+    left: -80px;
+    top: -50px;
+    width: 150px;
+    height: 150px;
+    line-height: 150px;
+    border-radius: 50% ;
+    border: 10px solid #E47A33;
+    font-size: 50px;
+    color: #000000;
+    text-align: center;
+    background: #ffffff;
+    position: absolute;
+  }

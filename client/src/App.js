@@ -1,7 +1,7 @@
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './index.css';
-import Test1 from './views/Test1/Test1.js';
-import HomeTest from './views/HomeTest/HomeTest.js';
+import Competency_Page from './views/Competency_Page/Competency.js';
 
 
 function App() {
@@ -10,11 +10,8 @@ function App() {
       <div className="App">
         {/* Route for all pages */}
         <Routes>
-          <Route path="/" element={<div className="body"><HomeTest/></div>}></Route>
-          <Route path="/Test1" element={<div className="body"><Test1/></div>}></Route>
-          
-        </Routes>
-       
+          <Route path="/Competency" element={<div className="body"><Competency_Page/></div>}></Route>
+        </Routes>     
       </div>      
     </BrowserRouter>
   );
