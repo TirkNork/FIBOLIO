@@ -1,10 +1,45 @@
-
 .app-section {
-    padding: 0px;
-  }
-  
-  .app-container {
-    max-width: 1600px;
-    margin-left: auto;
-    margin-right: auto;
-  }
+  padding: 0px;
+}
+
+.app-container {
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.subject-page {
+  background-color: #F1F1F1;
+}
+
+.top-bar {
+  height: 105px;
+  background-color: #212529;
+  margin: none;
+  border: none;
+  color: #F1F1F1;
+}
+
+.app-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  column-gap: 100px;
+  row-gap: 100px;
+  margin-left: 80px;
+  margin-right: 80px;
+  padding-bottom: 80px;
+}
+
+.header-text {
+  text-align: left;
+  padding-left: 80px;
+  padding-top: 20px;
+  font-size: 48px;
+  font-family: Montserrat;
+  color: #E47A33;
+}
+
+.mid-bar {
+  background-color: #F1F1F1;
+  height: 100px;
+}
