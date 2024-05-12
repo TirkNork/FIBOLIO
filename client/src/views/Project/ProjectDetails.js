@@ -33,17 +33,15 @@ function ProjectDetails() {
         navigate("/Project");
     };
 
-    
+      useEffect(() => {
+        getProject();
+      }, []);
 
-    //   useEffect(() => {
-    //     getProject();
-    //   }, []);
-
-    //   const getProject = () => {
-    //     Axios.get(`http://localhost:3001/projects/${id}`).then((response) => {
-    //       setProject(response.data);
-    //     });
-    //   };
+      const getProject = () => {
+        Axios.get(`http://localhost:3001/projects/${id}`).then((response) => {
+          setProject(response.data);
+        });
+      };
 
     return (
         <div className="backdetail">
@@ -53,8 +51,8 @@ function ProjectDetails() {
             </div>
             <div className="project-edit-box-detail">
             {/* <button onClick={handleBackClick}>Back</button> */}
-            <img src={Cross} className="cross" onClick={handleBackClick}/>
-                {data && (
+                <img src={Cross} className="cross" onClick={handleBackClick}/>
+                {/* {data && (
                     <div>
                         <p className="detail"><b>Year : </b>{data.year}</p>
                         <p className="detail"><b>Project : </b>{data.project}</p>
@@ -64,16 +62,18 @@ function ProjectDetails() {
                             <img src={data.image} />
                         </div>
                     </div>
-                )}
-                {/* {project.map((val, key) => (
-        <div key={key}>
-          <p>Year:{val.project_year} </p>
-          <p>Project: {val.project_name}</p>
-          <p>Course: {val.course_id}</p>
-          <p>Description: {val.description}</p>
-          <img src={val.img_path} />
-        </div>
-      ))} */}
+                )} */}
+                {project.map((val, key) => (
+                <div key={key}>
+                    <p className="detail"><b>Project : </b>{val.project_name}</p>
+                    <p className="detail"><b>Year : </b>{val.project_year}</p>
+                    <p className="detail"><b>Course : </b>{val.course_id}</p>
+                    <p className="detail"><b>Description : </b>{val.description}</p>
+                    <div className="preview">
+                        <img src={val.img_path} />
+                    </div>
+                </div>
+                ))}
             </div>
         </div>
     );

@@ -5,8 +5,6 @@ import { useNavigate } from "react-router-dom";
 import WidecardProject from "../../components/WidecardProject";
 import "./Project.css";
 import Dot from "../../image/icons8-more-53.png"
-import Dropdown from 'react-bootstrap/Dropdown';
-
 
 const mockData = [
     {
@@ -72,20 +70,26 @@ function Project() {
     };
 
     const handleConfirmDelete = (id) => {
-
-
         setShowDeleteConfirmation(false);
+        Axios.delete(`http://localhost:3001/delProject/${id}`).then((response) => {
+            setProjectList(
+                projectList.filter((val) => {
+                    return val.project_id !== id;
+                })
+            );
+        });
+
     };
+    
+    useEffect(() => {
+      getProjectList();
+    }, []);
 
-    // useEffect(() => {
-    //   getProjectList();
-    // }, []);
-
-    // const getProjectList = () => {
-    //   Axios.get("http://localhost:3001/projects").then((response) => {
-    //     setProjectList(response.data);
-    //   });
-    // };
+    const getProjectList = () => {
+      Axios.get("http://localhost:3001/projects").then((response) => {
+        setProjectList(response.data);
+      });
+    };
 
     return (
         <div>
@@ -96,7 +100,7 @@ function Project() {
             <div className="other-page">
                 <div className="data-table">
                     <div className="row">
-                        {mockData.map((val, key) => (
+                        {/* {mockData.map((val, key) => (
                             <div className="project-container">
                                 <div className="project-details" onClick={() => goToProjectDetail(val.id)}>
                                     <WidecardProject
@@ -120,17 +124,32 @@ function Project() {
                                     </div>
                                 </div>
                             </div>
-                        ))}
-                        {/* {projectList.map((val, key) => (
-                            <div key={key} onClick={() => goToProjectDetail(val.project_id)}>
+                        ))} */}
+                        {projectList.map((val, key) => (
+                            <div key = {key} className="project-container">
+                            <div className="project-details" onClick={() => goToProjectDetail(val.project_id)}>
                                 <WidecardProject
-                                    year={val.project_year}
                                     project={val.project_name}
+                                    year={val.project_year}
                                     course={val.course_id}
                                     des={val.description}
                                 />
                             </div>
-                        ))} */}
+                            <div className="dot-icon-container">
+                                <img src={Dot} alt="More Options" className="dot-icon" onClick={() => {
+                                    const updatedDropdownStatus = [...showDropdown];
+                                    updatedDropdownStatus[key] = !showDropdown[key];
+                                    setShowDropdown(updatedDropdownStatus);
+                                }} />
+                                <div className={`more-options ${showDropdown[key] ? 'show' : ''}`}>
+                                    <div className="dropdown">
+                                        <button onClick={() => goToProjectEdit(val.project_id)}>Edit</button>
+                                        <button onClick={() => handleDeleteClick(val.project_id)}>Delete</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        ))}
                     </div>
                 </div>
                 <div style={{ display: "flex", justifyContent: "right", marginBottom: "20px" }}>
@@ -147,7 +166,6 @@ function Project() {
                     </div>
                 </div>
             )}
-
         </div>
     );
 }

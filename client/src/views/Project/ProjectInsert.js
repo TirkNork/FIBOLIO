@@ -6,18 +6,23 @@ import Cross from "../../image/cancel.png";
 
 function ProjectInsert() {
   const navigate = useNavigate();
+
+  const [student_id, setStudent_id] = useState("1");
   const [year, setYear] = useState("");
-  const [project, setProject] = useState("");
+  const [projectName, setProjectName] = useState("");
   const [course, setCourse] = useState("");
   const [description, setDescription] = useState("");
-  const [image, setImage] = useState(null);
+  // const [image, setImage] = useState(null);
+  const [image, setImage] = useState(
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvcG1nsUDOWhx_UppNTrHoHTRtfEVmsnLJyi6MYJXbNw&s"
+  );
 
   const handleYearChange = (event) => {
     setYear(event.target.value);
   };
 
-  const handleProjectChange = (event) => {
-    setProject(event.target.value);
+  const handleProjectNameChange = (event) => {
+    setProjectName(event.target.value);
   };
 
   const handleCourseChange = (event) => {
@@ -34,31 +39,20 @@ function ProjectInsert() {
     setImage(imageUrl);
   };
 
-
-
   const handleBackClick = () => {
     navigate("/Project");
 };
 
   const insertProject = () => {
-    const formData = new FormData();
-    formData.append("year", year);
-    formData.append("project", project);
-    formData.append("course", course);
-    formData.append("description", description);
-    formData.append("image", image);
-
-    Axios.post("http://localhost:3001/insertProjects", formData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    })
-      .then(() => {
-        navigate("/Project");
-      })
-      .catch((error) => {
-        console.error("Error inserting project:", error);
-      });
+    Axios.post("http://localhost:3001/insertProjects", {
+      student_id: student_id,
+      project_name: projectName,
+      project_year: year,
+      course_id: course,
+      description: description,
+      img_path: image,
+    });
+    navigate("/Project");
   };
 
   return (
@@ -71,21 +65,21 @@ function ProjectInsert() {
       <img src={Cross} className="cross2" onClick={handleBackClick}/>
         <div >
           <div className="container">
+            <label>Project :</label>
+            <input
+              type="text"
+              value={projectName}
+              onChange={handleProjectNameChange}
+              placeholder="Enter project name"
+            />
+            <br />
+
             <label>Year :</label>
             <input
               type="text"
               value={year}
               onChange={handleYearChange}
               placeholder="Enter year of project"
-            />
-            <br />
-
-            <label>Project :</label>
-            <input
-              type="text"
-              value={project}
-              onChange={handleProjectChange}
-              placeholder="Enter project name"
             />
             <br />
 
