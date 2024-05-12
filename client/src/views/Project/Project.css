@@ -16,7 +16,7 @@ h1 {
 }
 
 .widecard {
-  margin: 20px 0px 20px 0px;
+  margin: 20px 20px 20px 20px;
   /* transition: .3s; */
   border-radius: 10px;
   padding: .5rem;
@@ -219,7 +219,7 @@ h1 {
 .dot-icon-container {
   position: absolute;
   top: 5px;
-  right: 10px;
+  right: 30px;
   z-index: 1;
   cursor: pointer;
 }
@@ -329,8 +329,7 @@ h1 {
   z-index: 9999;
 }
 
-
-.popup button {
+.buttondelete {
   margin: 10px;
   height: 55px;
   width: 200px;
@@ -343,7 +342,36 @@ h1 {
   cursor: pointer;
 }
 
-.popup button:hover{
-  background-color: #cf5403;
 
+.buttondelete:hover{
+  background-color: #cf5403;
 }
+
+.buttoncancel {
+  margin: 10px;
+  height: 55px;
+  width: 200px;
+  font-size: 16px;
+  background-color: #eceaea;
+  color: #000000;
+  border-radius: 5px;
+  border: none;
+  font-family: 'Poppins';
+  cursor: pointer;
+}
+
+
+.buttoncancel:hover{
+  background-color: #dbdbdb;
+}
+
+.buttondetail {
+display: flex;
+justify-content: flex-end;
+}
+
+.buttondetail button {
+  margin-right: 10px;
+  margin-top: 20px;
+  }
+

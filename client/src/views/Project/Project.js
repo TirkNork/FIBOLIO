@@ -152,7 +152,7 @@ function Project() {
                         ))}
                     </div>
                 </div>
-                <div style={{ display: "flex", justifyContent: "right", marginBottom: "20px" }}>
+                <div style={{ display: "flex", justifyContent: "right", marginBottom: "20px", marginRight: "20px" }}>
                     <button className="button-orange" onClick={handleInsertClick}>Insert</button>
                 </div>
             </div>
@@ -161,8 +161,8 @@ function Project() {
                 <div className="popup">
                     <p>Are you sure you want to delete this project?</p>
                     <div>
-                        <button onClick={() => handleConfirmDelete(projectIdToDelete)}>Confirm</button>
-                        <button onClick={handleCancelDelete}>Cancel</button>
+                        <button className="buttondelete" onClick={() => handleConfirmDelete(projectIdToDelete)}>Confirm</button>
+                        <button className="buttoncancel" onClick={handleCancelDelete}>Cancel</button>
                     </div>
                 </div>
             )}
