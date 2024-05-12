@@ -26,12 +26,22 @@ import Cross from "../../image/cancel.png";
 
 function ProjectEdit() {
   const navigate = useNavigate();
-
   const { id } = useParams();
-  const [project, setProject] = useState([]);
+  const [project, setProject] = useState({
+    project_id:'',
+    project_name:'',
+    project_year:'',
+    course_id:'',
+    description:'',
+    img_path:''
+  });
+
+  useEffect(() => {
+    getProject();
+  }, []);
+
   const [image, setImage] = useState("");
 
-  console.log(project)
   // useEffect(() => {
   //   const foundProject = mockData.find((item) => item.id === parseInt(id));
   //   if (foundProject) {
@@ -40,9 +50,6 @@ function ProjectEdit() {
   //   }
   // }, [id]);
 
-  useEffect(() => {
-    getProject();
-  }, []);
 
   const handleImageChange = (event) => {
     setImage(URL.createObjectURL(event.target.files[0]));
@@ -67,7 +74,14 @@ function ProjectEdit() {
   
   const getProject = () => {
     Axios.get(`http://localhost:3001/projects/${id}`).then((response) => {
-      setProject(response.data);
+      setProject({...project,project_id:response.data[0].project_id,
+                  project_name:response.data[0].project_name,
+                  project_year:response.data[0].project_year,
+                  course_id:response.data[0].course_id,
+                  description:response.data[0].description,
+                  img_path:response.data[0].img_path})
+      console.log(response.data)
+      console.log(project)
     });
   };
 
@@ -132,7 +146,7 @@ function ProjectEdit() {
         </form>
       )} */}
       {project && (
-       <form>
+       <form onSubmit={updateProject}>
           <label>Project :</label>
           <input
             type="text"
@@ -170,8 +184,8 @@ function ProjectEdit() {
           <div className="preview">
             <img src={project.img_path || ""}/>
           </div>
-          <button onClick={updateProject}>Save</button>
-        </form>
+          <button type="submit" >Save</button>
+        </form> 
       )}
       </div>
     </div>
