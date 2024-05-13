@@ -1,17 +1,19 @@
 * {
     box-sizing: border-box;
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:"Poppins";
+    
 }
 
 .header{
     position: relative;
     height: 160px;
+    width: 100%;
     background: #E3E3E3;
     margin-top: 105px;
 }
 
-ul{
+.breadcrumb{
     position: relative;
     list-style-type: none;
     text-align: left;
@@ -20,51 +22,65 @@ ul{
     
 }
 
-li{
+.breadcrumb-list{
     box-sizing: inherit;
     display:inline-block;
     color:#000000;
     
 }
 
-li::before {
+.current-page::before {
     padding-right: .5rem;
     padding-left: .5rem;
     color: #818a91;
     content: "/";
+    
 } 
 
-a{
-    color: inherit;
+.home{
+    color: inherit; /* inherit color from li*/ 
     text-decoration: none;
 }
 
-a:hover{
+.home:hover{
     color: #DD5900;
+    text-decoration: underline;
 }
 
 .subject{
     position: absolute;
     font-size: 60px;
     text-align: left;
-    padding: 30px 0 0 105px;
+    /* padding: 30px 0 0 105px; */
+    padding: 1% 0 0 6%;
 }
 
-.search{
-    position: absolute;
-    display: flex;
-    width: 385px;
-    height: 45px;
-    border: 2px solid #DD5900;
-    border-radius: 5px;
-    margin: 40px 0 0 1200px;
-}
-
-table, th, td{
+.student-table, .tr, .td{
     border: 2px solid #DD5900;
     width: 65%;
     border-collapse: collapse;
     padding: 0.75rem;
     margin-top: 50px;
     margin-left: 105px;
+    table-layout:fixed;
+}
+
+.edit-score{
+    position: absolute;
+    display: block;
+    left: 65%;
+    font-size: 20px;
+    color: #fff;
+    background-color: #DD5900;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 30px;
+    margin-top: 20px;
+}
+
+.pie-chart{
+    position: absolute;
+    display: block;
+    left: 70%;
+    size: 10%;
 }
