@@ -7,7 +7,7 @@ function SubjectCard(props) {
     return (
 
         <div className="block">
-            <Link to="/" className="link">
+            <Link to="/Competency" className="link">
                 <h2>{card.subject}</h2>
                 <p>{card.description}</p>
                 <p>{card.grade}</p>
