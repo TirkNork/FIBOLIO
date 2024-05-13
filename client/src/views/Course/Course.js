@@ -73,11 +73,9 @@ function Course() {
                         </div>
                     </div>
                 </div>
-                <div style={{ display: "flex", justifyContent: "right", marginBottom: "20px", marginRight: "20px" }}>
-                    <button className="button-orange" onClick={handleInsertClick}>Insert</button>
                 </div>
             </div>
-        </div>
+        
     );
 }
 

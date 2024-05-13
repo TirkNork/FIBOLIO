@@ -68,7 +68,7 @@ h1 {
 .dropdown-menu {
     position: absolute;
     top: 50px; /* Adjust the top position as needed */
-    left: 50%;
+    right: 15%;
     transform: translateX(-50%);
     padding: 10px;
     border-radius: 10px;
