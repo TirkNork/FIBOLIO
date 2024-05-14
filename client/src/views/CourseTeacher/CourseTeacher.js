@@ -2,6 +2,7 @@ import './CourseTeacher.css';
 import Search from "../../components/Search.js";
 import * as React from 'react';
 import { PieChart } from '@mui/x-charts/PieChart';
+import { useNavigate } from "react-router-dom";
 
 
 let studentData = [
@@ -105,6 +106,12 @@ function CourseTeacher() {
     const subject = 'FRA000'
     GradeCalculation();
 
+    const navigate = useNavigate();
+
+    const goToCourseEdit = () => {
+        navigate("/CourseEdit");
+    };
+
     return (
         <div>
             <div className="header">
@@ -118,7 +125,6 @@ function CourseTeacher() {
                 </ul>
                 <p className='subject'>{subject}</p>
                 <Search/>
-                {/* <input className='search' type="text" name="search" placeholder='Search by Name or ID' /> */}
             </div>
             <div className='student-list'>
                 <div className="pie-chart">
@@ -157,7 +163,7 @@ function CourseTeacher() {
                         </tr>
                     ))}
                 </table>
-                <button className='edit-score'>
+                <button className='edit-score' onClick={goToCourseEdit}>
                     Edit
                 </button>
             </div>

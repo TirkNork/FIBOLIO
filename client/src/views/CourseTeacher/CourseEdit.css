@@ -1,0 +1,11 @@
+.input-new-score {
+    border: none;
+    width: 100%;
+    outline: none;
+}
+
+/* remove arrow spinner */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}

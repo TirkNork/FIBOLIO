@@ -51,7 +51,6 @@
     position: absolute;
     font-size: 60px;
     text-align: left;
-    /* padding: 30px 0 0 105px; */
     padding: 1% 0 0 6%;
 }
 
@@ -76,6 +75,7 @@
     border-radius: 5px;
     padding: 10px 30px;
     margin-top: 20px;
+    cursor: pointer;
 }
 
 .pie-chart{
