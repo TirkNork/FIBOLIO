@@ -65,6 +65,7 @@ function ProjectInsert() {
       <img src={Cross} className="cross2" onClick={handleBackClick}/>
         <div >
           <div className="container">
+          <br />
             <label>Project :</label>
             <input
               type="text"

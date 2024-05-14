@@ -145,6 +145,7 @@ function ProjectEdit() {
           <button type="submit">Save</button>
         </form>
       )} */}
+      <br />
       {project && (
        <form onSubmit={updateProject}>
           <label>Project :</label>

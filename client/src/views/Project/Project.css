@@ -320,7 +320,7 @@ h1 {
   height: 15px;
   cursor: pointer;
   position: relative;
-  right: -295px;
+  float: right;
   top: -10px;
 
 }
