@@ -9,3 +9,24 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
+
+.save, .cancel{
+    position: absolute;
+    display: block;
+    left: 65%;
+    font-size: 20px;
+    color: #fff;
+    background-color: #DD5900;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 30px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.cancel{
+    left: 55%;
+    color: #DD5900;
+    background-color: #fff;
+    border: #DD5900 solid 2px;
+}
