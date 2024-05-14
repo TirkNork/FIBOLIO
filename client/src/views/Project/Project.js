@@ -5,6 +5,10 @@ import { useNavigate } from "react-router-dom";
 import WidecardProject from "../../components/WidecardProject";
 import "./Project.css";
 import Dot from "../../image/icons8-more-53.png"
+import { debounce } from "lodash";
+import Search from "../../components/Search";
+
+
 
 const mockData = [
     {
@@ -29,6 +33,9 @@ function Project() {
     const [showDropdown, setShowDropdown] = useState([]);
     const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
     const [projectIdToDelete, setProjectIdToDelete] = useState(null);
+    const [searchTerm, setSearchTerm] = useState("");
+    const [sortBy, setSortBy] = useState(""); 
+    const [sortOrder, setSortOrder] = useState(""); 
 
     const goToProjectDetail = (id) => {
         navigate(`/Project/${id}`);
@@ -80,25 +87,68 @@ function Project() {
         });
 
     };
-    
+
     useEffect(() => {
-      getProjectList();
+        getProjectList();
     }, []);
 
     const getProjectList = () => {
-      Axios.get("http://localhost:3001/projects").then((response) => {
-        setProjectList(response.data);
-      });
+        Axios.get("http://localhost:3001/projects").then((response) => {
+            setProjectList(response.data);
+        });
+    };
+
+    const delayedSearch = debounce((value) => {
+        setSearchTerm(value);
+    }, 30);
+
+    const handleSearch = (event) => {
+        delayedSearch(event.target.value);
+    };
+
+    const handleSort = (criteria, order) => {
+        setSortBy(criteria);
+        setSortOrder(order);
+    };
+
+    const sortProjectList = () => {
+        let sortedList = [...projectList];
+        switch (sortBy) {
+            case "projectNameAZ":
+                sortedList.sort((a, b) => a.project_name.localeCompare(b.project_name));
+                break;
+            case "projectNameZA":
+                sortedList.sort((a, b) => b.project_name.localeCompare(a.project_name));
+                break;
+            case "yearDescending":
+                sortedList.sort((a, b) => b.project_year - a.project_year);
+                break;
+            case "yearAscending":
+                sortedList.sort((a, b) => a.project_year - b.project_year);
+                break;
+            default:
+                break;
+        }
+        return sortOrder === "desc" ? sortedList.reverse() : sortedList;
     };
 
     return (
         <div>
             <div className="header">
                 <h1>Project</h1>
+                <Search searchTerm={searchTerm} handleSearch={handleSearch} />
                 <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'></link>
             </div>
             <div className="other-page">
-                <div className="data-table">
+                <div>
+                    <select className="sortby" onClick={(event) => handleSort(event.target.value.split("_")[0], event.target.value.split("_")[1])}>
+                    <option value="">Sort By</option>
+                    <option value="projectNameAZ">Project Name A-Z</option>
+                    <option value="projectNameZA">Project Name Z-A</option>
+                    <option value="yearDescending">Year Descending</option>
+                    <option value="yearAscending">Year Ascending</option>
+                </select>
+
                     <div className="row">
                         {/* {mockData.map((val, key) => (
                             <div className="project-container">
@@ -125,34 +175,40 @@ function Project() {
                                 </div>
                             </div>
                         ))} */}
-                        {projectList.map((val, key) => (
-                            <div key = {key} className="project-container">
-                            <div className="project-details" onClick={() => goToProjectDetail(val.project_id)}>
-                                <WidecardProject
-                                    project={val.project_name}
-                                    year={val.project_year}
-                                    course={val.course_id}
-                                    des={val.description}
-                                />
-                            </div>
-                            <div className="dot-icon-container">
-                                <img src={Dot} alt="More Options" className="dot-icon" onClick={() => {
-                                    const updatedDropdownStatus = [...showDropdown];
-                                    updatedDropdownStatus[key] = !showDropdown[key];
-                                    setShowDropdown(updatedDropdownStatus);
-                                }} />
-                                <div className={`more-options ${showDropdown[key] ? 'show' : ''}`}>
-                                    <div className="dropdown">
-                                        <button onClick={() => goToProjectEdit(val.project_id)}>Edit</button>
-                                        <button onClick={() => handleDeleteClick(val.project_id)}>Delete</button>
+                        {sortProjectList()
+                            .filter((project) =>
+                                project.project_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                                project.project_year.toString().includes(searchTerm) || 
+                                project.course_id.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                                project.description.toLowerCase().includes(searchTerm.toLowerCase()) 
+                            ).map((val, key) => (
+                                <div key={key} className="project-container">
+                                    <div className="project-details" onClick={() => goToProjectDetail(val.project_id)}>
+                                        <WidecardProject
+                                            project={val.project_name}
+                                            year={val.project_year}
+                                            course={val.course_id}
+                                            des={val.description}
+                                        />
+                                    </div>
+                                    <div className="dot-icon-container">
+                                        <img src={Dot} alt="More Options" className="dot-icon" onClick={() => {
+                                            const updatedDropdownStatus = [...showDropdown];
+                                            updatedDropdownStatus[key] = !showDropdown[key];
+                                            setShowDropdown(updatedDropdownStatus);
+                                        }} />
+                                        <div className={`more-options ${showDropdown[key] ? 'show' : ''}`}>
+                                            <div className="dropdown">
+                                                <button onClick={() => goToProjectEdit(val.project_id)}>Edit</button>
+                                                <button onClick={() => handleDeleteClick(val.project_id)}>Delete</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        ))}
+                            ))}
                     </div>
                 </div>
-                <div style={{ display: "flex", justifyContent: "right", marginBottom: "20px", marginRight: "20px" }}>
+                <div style={{ display: "flex", justifyContent: "right", marginBottom: "20px", marginRight: "20px", marginTop: "20px" }}>
                     <button className="button-orange" onClick={handleInsertClick}>Insert</button>
                 </div>
             </div>
