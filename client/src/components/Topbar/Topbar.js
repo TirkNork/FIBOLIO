@@ -47,11 +47,13 @@ function Topbar() {
       </div>
       <nav>
         <div className="dropdown-container" ref={dropdownRef}>
-          <div className="circleuser-icon">
-            <FontAwesomeIcon icon={faCircleUser} />
-          </div>
-          <div className="caretdown-icon" onClick={toggleDropdown}>
-            <FontAwesomeIcon icon={faCaretDown} />
+          <div className="topbar-icon">
+            <div className="circleuser-icon">
+              <FontAwesomeIcon icon={faCircleUser} />
+            </div>
+            <div className="caretdown-icon" onClick={toggleDropdown}>
+              <FontAwesomeIcon icon={faCaretDown} />
+            </div>
           </div>
           {dropdownOpen && (
             <div className="dropdown-content">
