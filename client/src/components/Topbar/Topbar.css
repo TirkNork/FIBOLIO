@@ -15,15 +15,17 @@
     margin-left: 940px;
     font-size: 2em;
     cursor: pointer;
-    color: #ffffff;
   }
 
   .caretdown-icon {
     cursor: pointer;
-    color: #ffffff;
     position: absolute;
     top: 12px;
     left: 985px;
+  }
+
+  .topbar-icon {
+    color: #ffffff;
   }
 
   .dropdown-container {
