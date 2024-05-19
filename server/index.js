@@ -89,7 +89,7 @@ app.post("/insertProjects", upload.single("file"), (req, res) => {
   }
 
   const timestamp = Date.now(); // Use timestamp as a unique identifier
-  const uniqueFilename = `${timestamp}_${file.originalname}`; // Append the timestamp to the original filename
+  const uniqueFilename = `${project_name}_${timestamp}`; // Append the timestamp to the original filename
 
   const folderPath = `project/${student_id}/`;
   const filePath = folderPath + uniqueFilename;
@@ -154,6 +154,24 @@ app.delete("/delProject/:id", (req, res) => {
     }
   });
 });
+
+app.delete('/delProjectImage/:studentId/:imageName', (req, res) => {
+  const studentId = req.params.studentId
+  const imageName = req.params.imageName;
+  const filePath = `project/${studentId}/${imageName}`
+  const file = bucket.file(filePath);
+
+  file.delete((err) => {
+    if (err) {
+      console.error(`Error deleting file ${filePath}:`, err);
+      res.status(500).send('Failed to delete file');
+    } else {
+      console.log(`File ${filePath} deleted successfully`);
+      res.status(200).send('File deleted successfully');
+    }
+  });
+});
+
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

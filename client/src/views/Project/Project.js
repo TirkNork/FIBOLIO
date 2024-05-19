@@ -33,6 +33,9 @@ function Project() {
     const [showDropdown, setShowDropdown] = useState([]);
     const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
     const [projectIdToDelete, setProjectIdToDelete] = useState(null);
+    const [studentToDelete, setStudentToDelete] = useState(null);
+    const [imageToDelete, setImageToDelete] = useState(null);
+
     const [searchTerm, setSearchTerm] = useState("");
     const [sortBy, setSortBy] = useState(""); 
     const [sortOrder, setSortOrder] = useState(""); 
@@ -67,8 +70,10 @@ function Project() {
         };
     }, []);
 
-    const handleDeleteClick = (id) => {
+    const handleDeleteClick = (id,studentId, imagePath) => {
         setProjectIdToDelete(id);
+        setStudentToDelete(studentId)
+        setImageToDelete(imagePath);
         setShowDeleteConfirmation(true);
     };
 
@@ -76,16 +81,19 @@ function Project() {
         setShowDeleteConfirmation(false);
     };
 
-    const handleConfirmDelete = (id) => {
+    const handleConfirmDelete = (id, studentId, imagePath) => {
+        const parts = imagePath.split('/');
+        const imageName = parts.pop();
         setShowDeleteConfirmation(false);
-        Axios.delete(`http://localhost:3001/delProject/${id}`).then((response) => {
-            setProjectList(
-                projectList.filter((val) => {
-                    return val.project_id !== id;
-                })
-            );
+        Axios.delete(`http://localhost:3001/delProjectImage/${studentId}/${imageName}`).then((response) => {
+            Axios.delete(`http://localhost:3001/delProject/${id}`).then((response) => {
+                setProjectList(
+                    projectList.filter((val) => {
+                        return val.project_id !== id;
+                    })
+                );
+            });
         });
-
     };
 
     useEffect(() => {
@@ -200,7 +208,7 @@ function Project() {
                                         <div className={`more-options ${showDropdown[key] ? 'show' : ''}`}>
                                             <div className="dropdown">
                                                 <button onClick={() => goToProjectEdit(val.project_id)}>Edit</button>
-                                                <button onClick={() => handleDeleteClick(val.project_id)}>Delete</button>
+                                                <button onClick={() => handleDeleteClick(val.project_id, val.student_id, val.img_path)}>Delete</button>
                                             </div>
                                         </div>
                                     </div>
@@ -217,7 +225,7 @@ function Project() {
                 <div className="popup">
                     <p>Are you sure you want to delete this project?</p>
                     <div>
-                        <button className="buttondelete" onClick={() => handleConfirmDelete(projectIdToDelete)}>Confirm</button>
+                        <button className="buttondelete" onClick={() => handleConfirmDelete(projectIdToDelete, studentToDelete, imageToDelete)}>Confirm</button>
                         <button className="buttoncancel" onClick={handleCancelDelete}>Cancel</button>
                     </div>
                 </div>

@@ -9,9 +9,12 @@ function ProjectDetails() {
     const [project, setProject] = useState([]);
     const navigate = useNavigate();
     const [projectList, setProjectList] = useState([]);
-    const [imageSrc, setImageSrc] = useState('');
+    // const [imageSrc, setImageSrc] = useState('');
     const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
     const [projectIdToDelete, setProjectIdToDelete] = useState(null);
+    const [studentToDelete, setStudentToDelete] = useState(null);
+    const [imageToDelete, setImageToDelete] = useState(null);
+
 
     const handleBackClick = () => {
         navigate("/Project");
@@ -21,8 +24,10 @@ function ProjectDetails() {
         navigate(`/Project/Edit/${id}`);
     };
 
-    const handleDeleteClick = (id) => {
+    const handleDeleteClick = (id,studentId, imagePath) => {
         setProjectIdToDelete(id);
+        setStudentToDelete(studentId)
+        setImageToDelete(imagePath);
         setShowDeleteConfirmation(true);
     };
 
@@ -30,16 +35,20 @@ function ProjectDetails() {
         setShowDeleteConfirmation(false);
     };
 
-    const handleConfirmDelete = (id) => {
+    const handleConfirmDelete = (id, studentId, imagePath) => {
+        const parts = imagePath.split('/');
+        const imageName = parts.pop();
         setShowDeleteConfirmation(false);
-        Axios.delete(`http://localhost:3001/delProject/${id}`).then((response) => {
-            setProjectList(
-                projectList.filter((val) => {
-                    return val.project_id !== id;
-                })
-            );
+        Axios.delete(`http://localhost:3001/delProjectImage/${studentId}/${imageName}`).then((response) => {
+            Axios.delete(`http://localhost:3001/delProject/${id}`).then((response) => {
+                navigate("/Project");
+                setProjectList(
+                    projectList.filter((val) => {
+                        return val.project_id !== id;
+                    })
+                );
+            });
         });
-        navigate("/Project");
     };
 
     useEffect(() => {
@@ -103,7 +112,7 @@ function ProjectDetails() {
                         </div>
                         <div className="buttondetail">
                         <button className="button-orange" onClick={() => goToProjectEdit(val.project_id)}>Edit</button>
-                        <button className="button-orange" onClick={() => handleDeleteClick(val.project_id)}>Delete</button>
+                        <button className="button-orange" onClick={() => handleDeleteClick(val.project_id, val.student_id, val.img_path)}>Delete</button>
                         </div>
                     </div>
                 ))}
@@ -113,7 +122,7 @@ function ProjectDetails() {
                 <div className="popup">
                     <p>Are you sure you want to delete this project?</p>
                     <div>
-                        <button className="buttondelete" onClick={() => handleConfirmDelete(projectIdToDelete)}>Confirm</button>
+                        <button className="buttondelete" onClick={() => handleConfirmDelete(projectIdToDelete, studentToDelete, imageToDelete)}>Confirm</button>
                         <button className="buttoncancel" onClick={handleCancelDelete}>Cancel</button>
                     </div>
                 </div>
