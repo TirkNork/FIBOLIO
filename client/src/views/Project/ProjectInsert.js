@@ -12,10 +12,8 @@ function ProjectInsert() {
   const [projectName, setProjectName] = useState("");
   const [course, setCourse] = useState("");
   const [description, setDescription] = useState("");
-  // const [image, setImage] = useState(null);
-  const [image, setImage] = useState(
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvcG1nsUDOWhx_UppNTrHoHTRtfEVmsnLJyi6MYJXbNw&s"
-  );
+  const [image, setImage] = useState(null);
+  const [preview, setPreview] = useState(null); 
 
   const handleYearChange = (event) => {
     setYear(event.target.value);
@@ -35,37 +33,48 @@ function ProjectInsert() {
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
-    const imageUrl = URL.createObjectURL(file);
-    setImage(imageUrl);
+    setImage(file);
+    setPreview(URL.createObjectURL(file)); 
   };
 
   const handleBackClick = () => {
     navigate("/Project");
-};
+  };
 
-  const insertProject = () => {
-    Axios.post("http://localhost:3001/insertProjects", {
-      student_id: student_id,
-      project_name: projectName,
-      project_year: year,
-      course_id: course,
-      description: description,
-      img_path: image,
-    });
-    navigate("/Project");
+  const insertProject = async (event) => {
+    event.preventDefault();
+    const formData = new FormData();
+    formData.append("student_id", student_id);
+    formData.append("project_name", projectName);
+    formData.append("project_year", year);
+    formData.append("course_id", course);
+    formData.append("description", description);
+    formData.append("file", image);
+
+    try {
+      const response = await Axios.post("http://localhost:3001/insertProjects", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      console.log(response.data);
+      navigate("/Project");
+    } catch (error) {
+      console.error("Error uploading project:", error);
+    }
   };
 
   return (
     <div>
       <div className="header">
-      <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'></link>
+        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'></link>
         <h1>Insert Project</h1>
       </div>
       <div className="project-edit-box">
-      <img src={Cross} className="cross2" onClick={handleBackClick}/>
-        <div >
+        <img src={Cross} className="cross2" onClick={handleBackClick} alt="Back" />
+        <div>
           <div className="container">
-          <br />
+            <br />
             <label>Project :</label>
             <input
               type="text"
@@ -95,15 +104,14 @@ function ProjectInsert() {
 
             <label>Description :</label>
             <textarea
-              type="text"
               value={description}
               onChange={handleDescriptionChange}
               placeholder="Enter project description"
             />
             <br />
-            
+
             <label>Image :</label>
-            <form>
+            <form onSubmit={insertProject}>
               <div className="mb-3">
                 <input
                   type="file"
@@ -111,12 +119,12 @@ function ProjectInsert() {
                   onChange={handleImageChange}
                 />
               </div>
-              {image && (
+              {preview && (
                 <div className="preview">
-                  <img src={image} alt="Project" />
+                  <img src={preview} alt="Project" />
                 </div>
               )}
-              <button onClick={insertProject}>Upload</button>
+              <button type="submit">Upload</button>
             </form>
           </div>
         </div>
