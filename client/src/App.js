@@ -7,10 +7,13 @@ import Project from "./views/Project/Project.js";
 import ProjectInsert from "./views/Project/ProjectInsert.js";
 import ProjectDetails from "./views/Project/ProjectDetails.js";
 import ProjectEdit from "./views/Project/ProjectEdit.js";
+import Topbar from "./components/Topbar/Topbar.js";
+
 
 function App() {
   return (
     <BrowserRouter>
+    <Topbar/>
       <div className="App">
         {/* Route for all pages */}
         <Routes>
@@ -20,6 +23,7 @@ function App() {
           <Route path="/ProjectInsert" element={<div className="body"><ProjectInsert/></div>}></Route>
           <Route path="/Project/:id" element={<ProjectDetails/>} />  
           <Route path="/Project/Edit/:id" element={<ProjectEdit/>} />      
+          <Route path="/Test1" element={<div className="body"><Test1/></div>}></Route>    
         </Routes>     
       </div>      
     </BrowserRouter>

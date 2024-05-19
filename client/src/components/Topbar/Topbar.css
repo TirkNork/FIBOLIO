@@ -1,0 +1,109 @@
+@font-face {
+  font-family: 'Poppins';
+  src: url('../../assets/fonts/Poppins/Poppins-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+  
+  header {
+    display: flex;
+    align-items: center; /* จัดวางข้อมูลให้อยู่กึ่งกลางในแนวดิ่ง */
+    background-color: #212529;
+    height: 56px;
+  }
+  
+  .circleuser-icon {
+    margin-left: 940px;
+    font-size: 2em;
+    cursor: pointer;
+  }
+
+  .caretdown-icon {
+    cursor: pointer;
+    position: absolute;
+    top: 12px;
+    left: 985px;
+  }
+
+  .topbar-icon {
+    color: #ffffff;
+  }
+
+  .dropdown-container {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    left: 840px;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .dropdown-container .dropdown-content {
+    display: block;
+  }
+
+  .dropdown-container:hover .caretdown-icon {
+    color: #DD5900;
+  }
+  
+  .button-container {
+    margin-right: 10px;
+  }
+  
+  .KMUTT_logo {
+    margin-left: 20px;
+    width: auto;
+    height: 45px;
+  }
+  
+  .FIBO_logo {
+    margin-left: 15px;
+    width: auto;
+    height: 45px;
+    float: left;
+  }
+
+  .btn-course {
+    background: none; /* ลบพื้นหลังปุ่ม */
+    border: none; /* ลบกรอบปุ่ม */
+    padding: 0; /* ลบ padding */
+    cursor: pointer; /* เปลี่ยนเคอร์เซอร์เป็น pointer เมื่อ hover */
+    font-family: 'Poppins', sans-serif; /* กำหนดฟอนต์ให้ปุ่ม */
+    margin-top: 5px; /* ระยะห่างด้านบน */
+    margin-left: 25px; /* ระยะห่างด้านซ้าย */
+    color: #839292;
+  }
+  
+  .btn-course a {
+    font-family: 'Poppins', sans-serif;
+    color: inherit; /* ใช้สีตามปุ่ม */
+    text-decoration: none; /* ลบขีดเส้นใต้ */
+    font-size: 16px; /* ขนาดฟอนต์ */
+    border: none; /* ลบกรอบ (ถ้ามี) */
+  }
+  
+  .btn-course:hover a {
+    color: #DD5900; /* สีของลิงก์เมื่อ hover */
+  }
+  
+  .btn-course:active a {
+    color: #DD5900; /* สีของลิงก์เมื่อ active */
+  }
