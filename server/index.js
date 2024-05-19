@@ -44,23 +44,37 @@ app.get("/testTable", (req, res) => {
 app.get("/projects", (req, res) => {
   db.query("SELECT * FROM Projects", (err, result) => {
     if (err) {
-      console.log(err);
-    } else {
-      res.send(result);
+      console.error(err);
+      return res.status(500).send("Error fetching projects from the database.");
     }
+    
+    // Check if there are no projects found
+    if (result.length === 0) {
+      return res.status(404).send("No projects found.");
+    }
+
+    res.status(200).send(result); // Return the projects
   });
 });
 
 app.get("/projects/:id", (req, res) => {
   const id = req.params.id;
+  
   db.query("SELECT * FROM Projects WHERE project_id = ?", [id], (err, result) => {
     if (err) {
-      console.log(err);
-    } else {
-      res.send(result);
+      console.error(err);
+      return res.status(500).send("Error fetching project details from the database.");
     }
+
+    // Check if the project with the given ID exists
+    if (result.length === 0) {
+      return res.status(404).send("Project not found.");
+    }
+
+    res.status(200).send(result); 
   });
 });
+
 
 // app.get('/images/:studentId/:imageName', (req, res) => {
 //   const studentId = req.params.studentId
