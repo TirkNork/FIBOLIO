@@ -4,7 +4,7 @@ import Axios from "axios";
 import { useNavigate } from "react-router-dom";
 import WidecardProject from "../../components/WidecardProject/WidecardProject.js";
 import "./Project.css";
-import Dot from "../../image/icons8-more-53.png"
+import Dot from "../../assets/images/icons8-more-53.png"
 import { debounce } from "lodash";
 import Search from "../../components/Search/Search.js";
 

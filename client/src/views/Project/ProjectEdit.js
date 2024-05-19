@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Axios from "axios";
-import Cross from "../../image/cancel.png";
+import Cross from "../../assets/images/cancel.png";
 
 // const mockData = [
 //   {

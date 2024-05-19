@@ -2,7 +2,7 @@ import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Axios from "axios";
-import Cross from "../../image/cancel.png";
+import Cross from "../../assets/images/cancel.png";
 
 function ProjectDetails() {
     const {id} = useParams();

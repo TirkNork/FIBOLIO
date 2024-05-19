@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import './Topbar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleUser, faCaretDown } from '@fortawesome/free-solid-svg-icons';
-import KMUTTlogo from '../../assest/KMUTT_Logo.png';
-import FIBOlogo from '../../assest/logo_FIBO_resized.png';
+import KMUTTlogo from '../../assets/images/KMUTT_Logo.png';
+import FIBOlogo from '../../assets/images/logo_FIBO_resized.png';
 
 function Topbar() {
   const [dropdownOpen, setDropdownOpen] = useState(false);

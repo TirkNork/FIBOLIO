@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Axios from "axios";
 import "./Project.css";
-import Cross from "../../image/cancel.png";
+import Cross from "../../assets/images/cancel.png";
 
 function ProjectInsert() {
   const navigate = useNavigate();
