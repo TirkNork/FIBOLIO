@@ -1,7 +1,6 @@
 .grid {
-    top: 1000px;
     display: grid;
-    row-gap: 200px;
+    row-gap: 150px;
     column-gap: 0px;
   }
   

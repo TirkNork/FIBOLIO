@@ -3,7 +3,7 @@ import "./circle.css"
 function Cirlce(props) {
     return (
       <div className="circle" style={{borderColor: props.color}}>
-        {props.points}
+        <p>{props.points}</p>
       </div>
     );
   }
