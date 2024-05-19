@@ -1,5 +1,6 @@
-
+.top-bar { height: 105px;     background-color: #212529;     margin: none;     border: none;     color: #F1F1F1; }
 .app-section {
+    top: 100px;
     padding: 0px;
   }
   

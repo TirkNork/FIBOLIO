@@ -5,7 +5,9 @@ import CircleAndBox from '../../components/Competency_Page/CircleAndBox';
 
 function App() {
   return (
+    
     <section className="app-section">
+      <div className='top-bar'></div>
       <div className="app-container" >
         <h2>Competency</h2>
         <Grid rows={4}>
@@ -16,6 +18,7 @@ function App() {
         </Grid>
       </div>
     </section>
+    
   );
 }
 

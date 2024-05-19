@@ -1,4 +1,5 @@
 .grid {
+    top: 1000px;
     display: grid;
     row-gap: 200px;
     column-gap: 0px;
