@@ -5,10 +5,11 @@ import Axios from "axios";
 import Cross from "../../image/cancel.png";
 
 function ProjectDetails() {
-    const { id } = useParams();
+    const {id} = useParams();
     const [project, setProject] = useState([]);
     const navigate = useNavigate();
     const [projectList, setProjectList] = useState([]);
+    const [imageSrc, setImageSrc] = useState('');
     const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
     const [projectIdToDelete, setProjectIdToDelete] = useState(null);
 
@@ -50,17 +51,34 @@ function ProjectDetails() {
             setProjectList(response.data);
         });
     };
-
+    
     useEffect(() => {
         getProject();
+        // getImg();
     }, [id]);
-
+    
     const getProject = () => {
         Axios.get(`http://localhost:3001/projects/${id}`).then((response) => {
             setProject(response.data);
         });
     };
 
+    // const getImg = () => {
+    //     const id = 1
+    //     const name = '1716119732890_programmer.jpg'
+    //     Axios.get(`http://localhost:3001/images/${id}/${name}`).then((response) => {
+    //         console.log(response)
+    //         const blob = new Blob([response.data], { type: 'image/jpeg' });
+    //         console.log(blob);
+    //         const imageUrl = URL.createObjectURL(blob);
+    //         console.log(imageUrl)
+    //         setImageSrc(imageUrl);
+    //     })
+    //     .catch((error) => {
+    //         console.error('Error fetching image:', error);
+    //     });
+// };
+    
     return (
         <div className="backdetail">
             <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'></link>
@@ -75,6 +93,11 @@ function ProjectDetails() {
                         <p className="detail"><b>Year : </b>{val.project_year}</p>
                         <p className="detail"><b>Course : </b>{val.course_id}</p>
                         <p className="detail"><b>Description : </b>{val.description}</p>
+                        {/* {imageSrc && (
+                        <div className="preview">
+                            <img src={imageSrc} />
+                        </div>
+                        )} */}
                         <div className="preview">
                             <img src={val.img_path} />
                         </div>

@@ -55,11 +55,27 @@ app.get("/projects/:id", (req, res) => {
       console.log(err);
     } else {
       res.send(result);
-      console.log(result)
     }
   });
 });
 
+// app.get('/images/:studentId/:imageName', (req, res) => {
+//   const studentId = req.params.studentId
+//   const imageName = req.params.imageName;
+//   const filePath = `project/${studentId}/${imageName}`
+//   const file = bucket.file(filePath);
+
+//   file.download((err, content) => {
+//     if (err) {
+//       console.error('Error downloading image:', err);
+//       return res.status(500).send('Error downloading image.');
+//     }
+//     res.setHeader('Content-Type', 'image/jpeg');
+//     res.send(content);
+//     console.log(content)
+    
+//   });
+// });
 
 app.post("/insertProjects", upload.single("file"), (req, res) => {
   const { student_id, project_name, project_year, course_id, description } = req.body;
