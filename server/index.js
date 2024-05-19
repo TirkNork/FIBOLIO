@@ -61,7 +61,6 @@ app.get("/projects/:id", (req, res) => {
 });
 
 
-// New endpoint to handle project insertion with image upload
 app.post("/insertProjects", upload.single("file"), (req, res) => {
   const { student_id, project_name, project_year, course_id, description } = req.body;
   const file = req.file;
@@ -70,7 +69,13 @@ app.post("/insertProjects", upload.single("file"), (req, res) => {
     return res.status(400).send("No file uploaded.");
   }
 
-  const blob = bucket.file(file.originalname);
+  const timestamp = Date.now(); // Use timestamp as a unique identifier
+  const uniqueFilename = `${timestamp}_${file.originalname}`; // Append the timestamp to the original filename
+
+  const folderPath = `project/${student_id}/`;
+  const filePath = folderPath + uniqueFilename;
+
+  const blob = bucket.file(filePath);
   const blobStream = blob.createWriteStream();
 
   blobStream.on("error", (err) => {
@@ -98,6 +103,8 @@ app.post("/insertProjects", upload.single("file"), (req, res) => {
 
   blobStream.end(file.buffer);
 });
+
+
 
 // Existing endpoints for updating and deleting projects
 app.put("/updateProject/:id", (req, res) => {
