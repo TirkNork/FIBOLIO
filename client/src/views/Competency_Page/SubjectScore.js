@@ -6,14 +6,7 @@ import Search from "../../components/Search/Search";
 import Topbar from "../../components/Topbar/Topbar";
 
 const card3 = data
-const card1 = {
-    subject: "FRA123:Introduction to Machine learning",
-    description: "Short description : Lorem ipsum dolor sit amet, conincididunt ut labore et dolore magna aliqua.",
-    grade: "Grade : A",
-    teacher: "Teacher : Aj. Bank"
-};
 
-const realCard = [card1, card1, card1, card1, card1, card1, card1, card1, card1, card1]
 
 function SubjectScore() {
     const cardElement = card3.map((card, index) => {

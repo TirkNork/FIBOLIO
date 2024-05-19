@@ -30,28 +30,30 @@ function App() {
     getCourseStudent(); // This function will be called only once when the component mounts
 
   }, []);
-  
+  const aaa = CourseStudent.length > 0 ? CourseStudent[0].teacher_id : 'No data';
+  console.log(aaa)
+
   return (
-<div className="subject-page">
-    
-    <section className="app-section">
-      <Topbar></Topbar>
-      
-      <div className="mid-bar">
-                <h1 className="header-text">Competency</h1>
-            </div>
-          <Grid className="app-container" rows={4}>
+    <div className="subject-page">
+
+      <section className="app-section">
+        <Topbar></Topbar>
+
+        <div className="mid-bar">
+          <h1 className="header-text">Competency</h1>
+        </div>
+        <Grid className="app-container" rows={4}>
           <Link to="/score" className="link">
             <CircleAndBox title="Mechanical" detail="test" points="100" color="#A60202"></CircleAndBox>
           </Link>
           <CircleAndBox title="Programming" detail="test" points="100" color="#F23004"></CircleAndBox>
           <CircleAndBox title="Electrical" detail="test" points="100" color="#F27404"></CircleAndBox>
-          <CircleAndBox title="Robotics" detail={CourseStudent[0].teacher_id} points="100" color="#F29F04"></CircleAndBox>
+          <CircleAndBox title="Robotics" detail={aaa} points="100" color="#F29F04"></CircleAndBox>
         </Grid>
-        
-    </section>
+
+      </section>
     </div>
-    
+
   );
 }
 
