@@ -20,7 +20,7 @@ const db = mysql.createConnection({
 const storage = multer.memoryStorage();
 const upload = multer({ 
   storage: storage,
-  limits: { fileSize: 20 * 1024 * 1024 }  // 10MB file size limit
+  limits: { fileSize: 20 * 1024 * 1024 }  // 20MB file size limit
 });
 
 // Initialize Google Cloud Storage
@@ -145,32 +145,46 @@ app.put("/updateProject/:id", (req, res) => {
 
 app.delete("/delProject/:id", (req, res) => {
   const id = req.params.id;
-  db.query("DELETE FROM Projects WHERE project_id = ?", [id], (err, result) => {
+
+  db.query("SELECT student_id, img_path FROM Projects WHERE project_id = ?", [id], (err, result) => {
     if (err) {
-      console.log(err);
-    } else {
-      res.send(result);
-      console.log("Project Deleted");
+      console.error(err);
+      return res.status(500).send("Error fetching project details from the database.");
     }
-  });
-});
 
-app.delete('/delProjectImage/:studentId/:imageName', (req, res) => {
-  const studentId = req.params.studentId
-  const imageName = req.params.imageName;
-  const filePath = `project/${studentId}/${imageName}`
-  const file = bucket.file(filePath);
+    if (result.length === 0) {
+      return res.status(404).send("Project not found.");
+    }
 
-  file.delete((err) => {
-    if (err) {
-      console.error(`Error deleting file ${filePath}:`, err);
-      res.status(500).send('Failed to delete file');
-    } else {
+    const studentId = result[0].student_id;
+    const originalFilePath = result[0].img_path;
+
+    const parts = originalFilePath.split('/');
+    const imageName = parts.pop();
+    const filePath = `project/${studentId}/${imageName}`;
+
+    // Delete the file from the bucket
+    const file = bucket.file(filePath);
+    file.delete((err) => {
+      if (err) {
+        console.error(`Error deleting file ${filePath}:`, err);
+        return res.status(500).send("Error deleting file from bucket.");
+      }
       console.log(`File ${filePath} deleted successfully`);
-      res.status(200).send('File deleted successfully');
-    }
+      
+      // Delete the project from the database
+      db.query("DELETE FROM Projects WHERE project_id = ?", [id], (err, result) => {
+        if (err) {
+          console.error(err);
+          return res.status(500).send("Error deleting project from the database.");
+        }
+        console.log("Project Deleted");
+        res.sendStatus(204); // Success, no content
+      });
+    });
   });
 });
+
 
 
 app.listen(port, () => {

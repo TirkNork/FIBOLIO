@@ -12,8 +12,6 @@ function ProjectDetails() {
     // const [imageSrc, setImageSrc] = useState('');
     const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
     const [projectIdToDelete, setProjectIdToDelete] = useState(null);
-    const [studentToDelete, setStudentToDelete] = useState(null);
-    const [imageToDelete, setImageToDelete] = useState(null);
 
 
     const handleBackClick = () => {
@@ -24,10 +22,8 @@ function ProjectDetails() {
         navigate(`/Project/Edit/${id}`);
     };
 
-    const handleDeleteClick = (id,studentId, imagePath) => {
+    const handleDeleteClick = (id) => {
         setProjectIdToDelete(id);
-        setStudentToDelete(studentId)
-        setImageToDelete(imagePath);
         setShowDeleteConfirmation(true);
     };
 
@@ -35,19 +31,15 @@ function ProjectDetails() {
         setShowDeleteConfirmation(false);
     };
 
-    const handleConfirmDelete = (id, studentId, imagePath) => {
-        const parts = imagePath.split('/');
-        const imageName = parts.pop();
+    const handleConfirmDelete = (id) => {
         setShowDeleteConfirmation(false);
-        Axios.delete(`http://localhost:3001/delProjectImage/${studentId}/${imageName}`).then((response) => {
-            Axios.delete(`http://localhost:3001/delProject/${id}`).then((response) => {
-                navigate("/Project");
-                setProjectList(
-                    projectList.filter((val) => {
-                        return val.project_id !== id;
-                    })
-                );
-            });
+        Axios.delete(`http://localhost:3001/delProject/${id}`).then((response) => {
+            navigate("/Project");
+            setProjectList(
+                projectList.filter((val) => {
+                    return val.project_id !== id;
+                })
+            );
         });
     };
 
@@ -122,7 +114,7 @@ function ProjectDetails() {
                 <div className="popup">
                     <p>Are you sure you want to delete this project?</p>
                     <div>
-                        <button className="buttondelete" onClick={() => handleConfirmDelete(projectIdToDelete, studentToDelete, imageToDelete)}>Confirm</button>
+                        <button className="buttondelete" onClick={() => handleConfirmDelete(projectIdToDelete)}>Confirm</button>
                         <button className="buttoncancel" onClick={handleCancelDelete}>Cancel</button>
                     </div>
                 </div>
