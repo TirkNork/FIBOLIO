@@ -6,15 +6,9 @@ import Topbar from "../../components/Topbar/Topbar";
 
 function App() {
   return (
-<<<<<<< HEAD
-    
-    <section className="app-section">
-      <div className='top-bar'></div>
-=======
 
     <section className="app-section">
       <Topbar></Topbar>
->>>>>>> f95dcac46346a1ffe7340d56324bc6c8c8cb0a62
       <div className="app-container" >
 
         <h2>Competency</h2>

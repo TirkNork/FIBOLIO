@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-.top-bar { height: 105px;     background-color: #212529;     margin: none;     border: none;     color: #F1F1F1; }
-.app-section {
-    top: 100px;
-    padding: 0px;
-  }
-  
-  .app-container {
-    max-width: 1600px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-=======
 .app-section {
   padding: 0px;
 }
@@ -56,4 +43,3 @@
   background-color: #F1F1F1;
   height: 100px;
 }
->>>>>>> 89c764224c013530b3b4159eb782e0bc2bbd0562
