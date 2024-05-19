@@ -3,4 +3,4 @@
 # dependencies
 /node_modules
 /config/fra502-144c6511b407.json
-/.env
+# /.env
