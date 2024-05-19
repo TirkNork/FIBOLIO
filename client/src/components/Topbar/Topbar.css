@@ -4,10 +4,6 @@
   font-weight: 500;
   font-style: normal;
 }
-
-  * {
-    font-family: 'Poppins';
-  }
   
   header {
     display: flex;
