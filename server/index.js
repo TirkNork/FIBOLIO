@@ -18,7 +18,10 @@ const db = mysql.createConnection({
 });
 
 const storage = multer.memoryStorage();
-const upload = multer({ storage: storage });
+const upload = multer({ 
+  storage: storage,
+  limits: { fileSize: 20 * 1024 * 1024 }  // 10MB file size limit
+});
 
 // Initialize Google Cloud Storage
 const gcs = new Storage({
