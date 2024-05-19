@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import SubjectCard from "../../components/Competency_Page/SubjectCard"
 import "./app.css"
 import data from '../Competency_Page/data.json';
+import Search from "../../components/Search/Search";
+import Topbar from "../../components/Topbar/Topbar";
 
 const card3 = data
 const card1 = {
@@ -21,8 +23,8 @@ function SubjectScore() {
     return (
         <div className="subject-page">
 
-            <div className="top-bar"></div>
-
+            <Topbar></Topbar>
+            <Search></Search>
             <div className="mid-bar">
                 <h1 className="header-text">Mechanical Courses</h1>
             </div>
