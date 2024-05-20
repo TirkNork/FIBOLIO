@@ -99,7 +99,16 @@ function ProjectInsert() {
     <div>
       <div className="header">
         <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'></link>
-        <h1>Insert Project</h1>
+        <h1>Insert</h1>
+                <br />
+                <ul className='breadcrumb'>
+                    <li className='breadcrumb-list'>
+                        <a className='home' href='/Project'>Project</a>
+                    </li>
+                    <li className='breadcrumb-list'>
+                        <p className='current-page'> <b>Insert Project</b> </p>
+                    </li>
+                </ul>
       </div>
       <div className="project-edit-box">
         <img src={Cross} className="cross2" onClick={handleBackClick} alt="Back" />

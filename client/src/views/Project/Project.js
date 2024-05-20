@@ -136,6 +136,12 @@ function Project() {
         <div>
             <div className="header">
                 <h1>Project</h1>
+                <br />
+                <ul className='breadcrumb'>
+                    <li className='breadcrumb-list'>
+                        <a className='home' href='/Project'>Project/</a>
+                    </li>
+                </ul>
                 <Search searchTerm={searchTerm} handleSearch={handleSearch} />
                 <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'></link>
             </div>

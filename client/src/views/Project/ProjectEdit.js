@@ -114,7 +114,16 @@ function ProjectEdit() {
   return (
     <div>
       <div className="header">
-        <h1>Edit Project</h1>
+        <h1>Edit</h1>
+                <br />
+                <ul className='breadcrumb'>
+                    <li className='breadcrumb-list'>
+                        <a className='home' href='/Project'>Project</a>
+                    </li>
+                    <li className='breadcrumb-list'>
+                        <p className='current-page'> <b>Edit Project</b> </p>
+                    </li>
+                </ul>
         <link
           href="https://fonts.googleapis.com/css?family=Poppins"
           rel="stylesheet"

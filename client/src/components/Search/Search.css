@@ -10,3 +10,9 @@
     margin-right: 100px;
     margin-top: 40px;
 }
+
+@media (max-width: 500px) {
+    .search {
+        margin-right: 40px;
+    }
+  }

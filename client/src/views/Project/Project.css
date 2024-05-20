@@ -10,16 +10,47 @@
   align-items: center;
   background-color: #E3E3E3;
   padding-left: 100px;
+  height: 160px;
   
 }
 
 h1 {
+  position: absolute;
   font-size: 48px;
   font-family: 'Poppins';
-  /* margin-top: 40px; */
+  margin-top: 60px;
+}
+
+.breadcrumb {
+  position: absolute;
+  margin-bottom: 100px;
+  left: 65px;
+  font-family: 'Poppins';
+}
+
+.breadcrumb-list{
+  box-sizing: inherit;
+  display:inline-block;
+  color:#000000;
+  font-family: 'Poppins';
   
 }
 
+.current-page::before {
+  color: #818a91;
+  content: "/";
+  
+} 
+
+.home{
+  color: inherit; /* inherit color from li*/ 
+  text-decoration: none;
+}
+
+.home:hover{
+  color: #DD5900;
+  text-decoration: underline;
+}
 
 .widecard {
   margin: 20px 20px 20px 20px;

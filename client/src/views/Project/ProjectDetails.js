@@ -84,7 +84,16 @@ function ProjectDetails() {
         <div className="backdetail">
             <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'></link>
             <div className="header">
-                <h1>Project Details</h1>
+            <h1>Detail</h1>
+                <br />
+                <ul className='breadcrumb'>
+                    <li className='breadcrumb-list'>
+                        <a className='home' href='/Project'>Project</a>
+                    </li>
+                    <li className='breadcrumb-list'>
+                        <p className='current-page'> <b>Project Details</b> </p>
+                    </li>
+                </ul>
             </div>
             <div className="project-edit-box-detail">
                 <img src={Cross} className="cross" onClick={handleBackClick}/>
