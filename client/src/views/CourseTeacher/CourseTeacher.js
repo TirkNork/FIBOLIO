@@ -1,42 +1,12 @@
 import './CourseTeacher.css';
 import Search from "../../components/Search.js";
 import * as React from 'react';
+import Axios from "axios";
 import { PieChart } from '@mui/x-charts/PieChart';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { useState, useEffect} from "react"
 
 
-let studentData = [
-    {
-        name: 'aaa bbb',
-        id: 1,
-        score: 90
-    },
-    {
-        name: 'ccc ddd',
-        id: 2,
-        score: 55
-    },
-    {
-        name: 'eee fff',
-        id: 3,
-        score: 80
-    },
-    {
-        name: 'ggg hhh',
-        id: 4,
-        score: 40
-    },
-    {
-        name: 'iii jjj',
-        id: 5,
-        score: 45
-    },
-    {
-        name: 'kkk lll',
-        id: 6,
-        score: 60
-    }
-]
 
 let grade = []
 
@@ -49,7 +19,7 @@ let dPlus = 0
 let d = 0
 let f = 0
 
-function GradeCalculation() {
+function GradeCalculation(studentsData) {
     a = 0
     bPlus = 0
     b = 0
@@ -59,7 +29,7 @@ function GradeCalculation() {
     d = 0
     f = 0
     let studentScore = []
-    studentData.map((score) => (
+    studentsData.map((score) => (
         studentScore.push(score.score)
     ))
     studentScore.forEach((score) => {
@@ -97,20 +67,43 @@ function GradeCalculation() {
         }
     });
 
-    for (let i = 0; i < studentData.length; i++) {
-        studentData[i].grade = grade[i];
+    for (let i = 0; i < studentsData.length; i++) {
+        studentsData[i].grade = grade[i];
     }
+
+    return studentsData
 }
 
 function CourseTeacher() {
-    const subject = 'FRA000'
-    GradeCalculation();
+    const {id} = useParams();
+    console.log({id});
+    const subject = 'FRA100'
 
     const navigate = useNavigate();
 
     const goToCourseEdit = () => {
         navigate("/CourseEdit");
     };
+
+    const [studentsData, setStudentsData] = useState([]);
+
+
+    useEffect(() => {
+        getStudentsData();
+        console.log('Get Data');
+    }, [id]);
+
+    const getStudentsData = () => {
+        Axios.get(`http://localhost:3001/students/${id}`).then((response) => {
+        console.log(response.data)
+        setStudentsData(response.data)});
+    };
+
+    // const addGradeUsersData = () => {
+    //     setGradestudentsData(GradeCalculation(studentsData));
+    // };
+
+    GradeCalculation(studentsData);
 
     return (
         <div>
@@ -154,12 +147,12 @@ function CourseTeacher() {
                         <th className='tr'>Score</th>
                         <th className='tr'>Grade</th>
                     </tr>
-                    {studentData.map((val) => (
+                    {studentsData.map((student) => (
                         <tr>
-                            <td className='td' >{val.name}</td>
-                            <td className='td'>{val.id}</td>
-                            <td className='td'>{val.score}</td>
-                            <td className='td'>{val.grade}</td>
+                            <td className='td' >{student.first_name} {student.last_name}</td>
+                            <td className='td'>{student.student_id}</td>
+                            <td className='td'>{student.course_student_score}</td>
+                            <td className='td'>{student.grade}</td>
                         </tr>
                     ))}
                 </table>
