@@ -1,24 +1,94 @@
 import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import "./Register01.css";
-// import StudentForm from "../../components/studentForm/Forms";
 import RoleDropdown from "../../components/dropdown/dropdown";
 import Button from "../../components/buttons/buttons";
-// import Rectangle from "../../components/background/background";
 import BgImg from "../../components/background/backgroundImage";
 import { StudentForm, InstructorForm } from "../../components/studentForm/Forms";
+import dataValidation from "./regisDataValidation";
+import Axios from "axios";
 
 const Register = () => {
     const [selectedOption, setSelectedOption] = useState('');
     const [isChecked, setIsChecked] = useState(false)
+    
+    const [values, setValues] = useState({
+        StudentID: '',
+        Name: '',
+        Surname: '',
+        Email: '',
+        Password: '',
+        ConfirmPass: '',
+    })
+
+    const [errors, setErrors] = useState({
+        Name: "",
+        Surname: "",
+        Email: "",
+        StudentID: "",
+        Password: "",
+        ConfirmPass: ""
+    })
 
     const handleSelectChange = (e) => {
         setSelectedOption(e.target.value);
     };
-
+    
     const handleCheckboxChange = (e) => {
         setIsChecked(e.target.checked);
     };
+
+    const handleInputChange = (e) => {
+        // if (e.target.name !== "ConfirmPass") {
+        // }
+        setValues(prevValues => ({ ...prevValues, [e.target.name]: e.target.value }));
+    }
+
+    const handleSignUpClick = (e) => {
+        e.preventDefault();
+        // const newErrors = dataValidation(values)
+        // setErrors(newErrors);
+        setErrors(dataValidation(values))
+        console.log("errors: ",errors)
+        console.log('signUpClick')
+        if (selectedOption === 'Student') {
+            console.log("student!!!")
+            if (
+                // newErrors.Name === "" && 
+                // newErrors.Surname === "" && 
+                // newErrors.Email === "" && 
+                // newErrors.Password === "" && 
+                // newErrors.StudentID === "" && 
+                // newErrors.ConfirmPass === ""
+                errors.Name === "" && 
+                errors.Surname === "" && 
+                errors.Email === "" && 
+                errors.Password === "" && 
+                errors.StudentID === "" && 
+                errors.ConfirmPass === ""
+            ) {
+                console.log('add to student table')
+                console.log("Inputs:", values);
+                Axios.post('http://localhost:3000/Register01', {
+                    studentID: values.StudentID,
+                    name: values.Name,
+                    surname: values.Surname,
+                    email: values.Email,
+                    password: values.Password
+                })
+                .then(res => console.log(res))
+                .catch(err => console.log(err));
+            }
+            else {
+                console.log("Still have errors")
+            }
+        } 
+        else if (selectedOption === 'Instructor') {
+            console.log('add to instructor table')
+        }
+    };
+
+    console.log('Register component rendered');
 
     return (
         <>
@@ -34,7 +104,6 @@ const Register = () => {
                     <h1>Create Account</h1>
                     <p>Already have an account?&nbsp; <Link to="/Test1"> Login Here</Link></p>
                     <div className="segmentLine"></div>
-                    {/* style={{ width: '112px', height: '5px', backgroundColor: '#DD5900',borderRadius: "0px 25px 25px 0px"}}  */}
                 </div>
 
                 <div className="RegisterForms">
@@ -44,8 +113,10 @@ const Register = () => {
                     </div>
 
                     <div className="RegisterDataForm">
-                        {selectedOption === 'Student' && <StudentForm />}
-                        {selectedOption === 'Instructor' && <InstructorForm />}
+                        <div className="registerForm">
+                            {selectedOption === 'Student' && (console.log('Select Student') || <StudentForm onChange={handleInputChange} errors={errors}/>)}
+                            {selectedOption === 'Instructor' && (console.log('Select Instructor') || <InstructorForm />)}
+                        </div>
                     </div>
 
                 </div>
@@ -56,9 +127,9 @@ const Register = () => {
                 </div>
 
                 <div className="SignUpButton">
-                <Button disabled={!isChecked} onClick={() => console.log('Button clicked')}>
-                    Sign Up
-                </Button>
+                    <Button onClick={handleSignUpClick} disabled={!isChecked}>
+                        Sign Up
+                    </Button>
                 </div>
             </div>
         </div>
@@ -70,22 +141,6 @@ const Register = () => {
             <h3>Let's get to know yourself better together.</h3>
         </div>
         </>
-        // <div>
-        //     <Rectangle />
-        //     <BgImg />
-        //     <h1>Create Account</h1>
-        //     <p>Already have an account? <Link to="/Test1">Login Here</Link></p>
-        //     <RoleDropdown value={selectedOption} onChange={handleSelectChange}/>
-        //     {/* <p>Selected option: {selectedOption}</p> */}
-        //     {/* Conditionally render Component1 or Component2 based on selectedOption */}
-        //     {selectedOption === 'Student' && <StudentForm />}
-        //     {selectedOption === 'Instructor' && <p>Selected option: {selectedOption}</p>}
-        //     {/* <StudentForm /> */}
-        //     <TermsNconscheckBox />
-        //     <Button value="Sign Up"/>
-        //     <p>Window Width: {window.outerWidth}px</p>
-        //     <p>Window Height: {window.outerHeight}px</p>
-        // </div>
     );
 }
 

@@ -3,18 +3,18 @@ import React from "react";
 import RoleForm from "./roleForm";
 import "./studentForm.css";
 
-export const StudentForm = () => {
+export const StudentForm = ({ onChange, errors }) => {
     const studentInputs = [
-        { name: "Name", label: "Name", type: "text", placeholder: "Enter your Name" },
-        { name: "Surname", label: "Surname", type: "text", placeholder: "Enter your Surname" },
-        { name: "Email", label: "Email", type: "email", placeholder: "Enter your Email" },
-        { name: "StudentID", label: "StudentID", type: "text", placeholder: "Enter your StudentID" },
-        { name: "Password", label: "Password", type: "password", placeholder: "Create your Password" },
-        { name: "ConfirmPass", label: "Confirm Password", type: "password", placeholder: "Re-Enter your Password" }
+        { name: "Name", label: "Name", type: "text", placeholder: "Enter your Name", error: errors.Name },
+        { name: "Surname", label: "Surname", type: "text", placeholder: "Enter your Surname", error: errors.Surname },
+        { name: "Email", label: "Email", type: "email", placeholder: "Enter your Email", error: errors.Email },
+        { name: "StudentID", label: "StudentID", type: "text", placeholder: "Enter your StudentID", error: errors.StudentID },
+        { name: "Password", label: "Password", type: "password", placeholder: "Create your Password", error: errors.Password },
+        { name: "ConfirmPass", label: "Confirm Password", type: "password", placeholder: "Re-Enter your Password", error: errors.ConfirmPass }
     ];
     
     return (
-        <RoleForm role="student" inputs={studentInputs} />
+        <RoleForm role="student" inputs={studentInputs} onChange={onChange}/>
     );
 };
 

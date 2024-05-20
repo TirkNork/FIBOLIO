@@ -1,7 +1,7 @@
 import React from "react";
 import "./studentForm.css";
 
-const RoleForm = ({ role, inputs }) => {
+const RoleForm = ({ role, inputs, onChange }) => {
     const hasNameSurnameInputs = inputs.some(input => input.name === "Name" || input.name === "Surname");
 
     return (
@@ -17,7 +17,10 @@ const RoleForm = ({ role, inputs }) => {
                                     type={input.type}
                                     name={input.name}
                                     placeholder={input.placeholder}
+                                    style={input.error ? { border: '1px solid red' } : {}}
+                                    onChange={onChange}
                                 />
+                                {input.error && <span className="errorText">{input.error}</span>}
                             </div>
                         ))}
                     </div>
@@ -30,8 +33,12 @@ const RoleForm = ({ role, inputs }) => {
                                 className={input.name}
                                 type={input.type}
                                 name={input.name}
-                                placeholder={input.placeholder}
+                                placeholder= {input.placeholder}
+                                style={input.error ? { border: '1px solid red' } : {}}
+                                onChange={onChange}
                             />
+                            {input.error && <span className="errorText">{input.error}</span>}
+                            
                         </div>
                     )
                 )}

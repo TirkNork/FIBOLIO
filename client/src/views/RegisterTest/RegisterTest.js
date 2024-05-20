@@ -1,78 +1,40 @@
-// // import { Link } from "react-router-dom";
-// import React, { useState } from "react";
-// // import InputField from "../../components/inputField/inputField";
+import React, { useState } from "react";
+import { Fragment } from "react";
+import { Link } from "react-router-dom";
+import Button from "../../components/buttons/buttons";
 
-// const StudentForm = () => {
-//   const [name, setName] = useState("");
-//   const [surname, setSurname] = useState("");
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
+function TestInputField() {
+  const [values, setValues] = useState({});
 
-//   const handleNameChange = (e) => {
-//     setName(e.target.value);
-//   };
+  const handleInputChange = (e) => {
+    setValues((prevValues) => ({
+      ...prevValues,
+      [e.target.name]: e.target.value,
+    }));
+    // console.log("handleInputChange: ", values);
+  };
 
-//   const handleSurnameChange = (e) => {
-//     setSurname(e.target.value);
-//   };
+  const buttonClick = (e) => {
+    setValues((prevValues) => ({
+      ...prevValues,
+      [e.target.name]: e.target.value,
+    }));
+    console.log("button: ", values);
+  };
 
-//   const handleEmailChange = (e) => {
-//     setEmail(e.target.value);
-//   };
+  return (
+    <Fragment>
+      <label>Test Input</label>
+      <input
+        className="Name"
+        type="text"
+        name="testInput" // Add a name attribute to the input
+        placeholder="Type something"
+        onChange={handleInputChange}
+      />
+      <Button onClick={buttonClick}> Submit </Button>
+    </Fragment>
+  );
+}
 
-//   const handlePasswordChange = (e) => {
-//     setPassword(e.target.value);
-//   };
-
-//   return (
-//     <div class="input-field">
-//       <div class="FullName">
-//         <InputField
-//           type="text"
-//           // name="Name"
-//           value={name}
-//           onChange={handleNameChange}
-//           placeHolder="Enter your Name"
-//           className="FullName"
-//         />
-//         <InputField
-//           type="text"
-//           value={surname}
-//           onChange={handleSurnameChange}
-//           placeHolder="Enter your Surname"
-//           className="FullName"
-//         />
-//       </div>
-
-//       <div>
-//         <InputField
-//           type="email"
-//           value={email}
-//           onChange={handleEmailChange}
-//           placeHolder="Enter your Email"
-//           // className="input-field"
-//         />
-//       </div>
-
-//       <div>
-//         <InputField
-//           type="password"
-//           value={password}
-//           onChange={handlePasswordChange}
-//           placeHolder="Create your password"
-//         />
-//       </div>
-//     </div>
-//   );
-// };
-
-// function RegisterTest() {
-//   return (
-//     // <header>Register</header>
-//     <div>
-//       <StudentForm />
-//     </div>
-//   );
-// }
-
-// export default RegisterTest;
+export default TestInputField;
