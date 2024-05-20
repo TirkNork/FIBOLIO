@@ -1,133 +1,149 @@
-/* Add the new CSS code and optimize */
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;600&display=swap');
 
-.other-page {
-    padding: 20px;
-    font-family: 'Poppins', sans-serif; /* Apply Poppins font to other-page */
+body {
+    font-family: 'Kanit', sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
 }
 
 .header {
     display: flex;
+    justify-content: center;
     align-items: center;
-    background-color: #E3E3E3;
-    padding: 1%;
-    font-family: 'Poppins', sans-serif; /* Apply Poppins font to header */
+    background-color: #DD5900;
+    color: white;
+    padding: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
-    margin-right: 20px;
-    font-size: 48px;
-    font-family: 'Poppins', sans-serif; /* Apply Poppins font to h1 */
+.header h1 {
+    font-size: 36px;
+    margin: 0;
+}
+
+.header2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e3e3e3;
+    padding: 15px 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 5px 5px;
+}
+
+.dropdown-label {
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+.dropdown-menu {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: white;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s, color 0.3s;
+    margin-left: 10px;
+}
+
+.dropdown-menu:hover {
+    background-color: #DD5900;
+    color: #fff;
+}
+
+.other-page {
+    padding: 20px;
 }
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 20px; /* Adjust the gap between grid items */
+    grid-gap: 20px;
 }
+
+/* For screens larger than 1024px, show maximum of 4 columns */
+@media (min-width: 1024px) {
+    .grid-container {
+        grid-template-columns: repeat(4, minmax(200px, 1fr));
+    }
+}
+
+/* For screens between 768px and 1024px, show maximum of 3 columns */
+@media (max-width: 1023px) and (min-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(3, minmax(200px, 1fr));
+    }
+}
+
+/* For screens smaller than 768px, let it auto fit */
+@media (max-width: 767px) {
+    .grid-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+
+
 
 .coursecard {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 120px;
+    padding: 1rem;
+    margin-bottom: 20px;
     border-radius: 10px;
-    padding: .5rem;
-    color: rgb(0, 0, 0);
     background: #E3E3E3;
-    font-size: 16px;
     box-shadow: 3px 3px 10px #a7a7a7;
     cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .coursecard:hover {
     background: #DD5900;
-    color: rgb(255, 255, 255);
+    color: #fff;
 }
 
 .left-content {
-    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .right-content {
-    margin-left: 20px;
-}
-
-.course-info {
     display: flex;
     flex-direction: column;
+    align-items: flex-end;
 }
 
-.course-info p {
-    margin: 0; /* Remove default margin */
+.course-id {
+    font-weight: bold;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.academic-year {
+    color: #555;
+}
+
+.course-name {
+    font-weight: bold;
 }
 
 .gradetext {
-    font-size: 24px; /* Adjust font size for grade */
-    color: #555; /* Adjust color according to your design */
+    font-size: 24px;
+    color: #555;
 }
 
-.dropdown-menu {
-    position: absolute;
-    top: 50px; /* Adjust the top position as needed */
-    right: 15%;
-    transform: translateX(-50%);
-    padding: 10px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    background-color: #E3E3E3;
-    font-size: 16px;
-    box-shadow: 3px 3px 10px #a7a7a7;
-    z-index: 999; /* Ensure it's above other elements */
-}
+@media (max-width: 600px) {
+    .header h1 {
+        font-size: 24px;
+    }
 
-.dropdown-menu option {
-    padding: 10px;
-    background-color: #E3E3E3;
-    color: #000000;
-    font-family: 'Poppins';
-    cursor: pointer;
-}
-
-.dropdown-menu option:hover {
-    background-color: #DD5900;
-    color: #FFFFFF;
-}
-
-
-
-
-
-
-
-/* .button-gray {
-    height: 55px;
-    width: 200px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-
-} */
-
-/* .button-gray:hover {
-    background-color: #dadada;
-    color: #000000;
-    box-shadow: inset 0 px 10px 0 rgba(0, 0, 0, 0.5);
-} */
-
-.button-orange {
-    height: 55px;
-    width: 200px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    background-color: #DD5900;
-    color: #ffffff;
-    cursor: pointer;
-    font-family: 'Poppins';
-    /* box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);  */
-}
-
-.button-orange:hover {
-    background-color: #cf5403;
-    color: #ffffff;
-    /* box-shadow: inset 0 4px 10px 0 rgba(0,0,0,0.5);  */
+    .coursecard {
+        height: 80px;
+        font-size: 14px;
+    }
 }
