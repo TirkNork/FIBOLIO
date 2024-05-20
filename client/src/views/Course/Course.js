@@ -44,7 +44,8 @@ function Course() {
         if (sortByYear) {
             const compareYear = academicYears.indexOf(a.academicYear) - academicYears.indexOf(b.academicYear);
             if (compareYear !== 0) return sortByYear ? compareYear : -compareYear;
-        } else {
+        } 
+        if (sortByGradeAsc) {
             const compareGrade = grades.indexOf(a.grade) - grades.indexOf(b.grade);
             if (compareGrade !== 0) return sortByGradeAsc ? compareGrade : -compareGrade;
         }

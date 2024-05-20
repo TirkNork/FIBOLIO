@@ -66,21 +66,21 @@ body {
 /* For screens larger than 1024px, show maximum of 4 columns */
 @media (min-width: 1024px) {
     .grid-container {
-        grid-template-columns: repeat(4, minmax(200px, 1fr));
+        grid-template-columns: repeat(3, minmax(200px, 1fr));
     }
 }
 
 /* For screens between 768px and 1024px, show maximum of 3 columns */
 @media (max-width: 1023px) and (min-width: 768px) {
     .grid-container {
-        grid-template-columns: repeat(3, minmax(200px, 1fr));
+        grid-template-columns: repeat(2, minmax(200px, 1fr));
     }
 }
 
 /* For screens smaller than 768px, let it auto fit */
 @media (max-width: 767px) {
     .grid-container {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-template-columns: repeat(1, minmax(200px, 1fr));
     }
 }
 
