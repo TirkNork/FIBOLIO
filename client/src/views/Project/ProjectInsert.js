@@ -14,6 +14,8 @@ function ProjectInsert() {
   const [description, setDescription] = useState("");
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState(null); 
+  const [errors, setErrors] = useState({}); 
+
 
   const handleYearChange = (event) => {
     setYear(event.target.value);
@@ -41,8 +43,37 @@ function ProjectInsert() {
     navigate("/Project");
   };
 
+  const validateInputs = () => {
+    let errors = {};
+
+    if (!projectName.trim()) {
+      errors.projectName = "Project name is required.";
+    }
+    if (!year.trim()) {
+      errors.year = "Year is required.";
+    }
+    if (!course.trim()) {
+      errors.course = "Course is required.";
+    }
+    if (!description.trim()) {
+      errors.description = "Description is required.";
+    }
+    if (!image) {
+      errors.image = "Image is required.";
+    }
+
+    return errors;
+  };
+
   const insertProject = async (event) => {
     event.preventDefault();
+
+    const validationErrors = validateInputs();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+    
     const formData = new FormData();
     formData.append("student_id", student_id);
     formData.append("project_name", projectName);
@@ -82,6 +113,7 @@ function ProjectInsert() {
               onChange={handleProjectNameChange}
               placeholder="Enter project name"
             />
+            {errors.projectName && <p className="error">{errors.projectName}</p>}
             <br />
 
             <label>Year :</label>
@@ -91,6 +123,7 @@ function ProjectInsert() {
               onChange={handleYearChange}
               placeholder="Enter year of project"
             />
+            {errors.year && <p className="error">{errors.year}</p>}
             <br />
 
             <label>Course :</label>
@@ -100,6 +133,7 @@ function ProjectInsert() {
               onChange={handleCourseChange}
               placeholder="Enter course"
             />
+            {errors.course && <p className="error">{errors.course}</p>}
             <br />
 
             <label>Description :</label>
@@ -108,6 +142,7 @@ function ProjectInsert() {
               onChange={handleDescriptionChange}
               placeholder="Enter project description"
             />
+            {errors.description && <p className="error">{errors.description}</p>}
             <br />
 
             <label>Image :</label>
@@ -124,6 +159,7 @@ function ProjectInsert() {
                   <img src={preview} alt="Project" />
                 </div>
               )}
+              {errors.image && <p className="error">{errors.image}</p>}
               <button type="submit">Upload</button>
             </form>
           </div>

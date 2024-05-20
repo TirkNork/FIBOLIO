@@ -16,6 +16,7 @@ function ProjectEdit() {
   });
 
   const [image, setImage] = useState(null);
+  const [errors, setErrors] = useState({});
 
   useEffect(() => {
     getProject();
@@ -57,8 +58,33 @@ function ProjectEdit() {
     });
   };
 
+  const validateInputs = () => {
+    let errors = {};
+  
+    if (!String(project.project_name).trim()) {
+      errors.projectName = "Project name is required.";
+    }
+    if (!String(project.project_year).trim()) {
+      errors.projectYear = "Year is required.";
+    }
+    if (!String(project.course_id).trim()) {
+      errors.courseId = "Course is required.";
+    }
+    if (!String(project.description).trim()) {
+      errors.description = "Description is required.";
+    }
+  
+    return errors;
+  };
+
   const updateProject = (event) => {
     event.preventDefault();
+
+    const validationErrors = validateInputs();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
 
     const formData = new FormData();
     formData.append("project_name", project.project_name);
@@ -104,6 +130,7 @@ function ProjectEdit() {
               value={project.project_name || ""}
               onChange={handleProjectNameChange}
             />
+            {errors.projectName && <p className="error">{errors.projectName}</p>}
             <br />
 
             <label>Year :</label>
@@ -112,6 +139,7 @@ function ProjectEdit() {
               value={project.project_year || ""}
               onChange={handleYearChange}
             />
+            {errors.projectYear && <p className="error">{errors.projectYear}</p>}
             <br />
 
             <label>Course :</label>
@@ -120,6 +148,7 @@ function ProjectEdit() {
               value={project.course_id || ""}
               onChange={handleCourseChange}
             />
+            {errors.courseId && <p className="error">{errors.courseId}</p>}
             <br />
 
             <label>Description :</label>
@@ -127,6 +156,7 @@ function ProjectEdit() {
               value={project.description || ""}
               onChange={handleDescriptionChange}
             ></textarea>
+            {errors.description && <p className="error">{errors.description}</p>}
             <br />
 
             <label>Image :</label>
