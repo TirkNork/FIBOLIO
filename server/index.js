@@ -47,11 +47,6 @@ app.get("/projects", (req, res) => {
       console.error(err);
       return res.status(500).send("Error fetching projects from the database.");
     }
-    
-    // Check if there are no projects found
-    if (result.length === 0) {
-      return res.status(404).send("No projects found.");
-    }
 
     res.status(200).send(result); // Return the projects
   });
