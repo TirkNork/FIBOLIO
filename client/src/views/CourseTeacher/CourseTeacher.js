@@ -1,8 +1,10 @@
-import './CourseTeacher.css';
-import Search from "../../components/Search.js";
 import * as React from 'react';
+import { useState, useEffect } from "react";
+import './CourseTeacher.css';
 import { PieChart } from '@mui/x-charts/PieChart';
 import { useNavigate } from "react-router-dom";
+import { debounce } from "lodash";
+import Search from "../../components/Search.js";
 
 
 let studentData = [
@@ -105,11 +107,20 @@ function GradeCalculation() {
 function CourseTeacher() {
     const subject = 'FRA000'
     GradeCalculation();
+    const [searchTerm, setSearchTerm] = useState("");
 
     const navigate = useNavigate();
 
     const goToCourseEdit = () => {
         navigate("/CourseEdit");
+    };
+
+    const delayedSearch = debounce((value) => {
+        setSearchTerm(value);
+    }, 30);
+
+    const handleSearch = (event) => {
+        delayedSearch(event.target.value);
     };
 
     return (
@@ -124,7 +135,7 @@ function CourseTeacher() {
                     </li>
                 </ul>
                 <p className='subject'>{subject}</p>
-                <Search/>
+                <Search searchTerm={searchTerm} handleSearch={handleSearch} />
             </div>
             <div className='student-list'>
                 <div className="pie-chart">
@@ -154,18 +165,41 @@ function CourseTeacher() {
                         <th className='tr'>Score</th>
                         <th className='tr'>Grade</th>
                     </tr>
-                    {studentData.map((val) => (
-                        <tr>
-                            <td className='td' >{val.name}</td>
-                            <td className='td'>{val.id}</td>
-                            <td className='td'>{val.score}</td>
-                            <td className='td'>{val.grade}</td>
-                        </tr>
-                    ))}
+                    {studentData.filter((project) =>
+                                project.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                                project.id.toString().includes(searchTerm)
+                            ).map((val) => (
+                                <tr>
+                                    <td className='td' >{val.name}</td>
+                                    <td className='td'>{val.id}</td>
+                                    <td className='td'>{val.score}</td>
+                                    <td className='td'>{val.grade}</td>
+                                </tr>
+                            ))}
                 </table>
                 <button className='edit-score' onClick={goToCourseEdit}>
                     Edit
                 </button>
+
+
+
+                {/* {studentData.filter((project) =>
+                                project.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                                project.id.toString().includes(searchTerm) || 
+                                project.score.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                                project.grade.toLowerCase().includes(searchTerm.toLowerCase()) 
+                            ).map((val, key) => (
+                                <div key={key} className="project-container">
+                                    <div className="project-details" onClick={() => goToProjectDetail(val.project_id)}>
+                                        <WidecardProject
+                                            project={val.project_name}
+                                            year={val.project_year}
+                                            course={val.course_id}
+                                            des={val.description}
+                                        />
+                                    </div>
+                                </div>
+                            ))} */}
             </div>
         </div>
     )

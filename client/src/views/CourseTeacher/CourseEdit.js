@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { debounce } from "lodash";
 import Search from "../../components/Search.js";
 import './CourseEdit.css';
 
@@ -40,6 +41,7 @@ function CourseEdit() {
     const subject = 'FRA000'
     const navigate = useNavigate();
     const [score, setScore] = useState({ Score: '' });
+    const [searchTerm, setSearchTerm] = useState("");
 
     const handleScoreChange = (event) => {
         setScore({ ...score, Score: event.target.value });
@@ -53,11 +55,19 @@ function CourseEdit() {
         navigate("/CourseTeacher");
     }
 
+    const delayedSearch = debounce((value) => {
+        setSearchTerm(value);
+    }, 30);
+
+    const handleSearch = (event) => {
+        delayedSearch(event.target.value);
+    };
+
     return (
         <div>
             <div className="header">
-                <p className='subject' style={{ marginTop: "20px" }} >{subject}</p>
-                <Search />
+                <p className='subject' style={{ marginTop: "10px" }} >{subject}</p>
+                <Search searchTerm={searchTerm} handleSearch={handleSearch} />
             </div>
             <div className='student-list'>
                 <table className='student-table'>
@@ -67,15 +77,16 @@ function CourseEdit() {
                         <th className='tr'>Score</th>
                         <th className='tr'>New score</th>
                     </tr>
-                    {studentData.map((val) => (
-                        <tr>
-                            <td className='td' >{val.name}</td>
-                            <td className='td'>{val.id}</td>
-                            <td className='td'>{val.score}</td>
-                            <td className='td'>
-                                <input className="input-new-score" type="number" onChange={handleScoreChange} />
-                            </td>
-                        </tr>
+                    {studentData.filter((project) =>
+                                project.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                                project.id.toString().includes(searchTerm)
+                            ).map((val) => (
+                                <tr>
+                                    <td className='td' >{val.name}</td>
+                                    <td className='td'>{val.id}</td>
+                                    <td className='td'>{val.score}</td>
+                                    <td className='td'><input className="input-new-score" type="number" onChange={handleScoreChange} /></td>
+                                </tr>
                     ))}
                 </table>
                 <button className='cancel' onClick={backClick}>

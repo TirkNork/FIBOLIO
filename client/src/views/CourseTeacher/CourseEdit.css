@@ -25,7 +25,8 @@ input::-webkit-inner-spin-button {
 }
 
 .cancel{
-    left: 55%;
+    left: 57%;
+    padding: 8px 19px;
     color: #DD5900;
     background-color: #fff;
     border: #DD5900 solid 2px;
