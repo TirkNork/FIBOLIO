@@ -69,7 +69,7 @@ const Register = () => {
             ) {
                 console.log('add to student table')
                 console.log("Inputs:", values);
-                Axios.post('http://localhost:3000/Register01', {
+                Axios.post('http://localhost:3001/Register01', {
                     studentID: values.StudentID,
                     name: values.Name,
                     surname: values.Surname,
