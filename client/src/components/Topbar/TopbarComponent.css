@@ -1,0 +1,283 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  background: #F1F1F1;
+  color: #1d2129;
+}
+
+
+.Navbar{
+  color: #839292;
+  background: #212529;
+  height: 56px;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  /* border: solid 1px red; */
+  }
+
+
+  .Left-Element{
+    padding-left: 15px;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    /* border: solid 1px red; */
+  }
+
+  .Navbar-Menu{
+    /* padding: 0;
+    margin: 0; */
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 2rem;
+    /* border: solid 1px red; */
+  }
+
+  
+
+  .Dropdown-Menu{
+    display: flex;
+    list-style: none;
+    
+    justify-content: center;
+    align-items: center;
+    gap: 0.3rem;
+    cursor: pointer;
+    padding-right: 15px;
+    /* border: solid 1px red; */
+  }
+  
+
+  .Dropdown-Menu i:first-child {
+    font-size: 30px; /* Size for the user icon */
+  }
+  
+  .Dropdown-Menu i:last-child {
+    font-size: 16px; /* Size for the dropdown icon */
+  }
+
+  .Dropdown-Menu i:last-child:hover  {
+    color: #DD5900;
+  }
+  
+  .Navbar a {
+    color: #839292;
+    text-decoration: none;
+    
+    
+  }
+  
+  .KMUTT_logo {
+    margin-left: 20px;
+    width: auto;
+    height: 45px;
+    
+    
+  }
+  
+  .FIBO_logo {
+    margin-left: 15px;
+    width: auto;
+    height: 45px;
+    float: left;
+    
+  }
+
+  .Fibolio_logo {
+    margin-left: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45px;
+    width: auto;
+    /* border: solid 1px red; */
+  }
+
+  .logo {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    /* border: solid 1px red; */
+  }
+
+
+  .Navbar-Menu li{
+    /* font-family: 'Poppins', sans-serif; */
+    color: inherit; /* ใช้สีตามปุ่ม */
+    text-decoration: none; /* ลบขีดเส้นใต้ */
+    font-size: 16px; /* ขนาดฟอนต์ */
+    border: none; /* ลบกรอบ (ถ้ามี) */
+  }
+
+    .btn-course {
+      position: relative;
+    }
+    
+    .btn-course a {
+      text-decoration: none;
+    }
+    
+    .btn-course:hover a {
+      color: #DD5900;
+    }
+
+    .circleuser-icon {
+        margin-left: 940px;
+        font-size: 2em;
+        cursor: pointer;
+      }
+    
+      .caretdown-icon {
+        cursor: pointer;
+        position: absolute;
+        top: 12px;
+        left: 985px;
+      }
+      
+      
+    
+      .topbar-icon {
+        color: #ffffff;
+      }
+    .dropdown-container {
+        width: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* border: solid 1px red; */
+        
+      }
+
+      
+    
+      .dropdown-content {
+        display: flex;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        
+      }
+      
+      .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+      
+      .dropdown-content a:hover {
+        background-color: #f1f1f1;
+      }
+      
+      .dropdown-container .dropdown-content {
+        display: block;
+        
+      }
+    
+      .dropdown-container:hover .caretdown-icon {
+        color: #DD5900;
+      }
+
+      .responMenu{
+        display: none;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+      
+
+      .User-Button{
+        width: 2.5rem;
+        height: 2.5rem;
+        margin: 0.4rem;
+        cursor: pointer;
+        font-size: 25px;
+        display: none;
+        /* border: solid 1px red; */
+
+      }
+
+      .User-Close-Button{
+        width: 2.5rem;
+        height: 2.5rem;
+        margin: 0.4rem;
+        cursor: pointer;
+        font-size: 25px;
+        /* border: solid 1px red; */
+      }
+
+
+      @media screen and (max-width: 580px){
+        .Dropdown-Menu{
+          display: none;
+        }
+
+        .Navbar-Menu{
+          visibility: hidden;
+        }
+
+        
+        
+        .Navbar ul{
+          padding: 0;
+          margin: 0;
+          display: flex;
+          flex-direction: column;
+          list-style: none;
+          background-color: #212529;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          z-index: 1;
+          align-items: center;
+          justify-content: center;
+          gap: 1.5rem;
+          /* transition: 1s; */
+          transform: translateY(-100vh)
+        }
+
+        .User-Button{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          visibility: visible;
+          /* border: solid 1px red; */
+        }
+
+        .User-Close-Button{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: absolute;
+          top: 2rem;
+          right: 2rem;
+        }
+
+        .responNavbar{
+          position: relative;
+        }
+
+        .responNavbar a{
+          text-decoration: none;
+        }
+
+        .responNavbar li:hover a {
+          color: #DD5900;
+        }
+      }
+
+      @media (min-width: 580px) {
+        .responNavbar{
+          visibility: hidden;
+        }
+      }
