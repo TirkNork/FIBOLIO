@@ -11,12 +11,12 @@ let studentData = [
         score: 90
     },
     {
-        name: 'ccc ddd',
+        name: 'eee fff',
         id: 2,
         score: 55
     },
     {
-        name: 'eee fff',
+        name: 'ccc ddd',
         id: 3,
         score: 80
     },
@@ -42,6 +42,7 @@ function CourseEdit() {
     const navigate = useNavigate();
     const [score, setScore] = useState({ Score: '' });
     const [searchTerm, setSearchTerm] = useState("");
+    const [sortBy, setSortBy] = useState("");
 
     const handleScoreChange = (event) => {
         setScore({ ...score, Score: event.target.value });
@@ -63,11 +64,43 @@ function CourseEdit() {
         delayedSearch(event.target.value);
     };
 
+    const handleSort = (criteria) => {
+        setSortBy(criteria);
+    };
+
+    const sortProjectList = () => {
+        let sortedList = [...studentData];
+        switch (sortBy) {
+            case "studentNameAZ":
+                sortedList.sort((a, b) => a.name.localeCompare(b.name));
+                break;
+            case "studentNameZA":
+                sortedList.sort((a, b) => b.name.localeCompare(a.name));
+                break;
+            case "idDescending":
+                sortedList.sort((a, b) => b.id - a.id);
+                break;
+            case "idAscending":
+                sortedList.sort((a, b) => a.id - b.id);
+                break;
+            default:
+                break;
+        }
+        return sortedList;
+    };
+
     return (
         <div>
             <div className="header">
                 <p className='subject' style={{ marginTop: "10px" }} >{subject}</p>
                 <Search searchTerm={searchTerm} handleSearch={handleSearch} />
+                <select className="sortby" onClick={(event) => handleSort(event.target.value)}>
+                    <option value="">Sort By</option>
+                    <option value="studentNameAZ">Student Name A-Z</option>
+                    <option value="studentNameZA">Student Name Z-A</option>
+                    <option value="idDescending">Student ID Descending</option>
+                    <option value="idAscending">Student ID Ascending</option>
+                </select>
             </div>
             <div className='student-list'>
                 <table className='student-table'>
@@ -77,7 +110,7 @@ function CourseEdit() {
                         <th className='tr'>Score</th>
                         <th className='tr'>New score</th>
                     </tr>
-                    {studentData.filter((project) =>
+                    {sortProjectList().filter((project) =>
                                 project.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                                 project.id.toString().includes(searchTerm)
                             ).map((val) => (

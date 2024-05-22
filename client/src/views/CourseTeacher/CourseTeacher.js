@@ -14,12 +14,12 @@ let studentData = [
         score: 90
     },
     {
-        name: 'ccc ddd',
+        name: 'eee fff',
         id: 2,
         score: 55
     },
     {
-        name: 'eee fff',
+        name: 'ccc ddd',
         id: 3,
         score: 80
     },
@@ -108,6 +108,7 @@ function CourseTeacher() {
     const subject = 'FRA000'
     GradeCalculation();
     const [searchTerm, setSearchTerm] = useState("");
+    const [sortBy, setSortBy] = useState("");
 
     const navigate = useNavigate();
 
@@ -123,6 +124,31 @@ function CourseTeacher() {
         delayedSearch(event.target.value);
     };
 
+    const handleSort = (criteria) => {
+        setSortBy(criteria);
+    };
+
+    const sortProjectList = () => {
+        let sortedList = [...studentData];
+        switch (sortBy) {
+            case "studentNameAZ":
+                sortedList.sort((a, b) => a.name.localeCompare(b.name));
+                break;
+            case "studentNameZA":
+                sortedList.sort((a, b) => b.name.localeCompare(a.name));
+                break;
+            case "idDescending":
+                sortedList.sort((a, b) => b.id - a.id);
+                break;
+            case "idAscending":
+                sortedList.sort((a, b) => a.id - b.id);
+                break;
+            default:
+                break;
+        }
+        return sortedList;
+    };
+
     return (
         <div>
             <div className="header">
@@ -136,10 +162,18 @@ function CourseTeacher() {
                 </ul>
                 <p className='subject'>{subject}</p>
                 <Search searchTerm={searchTerm} handleSearch={handleSearch} />
+                <select className="sortby" onClick={(event) => handleSort(event.target.value)}>
+                    <option value="">Sort By</option>
+                    <option value="studentNameAZ">Student Name A-Z</option>
+                    <option value="studentNameZA">Student Name Z-A</option>
+                    <option value="idDescending">Student ID Descending</option>
+                    <option value="idAscending">Student ID Ascending</option>
+                </select>
             </div>
             <div className='student-list'>
                 <div className="pie-chart">
                     <PieChart
+                        margin={{ bottom: 50 }}
                         series={[
                             {
                                 data: [
@@ -154,8 +188,13 @@ function CourseTeacher() {
                                 ],
                             },
                         ]}
-                        width={470}
-                        height={200}
+                        slotProps={{
+                            legend: {
+                                direction: 'row',
+                                position: { vertical: 'bottom', horizontal: 'left' },
+                                padding: 0,
+                            },
+                        }}
                     />
                 </div>
                 <table className='student-table'>
@@ -165,45 +204,27 @@ function CourseTeacher() {
                         <th className='tr'>Score</th>
                         <th className='tr'>Grade</th>
                     </tr>
-                    {studentData.filter((project) =>
-                                project.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                                project.id.toString().includes(searchTerm)
-                            ).map((val) => (
-                                <tr>
-                                    <td className='td' >{val.name}</td>
-                                    <td className='td'>{val.id}</td>
-                                    <td className='td'>{val.score}</td>
-                                    <td className='td'>{val.grade}</td>
-                                </tr>
-                            ))}
+                    {sortProjectList().filter((project) =>
+                        project.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                        project.id.toString().includes(searchTerm)
+                    ).map((val) => (
+                        <tr>
+                            <td className='td' >{val.name}</td>
+                            <td className='td'>{val.id}</td>
+                            <td className='td'>{val.score}</td>
+                            <td className='td'>{val.grade}</td>
+                        </tr>
+                        
+                    ))}
                 </table>
                 <button className='edit-score' onClick={goToCourseEdit}>
                     Edit
                 </button>
 
-
-
-                {/* {studentData.filter((project) =>
-                                project.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                                project.id.toString().includes(searchTerm) || 
-                                project.score.toLowerCase().includes(searchTerm.toLowerCase()) || 
-                                project.grade.toLowerCase().includes(searchTerm.toLowerCase()) 
-                            ).map((val, key) => (
-                                <div key={key} className="project-container">
-                                    <div className="project-details" onClick={() => goToProjectDetail(val.project_id)}>
-                                        <WidecardProject
-                                            project={val.project_name}
-                                            year={val.project_year}
-                                            course={val.course_id}
-                                            des={val.description}
-                                        />
-                                    </div>
-                                </div>
-                            ))} */}
             </div>
         </div>
     )
 }
 
-
 export default CourseTeacher
+
