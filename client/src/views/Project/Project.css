@@ -449,7 +449,7 @@ h1 {
   background-color: #f5f5f5;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
   .sortby {
       position: absolute;
       right: 0px;
