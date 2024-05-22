@@ -25,7 +25,7 @@ app.get("/testTable", (req, res) => {
 });
 
 
-app.get("/course/:id", (req, res) => {
+app.get("/courses/:id", (req, res) => {
   const id = req.params.id;
   db.query("SELECT * FROM CourseStudent WHERE student_id = ?", [id], (err, result) => {
     if (err) {

@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
+import { useState, useEffect } from "react";
+import Axios from "axios";
 import Coursecard from "../../components/Coursecard";
 import "./Course.css";
 
@@ -19,11 +21,12 @@ const academicYears = ['1/2563', '2/2563', '1/2564', '2/2564', '1/2565', '2/2565
 const grades = ['A', 'B+', 'B', 'C+', 'C', 'D+', 'D', 'F'];
 
 function Course() {
+
+    const [courseList, setCourseList] = useState([]);
     const [selectedYear, setSelectedYear] = useState('');
     const [selectedGrade, setSelectedGrade] = useState('');
     const [sortByYear, setSortByYear] = useState(true); // Default sort by academic year
     const [sortByGradeAsc, setSortByGradeAsc] = useState(true); // Default sort by grade ascending
-
     const handleYearChange = (event) => {
         setSelectedYear(event.target.value);
     };
@@ -58,6 +61,12 @@ function Course() {
             (selectedGrade === '' || data.grade === selectedGrade)
         );
     });
+
+    const getCourseList = () => {
+        Axios.get("http://localhost:3001/courses").then((response) => {
+            setCourseList(response.data);
+        });
+    };
 
     return (
         <div>
