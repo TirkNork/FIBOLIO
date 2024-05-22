@@ -1,3 +1,13 @@
+.wrapper {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../../components/Assets/FIBO.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 .wrapper h1 {
     font-size: 3.6458vw;
     text-align: center;
@@ -14,8 +24,8 @@
     text-align: center;
     color: #fff;
     position: absolute;
-    top: 13.52%;
-    left: 11.45%;
+    top: 9%;
+    left: 11.1%;
 }
 
 .wrapper .Back {
@@ -23,7 +33,16 @@
     text-align: center;
     color: #fff;
     position: absolute;
-    top: 24.074%;
+    top: 19%;
+    left: 11.45%;
+}
+
+.wrapper .FIBOLIO {
+    font-size: 1.5vw;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    top: 41%;
     left: 11.45%;
 }
 
@@ -32,8 +51,8 @@
     text-align: center;
     color: #fff;
     position: absolute;
-    top: 46%;
-    left: 11.46%;
+    top: 47%;
+    left: 11.7%;
 }
 
 .wrapper .Account {
@@ -41,8 +60,8 @@
     text-align: center;
     color: #fff;
     position: absolute;
-    top: 51%;
-    left: 16.40625%;
+    top: 50%;
+    left: 16%;
 }
 
 .wrapper .SignUp {
@@ -50,8 +69,8 @@
     color: #fff;
     position: absolute;
     background: transparent 50%;
-    top: 57%;
-    left: 20.833%;
+    top: 59%;
+    left: 19.3%;
 }
 
 
@@ -71,28 +90,28 @@
     text-align: center;
     color: #fff;
     position: absolute;
-    top: 33.5%;
+    top: 31.4%;
     left: 58.333%;
 }
 
 
 .input-boxname input {
-    width: 31.25%; 
-    height: 3.7037%; 
-    font-size: 0.78125vw;
+    width: 31.25vw; 
+    height: 4.6vh; 
+    font-size: 1.3vw;
     position: absolute;
-    top: 37%;
-    left: 58.333%;
-    border: 2px solid #fff;
-    border-radius: 8px;
+    top: 37vh;
+    left: 58.333vw;
+    border: 0.1041vw solid #fff;
+    border-radius: 0.417vw;
     box-shadow: 0 0 10px rgba(10 , 10, 10, 0.5);
 }
 
 .input-boxname .Icon {
     position: absolute;
-    font-size: 100%;
+    font-size: 0.9vw;
     left: 88.02083%;
-    top: 39% ;
+    top: 39.6% ;
     transform: translateY(-50%);
 } 
 
@@ -101,27 +120,27 @@
     text-align: center;
     color: #fff;
     position: absolute;
-    top: 43.5%;
+    top: 41.7%;
     left: 58.33%;
 }
 
 .input-boxpass input {
     width: 31.25%;
-    height: 3.7037%;
-    font-size: 0.78125vw;
+    height: 4.6%;
+    font-size: 1.3vw;
     position: absolute;
     top: 47%;
     left: 58.333%;
-    border: 2px solid #fff;
-    border-radius: 8px;
+    border: 0.1041vw solid #fff;
+    border-radius: 0.417vw;
     box-shadow: 0 0 10px rgba(10 , 10, 10, 0.5);
 }
 
 .input-boxpass .Icon {
     position: absolute;
-    font-size: 100%;
+    font-size: 0.9vw;
     left: 88.02083%;
-    top: 48.9% ;
+    top: 49.7% ;
     transform: translateY(-50%);
 } 
 
@@ -130,14 +149,35 @@
     text-align: center;
     color: #fff;
     position: absolute;
+    top: 55%;
+    left: 58.33%;
+}
+
+.remember {
+    top: 50%;
+    left: 40%;
+}
+
+.custom-checkbox {
     top: 53.5%;
     left: 58.33%;
+    width: 1vw; /* กำหนดความกว้าง */
+    cursor: pointer; /* เปลี่ยน cursor เมื่ออยู่เหนือ checkbox */
+}
+
+.wrapper .rememberMe {
+    font-size: 1.041667vw;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    top: 53.5vh;
+    left: 60vw;
 }
 
 .wrapper .SignIn {
     color: #dd5900;
     position: absolute;
-    top: 59%;
+    top: 62%;
     left: 58.33%;
 }
 
@@ -154,12 +194,12 @@
 }
 
 .wrapper .forgot {
-    font-size: 0.78125vw;
+    font-size: 0.8vw;
     text-align: center;
     color: #fff;
     position: absolute;
-    top: 66%;
-    left: 58.333%;
+    top: 68%;
+    left: 58.6%;
 }
 
 .wrapper .policy {
@@ -167,8 +207,8 @@
     text-align: center;
     color: #fff;
     position: absolute;
-    top: 80%;
-    left: 65.625%;
+    top: 78%;
+    left: 67%;
 }
 
 .wrapper .accept {
@@ -177,5 +217,33 @@
     color: #fff;
     position: absolute;
     top: 83.5%;
-    left: 65.625%;
+    left: 67.3%;
+}
+
+.error-message {
+    color: red;
+    margin-top: 10px;
+    text-align: center;
+}
+
+@keyframes slideDown {
+    from {
+      top: -50px;
+    }
+    to {
+      top: 20px;
+    }
+  }
+    .popup {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    text-align: center;
 }
