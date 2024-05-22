@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import { debounce } from "lodash";
 import Search from "../../components/Search.js";
 import './CourseEdit.css';
 
@@ -90,15 +91,67 @@ function CourseEdit() {
         }
     };
     
+    const [score, setScore] = useState({ Score: '' });
+    const [searchTerm, setSearchTerm] = useState("");
+    const [sortBy, setSortBy] = useState("");
+
+    const handleScoreChange = (event) => {
+        setScore({ ...score, Score: event.target.value });
+    };
+
+    const updateScore = () => {
+        navigate("/CourseTeacher");
+    }
+
     const backClick = () => {
         navigate(`/CourseTeacher/${id}`);
     }
+
+    const delayedSearch = debounce((value) => {
+        setSearchTerm(value);
+    }, 30);
+
+    const handleSearch = (event) => {
+        delayedSearch(event.target.value);
+    };
+
+    const handleSort = (criteria) => {
+        setSortBy(criteria);
+    };
+
+    const sortProjectList = () => {
+        let sortedList = [...studentData];
+        switch (sortBy) {
+            case "studentNameAZ":
+                sortedList.sort((a, b) => a.name.localeCompare(b.name));
+                break;
+            case "studentNameZA":
+                sortedList.sort((a, b) => b.name.localeCompare(a.name));
+                break;
+            case "idDescending":
+                sortedList.sort((a, b) => b.id - a.id);
+                break;
+            case "idAscending":
+                sortedList.sort((a, b) => a.id - b.id);
+                break;
+            default:
+                break;
+        }
+        return sortedList;
+    };
     
     return (
         <div>
             <div className="header">
-                <p className='subject' style={{ marginTop: "20px" }} >{id}</p>
-                <Search />
+                <p className='subject' style={{ marginTop: "10px" }} >{subject}</p>
+                <Search searchTerm={searchTerm} handleSearch={handleSearch} />
+                <select className="sortby" onClick={(event) => handleSort(event.target.value)}>
+                    <option value="">Sort By</option>
+                    <option value="studentNameAZ">Student Name A-Z</option>
+                    <option value="studentNameZA">Student Name Z-A</option>
+                    <option value="idDescending">Student ID Descending</option>
+                    <option value="idAscending">Student ID Ascending</option>
+                </select>
             </div>
             <div className='student-list'>
                 <table className='student-table'>
@@ -108,20 +161,23 @@ function CourseEdit() {
                         <th className='tr'>Score</th>
                         <th className='tr'>New score</th>
                     </tr>
-                    {studentsData.map((student, index) => (
-                        <tr>
-                            <td className='td' >{student.student_firstname} {student.student_lastname}</td>
-                            <td className='td'>{student.student_id}</td>
-                            <td className='td'>{student.course_student_score}</td>
-                            <td className='td'>
-                                <input 
-                                    className="input-new-score" 
-                                    type="number" 
-                                    onChange={(event) => handleScoreChange(event, index)} 
-                                />
-                            </td>
-                        </tr>
-                    ))}
+                    {sortProjectList().filter((project) =>
+                                project.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                                project.id.toString().includes(searchTerm)
+                            ).map((student, index) => (
+                                <tr>
+                                    <td className='td' >{student.student_firstname} {student.student_lastname}</td>
+                                    <td className='td'>{student.student_id}</td>
+                                    <td className='td'>{student.course_student_score}</td>
+                                    <td className='td'>
+                                        <input 
+                                            className="input-new-score" 
+                                            type="number" 
+                                            onChange={(event) => handleScoreChange(event, index)} 
+                                        />
+                                    </td>
+                                </tr>
+                            ))}
                 </table>
                 <button className='cancel' onClick={() => backClick(id)}>
                     cancel

@@ -1,7 +1,10 @@
 import './Search.css';
 
-function Search(){
-    return <input className='search' type="text" name="search" placeholder='Search by Name or ID' />
+function Search({ searchTerm, handleSearch }) {
+    return (
+        <input className='search' type="text" name="search" value={searchTerm}
+            onChange={handleSearch} placeholder='Search by name or ID' />
+    );
 }
 
 export default Search

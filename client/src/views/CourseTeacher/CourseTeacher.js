@@ -1,12 +1,47 @@
-import './CourseTeacher.css';
-import Search from "../../components/Search.js";
 import * as React from 'react';
+import { useState, useEffect } from "react";
+import './CourseTeacher.css';
 import Axios from "axios";
 import { PieChart } from '@mui/x-charts/PieChart';
-import { useNavigate, useParams } from "react-router-dom";
-import { useState, useEffect} from "react"
+import { useNavigate, useParams  } from "react-router-dom";
+import { debounce } from "lodash";
+import Search from "../../components/Search.js";
 
 
+let studentData = [
+    {
+        name: 'aaa bbb',
+        id: 1,
+        score: 90
+    },
+    {
+        name: 'eee fff',
+        id: 2,
+        score: 55
+    },
+    {
+        name: 'ccc ddd',
+        id: 3,
+        score: 80
+    },
+    {
+        name: 'ggg hhh',
+        id: 4,
+        score: 40
+    },
+    {
+        name: 'iii jjj',
+        id: 5,
+        score: 45
+    },
+    {
+        name: 'kkk lll',
+        id: 6,
+        score: 60
+    }
+]
+
+let grade = []
 
 let a = 0
 let bPlus = 0
@@ -74,11 +109,46 @@ let f = 0
 
 function CourseTeacher() {
     const {id} = useParams();
+    const [searchTerm, setSearchTerm] = useState("");
+    const [sortBy, setSortBy] = useState("");
 
     const navigate = useNavigate();
 
     const goToCourseEdit = () => {
         navigate(`/CourseEdit/${id}`);
+    };
+
+    const delayedSearch = debounce((value) => {
+        setSearchTerm(value);
+    }, 30);
+
+    const handleSearch = (event) => {
+        delayedSearch(event.target.value);
+    };
+
+    const handleSort = (criteria) => {
+        setSortBy(criteria);
+    };
+
+    const sortProjectList = () => {
+        let sortedList = [...studentData];
+        switch (sortBy) {
+            case "studentNameAZ":
+                sortedList.sort((a, b) => a.name.localeCompare(b.name));
+                break;
+            case "studentNameZA":
+                sortedList.sort((a, b) => b.name.localeCompare(a.name));
+                break;
+            case "idDescending":
+                sortedList.sort((a, b) => b.id - a.id);
+                break;
+            case "idAscending":
+                sortedList.sort((a, b) => a.id - b.id);
+                break;
+            default:
+                break;
+        }
+        return sortedList;
     };
 
     const [studentsData, setStudentsData] = useState([]);
@@ -139,11 +209,19 @@ function CourseTeacher() {
                     </li>
                 </ul>
                 <p className='subject'>{id}</p>
-                <Search/>
+                <Search searchTerm={searchTerm} handleSearch={handleSearch} />
+                <select className="sortby" onClick={(event) => handleSort(event.target.value)}>
+                    <option value="">Sort By</option>
+                    <option value="studentNameAZ">Student Name A-Z</option>
+                    <option value="studentNameZA">Student Name Z-A</option>
+                    <option value="idDescending">Student ID Descending</option>
+                    <option value="idAscending">Student ID Ascending</option>
+                </select>
             </div>
             <div className='student-list'>
                 <div className="pie-chart">
                     <PieChart
+                        margin={{ bottom: 50 }}
                         series={[
                             {
                                 data: [
@@ -158,8 +236,13 @@ function CourseTeacher() {
                                 ],
                             },
                         ]}
-                        width={470}
-                        height={200}
+                        slotProps={{
+                            legend: {
+                                direction: 'row',
+                                position: { vertical: 'bottom', horizontal: 'left' },
+                                padding: 0,
+                            },
+                        }}
                     />
                 </div>
                 <table className='student-table'>
@@ -169,22 +252,27 @@ function CourseTeacher() {
                         <th className='tr'>Score</th>
                         <th className='tr'>Grade</th>
                     </tr>
-                    {studentsData.map((student) => (
+                    {sortProjectList().filter((project) =>
+                        project.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                        project.id.toString().includes(searchTerm)
+                    ).map((student) => (
                         <tr>
                             <td className='td' >{student.student_firstname} {student.student_lastname}</td>
                             <td className='td'>{student.student_id}</td>
                             <td className='td'>{student.course_student_score}</td>
                             <td className='td'>{student.course_student_grade}</td>
                         </tr>
+                        
                     ))}
                 </table>
                 <button className='edit-score' onClick={() => goToCourseEdit()}>
                     Edit
                 </button>
+
             </div>
         </div>
     )
 }
 
-
 export default CourseTeacher
+
