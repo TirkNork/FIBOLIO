@@ -10,8 +10,7 @@ function CourseEdit() {
 
     const [studentsData, setStudentsData] = useState([]);
     const [new_score, setNew_score] = useState([]);
-    const [score, setScore] = useState([]);
-    
+
 
     const handleScoreChange = (event, index) => {
         const {name, value} = event.target;
@@ -20,7 +19,6 @@ function CourseEdit() {
         // console.log('student score changed : ' + new_score[index].student_id);
 
         // setNew_score({...newscore, score : event.target.value});
-        const arrayy = [];
         setNew_score((prevScore) => { 
             const studentID_score_changed = new_score[index].student_id
             // const index_changed = prevScore.findIndex(new_score => new_score.course_student_score !== studentId);
@@ -34,13 +32,37 @@ function CourseEdit() {
 
     };
 
+    const calculateNewGrade = (scores) => {
+        return scores.map((newscore) => {
+            if (newscore.course_student_score >= 85 && newscore.course_student_score <= 100) 
+                return {...newscore, course_student_grade : 'A'};
+            else if (newscore.course_student_score >= 80 && newscore.course_student_score <= 84) 
+                return {...newscore, course_student_grade : 'B+'};
+            else if (newscore.course_student_score >= 75 && newscore.course_student_score <= 79) 
+                return {...newscore, course_student_grade : 'B'};
+            else if (newscore.course_student_score >= 70 && newscore.course_student_score <= 74) 
+                return {...newscore, course_student_grade : 'C+'};
+            else if (newscore.course_student_score >= 65 && newscore.course_student_score <= 69) 
+                return {...newscore, course_student_grade : 'C'};
+            else if (newscore.course_student_score >= 60 && newscore.course_student_score <= 64) 
+                return {...newscore, course_student_grade : 'D+'};
+            else if (newscore.course_student_score >= 55 && newscore.course_student_score <= 59) 
+                return {...newscore, course_student_grade : 'D'};
+            else if (newscore.course_student_score >= 0 && newscore.course_student_score <= 54) 
+                return {...newscore, course_student_grade : 'F'};
+        
+            return {...newscore, course_student_grade : 'No Grade'};
+        });
+    };
+    
+
     useEffect(() => {
         getStudentsData();
 
     }, [id]); 
 
     useEffect(() => {
-        console.log('last Score changed ' , new_score);
+        console.log('Score changed ' , new_score);
     }, [new_score]);
 
 
@@ -50,21 +72,22 @@ function CourseEdit() {
         setStudentsData(response.data);
         setNew_score(response.data);
     });
-        
     };
 
     
-    const updateStudentsScore = () => {
-        console.log('New scores before sending:', new_score);
-    
-        Axios.post(`http://localhost:3001/updateScore/${id}`, new_score)
-            .then((response) => {
-                console.log('Response:', response.data);
-                navigate(`/CourseTeacher/${id}`);
-            })
-            .catch((error) => {
-                console.error("There was an error updating the project!", error);
-            });
+    const updateStudentsScore = async () => {
+        try {
+            // Calculate the new grades by awaiting the promise
+            const updatedScores = await calculateNewGrade(new_score);
+            console.log('New scores before sending:', updatedScores);
+            
+            // Now, updatedScores contains the actual updated scores
+            const response = await Axios.post(`http://localhost:3001/updateScore/${id}`, updatedScores);
+            console.log('Response:', response.data);
+            navigate(`/CourseTeacher/${id}`);
+        } catch (error) {
+            console.error("There was an error updating the project!", error);
+        }
     };
     
     const backClick = () => {

@@ -7,7 +7,6 @@ app.use(cors());
 app.use(express.json());
 
 const PORT = process.env.PORT || 3001;
-
 const db = mysql.createConnection({
     user: "root",
     host: "35.187.247.214",
@@ -69,15 +68,15 @@ app.post("/updateScore/:id", (req, res) => {
 
         const updatePromises = scores.map(score => {
             return new Promise((resolve, reject) => {
-                const { student_firstname, student_lastname, student_id, course_student_score } = score;
+                const { student_firstname, student_lastname, student_id, course_student_score, course_student_grade } = score;
                 const sql = `
                     UPDATE fra502test.CourseStudent 
-                    SET course_student_score = ?
+                    SET course_student_score = ?, course_student_grade = ?
                     WHERE course_id = ? 
                     AND student_id = ?;
                 `;
 
-                db.query(sql, [course_student_score, id, student_id], (err, results) => {
+                db.query(sql, [course_student_score, course_student_grade, id, student_id], (err, results) => {
                     if (err) {
                         return reject(err);
                     }
