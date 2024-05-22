@@ -24,10 +24,10 @@ app.get("/testTable", (req, res) => {
   });
 });
 
-// Ex. for query with parameter
-app.get("/testTable/:age", (req, res) => {
-  const age = req.params.age;
-  db.query("SELECT * FROM testTable WHERE age > ?", [age], (err, result) => {
+
+app.get("/course/:id", (req, res) => {
+  const id = req.params.id;
+  db.query("SELECT * FROM CourseStudent WHERE student_id = ?", [id], (err, result) => {
     if (err) {
       console.log(err);
     } else {
