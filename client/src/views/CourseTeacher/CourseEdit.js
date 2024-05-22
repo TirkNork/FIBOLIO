@@ -11,6 +11,9 @@ function CourseEdit() {
 
     const [studentsData, setStudentsData] = useState([]);
     const [new_score, setNew_score] = useState([]);
+    const [score, setScore] = useState({ Score: '' });
+    const [searchTerm, setSearchTerm] = useState("");
+    const [sortBy, setSortBy] = useState("");
 
 
     const handleScoreChange = (event, index) => {
@@ -91,17 +94,15 @@ function CourseEdit() {
         }
     };
     
-    const [score, setScore] = useState({ Score: '' });
-    const [searchTerm, setSearchTerm] = useState("");
-    const [sortBy, setSortBy] = useState("");
+ 
 
-    const handleScoreChange = (event) => {
-        setScore({ ...score, Score: event.target.value });
-    };
+    // const handleScoreChange = (event) => {
+    //     setScore({ ...score, Score: event.target.value });
+    // };
 
-    const updateScore = () => {
-        navigate("/CourseTeacher");
-    }
+    // const updateScore = () => {
+    //     navigate("/CourseTeacher");
+    // }
 
     const backClick = () => {
         navigate(`/CourseTeacher/${id}`);
@@ -120,19 +121,19 @@ function CourseEdit() {
     };
 
     const sortProjectList = () => {
-        let sortedList = [...studentData];
+        let sortedList = [...studentsData];
         switch (sortBy) {
             case "studentNameAZ":
-                sortedList.sort((a, b) => a.name.localeCompare(b.name));
+                sortedList.sort((a, b) => a.student_firstname.localeCompare(b.student_firstname));
                 break;
             case "studentNameZA":
-                sortedList.sort((a, b) => b.name.localeCompare(a.name));
+                sortedList.sort((a, b) => b.student_firstname.localeCompare(a.student_firstname));
                 break;
             case "idDescending":
-                sortedList.sort((a, b) => b.id - a.id);
+                sortedList.sort((a, b) => b.student_id - a.student_id);
                 break;
             case "idAscending":
-                sortedList.sort((a, b) => a.id - b.id);
+                sortedList.sort((a, b) => a.student_id - b.student_id);
                 break;
             default:
                 break;
@@ -143,7 +144,7 @@ function CourseEdit() {
     return (
         <div>
             <div className="header">
-                <p className='subject' style={{ marginTop: "10px" }} >{subject}</p>
+                <p className='subject' style={{ marginTop: "10px" }} >{id}</p>
                 <Search searchTerm={searchTerm} handleSearch={handleSearch} />
                 <select className="sortby" onClick={(event) => handleSort(event.target.value)}>
                     <option value="">Sort By</option>
@@ -162,11 +163,12 @@ function CourseEdit() {
                         <th className='tr'>New score</th>
                     </tr>
                     {sortProjectList().filter((project) =>
-                                project.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                                project.id.toString().includes(searchTerm)
+                                project.student_firstname.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                                project.student_surname.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                                project.student_id.toString().includes(searchTerm)
                             ).map((student, index) => (
                                 <tr>
-                                    <td className='td' >{student.student_firstname} {student.student_lastname}</td>
+                                    <td className='td' >{student.student_firstname} {student.student_surname}</td>
                                     <td className='td'>{student.student_id}</td>
                                     <td className='td'>{student.course_student_score}</td>
                                     <td className='td'>

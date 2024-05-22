@@ -8,40 +8,40 @@ import { debounce } from "lodash";
 import Search from "../../components/Search.js";
 
 
-let studentData = [
-    {
-        name: 'aaa bbb',
-        id: 1,
-        score: 90
-    },
-    {
-        name: 'eee fff',
-        id: 2,
-        score: 55
-    },
-    {
-        name: 'ccc ddd',
-        id: 3,
-        score: 80
-    },
-    {
-        name: 'ggg hhh',
-        id: 4,
-        score: 40
-    },
-    {
-        name: 'iii jjj',
-        id: 5,
-        score: 45
-    },
-    {
-        name: 'kkk lll',
-        id: 6,
-        score: 60
-    }
-]
+// let studentData = [
+//     {
+//         name: 'aaa bbb',
+//         id: 1,
+//         score: 90
+//     },
+//     {
+//         name: 'eee fff',
+//         id: 2,
+//         score: 55
+//     },
+//     {
+//         name: 'ccc ddd',
+//         id: 3,
+//         score: 80
+//     },
+//     {
+//         name: 'ggg hhh',
+//         id: 4,
+//         score: 40
+//     },
+//     {
+//         name: 'iii jjj',
+//         id: 5,
+//         score: 45
+//     },
+//     {
+//         name: 'kkk lll',
+//         id: 6,
+//         score: 60
+//     }
+// ]
 
-let grade = []
+// let grade = []
 
 let a = 0
 let bPlus = 0
@@ -111,6 +111,8 @@ function CourseTeacher() {
     const {id} = useParams();
     const [searchTerm, setSearchTerm] = useState("");
     const [sortBy, setSortBy] = useState("");
+    const [studentsData, setStudentsData] = useState([]);
+
 
     const navigate = useNavigate();
 
@@ -131,19 +133,19 @@ function CourseTeacher() {
     };
 
     const sortProjectList = () => {
-        let sortedList = [...studentData];
+        let sortedList = [...studentsData];
         switch (sortBy) {
             case "studentNameAZ":
-                sortedList.sort((a, b) => a.name.localeCompare(b.name));
+                sortedList.sort((a, b) => a.student_firstname.localeCompare(b.student_firstname));
                 break;
             case "studentNameZA":
-                sortedList.sort((a, b) => b.name.localeCompare(a.name));
+                sortedList.sort((a, b) => b.student_firstname.localeCompare(a.student_firstname));
                 break;
             case "idDescending":
-                sortedList.sort((a, b) => b.id - a.id);
+                sortedList.sort((a, b) => b.student_id - a.student_id);
                 break;
             case "idAscending":
-                sortedList.sort((a, b) => a.id - b.id);
+                sortedList.sort((a, b) => a.student_id - b.student_id);
                 break;
             default:
                 break;
@@ -151,7 +153,6 @@ function CourseTeacher() {
         return sortedList;
     };
 
-    const [studentsData, setStudentsData] = useState([]);
     
 
     useEffect(() => {
@@ -253,11 +254,12 @@ function CourseTeacher() {
                         <th className='tr'>Grade</th>
                     </tr>
                     {sortProjectList().filter((project) =>
-                        project.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                        project.id.toString().includes(searchTerm)
+                        project.student_firstname.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                        project.student_surname.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                        project.student_id.toString().includes(searchTerm)
                     ).map((student) => (
                         <tr>
-                            <td className='td' >{student.student_firstname} {student.student_lastname}</td>
+                            <td className='td' >{student.student_firstname} {student.student_surname}</td>
                             <td className='td'>{student.student_id}</td>
                             <td className='td'>{student.course_student_score}</td>
                             <td className='td'>{student.course_student_grade}</td>
