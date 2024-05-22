@@ -17,9 +17,11 @@ function SubjectScore() {
         <div className="subject-page">
 
             <Topbar></Topbar>
-            <Search></Search>
-            <div className="mid-bar">
+
+            <div className="header">
+
                 <h1 className="header-text">Mechanical Courses</h1>
+
             </div>
 
             <div className="app-grid">

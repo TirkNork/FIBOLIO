@@ -11,6 +11,7 @@
 
 .subject-page {
   background-color: #F1F1F1;
+
 }
 
 .top-bar {
@@ -32,15 +33,23 @@
 }
 
 .header-text {
-  text-align: left;
+  text-align: center;
   padding-left: 80px;
-  padding-top: 20px;
+  padding-top: 50px;
   font-size: 48px;
   font-family: Montserrat;
   color: #E47A33;
+  margin-top: 0px;
+  position: absolute;
+
 }
 
-.mid-bar {
-  background-color: #F1F1F1;
-  height: 100px;
+
+.header {
+  position: relative;
+  height: 160px;
+  width: 100%;
+  background: #E3E3E3;
+  margin-top: 0px;
+
 }
