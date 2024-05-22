@@ -4,6 +4,8 @@ import Axios from "axios";
 import "./Project.css";
 import Cross from "../../assets/images/cancel.png";
 
+const serverIP = 'http://localhost:3001'
+
 function ProjectInsert() {
   const navigate = useNavigate();
 
@@ -83,7 +85,7 @@ function ProjectInsert() {
     formData.append("file", image);
 
     try {
-      const response = await Axios.post("http://localhost:3001/insertProjects", formData, {
+      const response = await Axios.post(`${serverIP}/insertProjects`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

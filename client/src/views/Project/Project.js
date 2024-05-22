@@ -8,7 +8,7 @@ import Dot from "../../assets/images/icons8-more-53.png"
 import { debounce } from "lodash";
 import Search from "../../components/Search/Search.js";
 
-
+const serverIP = 'http://localhost:3001'
 
 const mockData = [
     {
@@ -78,7 +78,7 @@ function Project() {
 
     const handleConfirmDelete = (id) => {
         setShowDeleteConfirmation(false);
-        Axios.delete(`http://localhost:3001/delProject/${id}`).then((response) => {
+        Axios.delete(`${serverIP}/delProject/${id}`).then((response) => {
             navigate("/Project");
             setProjectList(
                 projectList.filter((val) => {
@@ -93,7 +93,7 @@ function Project() {
     }, []);
 
     const getProjectList = () => {
-        Axios.get("http://localhost:3001/projects").then((response) => {
+        Axios.get(`${serverIP}/projects`).then((response) => {
             setProjectList(response.data);
         });
     };

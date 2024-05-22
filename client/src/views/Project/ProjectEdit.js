@@ -3,6 +3,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import Axios from "axios";
 import Cross from "../../assets/images/cancel.png";
 
+const serverIP = 'http://localhost:3001'
+
 function ProjectEdit() {
   const navigate = useNavigate();
   const { id } = useParams();
@@ -44,7 +46,7 @@ function ProjectEdit() {
   };
 
   const getProject = () => {
-    Axios.get(`http://localhost:3001/projects/${id}`).then((response) => {
+    Axios.get(`${serverIP}/projects/${id}`).then((response) => {
       setProject({
         ...project,
         project_id: response.data[0].project_id,
@@ -93,7 +95,7 @@ function ProjectEdit() {
     formData.append("description", project.description);
     formData.append("file", image);
 
-    Axios.put(`http://localhost:3001/updateProject/${id}`, formData, {
+    Axios.put(`${serverIP}/updateProject/${id}`, formData, {
       headers: {
         "Content-Type": "multipart/form-data",
       },

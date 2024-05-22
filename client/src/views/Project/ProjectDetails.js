@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import Axios from "axios";
 import Cross from "../../assets/images/cancel.png";
 
+const serverIP = 'http://localhost:3001'
+
 function ProjectDetails() {
     const {id} = useParams();
     const [project, setProject] = useState([]);
@@ -33,7 +35,7 @@ function ProjectDetails() {
 
     const handleConfirmDelete = (id) => {
         setShowDeleteConfirmation(false);
-        Axios.delete(`http://localhost:3001/delProject/${id}`).then((response) => {
+        Axios.delete(`${serverIP}/delProject/${id}`).then((response) => {
             navigate("/Project");
             setProjectList(
                 projectList.filter((val) => {
@@ -48,7 +50,7 @@ function ProjectDetails() {
     }, []);
 
     const getProjectList = () => {
-        Axios.get("http://localhost:3001/projects").then((response) => {
+        Axios.get(`${serverIP}/projects`).then((response) => {
             setProjectList(response.data);
         });
     };
@@ -59,7 +61,7 @@ function ProjectDetails() {
     }, [id]);
     
     const getProject = () => {
-        Axios.get(`http://localhost:3001/projects/${id}`).then((response) => {
+        Axios.get(`${serverIP}/projects/${id}`).then((response) => {
             setProject(response.data);
         });
     };
