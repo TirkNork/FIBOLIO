@@ -47,11 +47,6 @@ app.get("/projects", (req, res) => {
       console.error(err);
       return res.status(500).send("Error fetching projects from the database.");
     }
-    
-    // Check if there are no projects found
-    if (result.length === 0) {
-      return res.status(404).send("No projects found.");
-    }
 
     res.status(200).send(result); // Return the projects
   });
@@ -138,24 +133,108 @@ app.post("/insertProjects", upload.single("file"), (req, res) => {
 });
 
 
-
-// Existing endpoints for updating and deleting projects
-app.put("/updateProject/:id", (req, res) => {
+app.put("/updateProject/:id", upload.single("file"), (req, res) => {
   const id = req.params.id;
-  const { project_name, project_year, course_id, description, img_path } = req.body;
-  db.query(
-    "UPDATE Projects SET project_name = ?, project_year = ?, course_id = ?, description = ?, img_path = ? WHERE project_id = ?",
-    [project_name, project_year, course_id, description, img_path, id],
-    (err, results) => {
+  const { project_name, project_year, course_id, description } = req.body;
+  const file = req.file;
+  if (file) {
+    // Step 1: Fetch the current image path from the database
+    db.query("SELECT student_id, img_path FROM Projects WHERE project_id = ?", [id], (err, result) => {
       if (err) {
-        console.log(err);
-      } else {
-        res.send(results);
+        console.error(err);
+        return res.status(500).send("Error fetching project details from the database.");
+      }
+  
+      if (result.length === 0) {
+        return res.status(404).send("Project not found.");
+      }
+  
+      const studentId = result[0].student_id;
+      const oldImgPath = result[0].img_path;
+  
+      // Step 2: Delete the old image from GCS
+      const oldFile = bucket.file('project/' + oldImgPath.split("/").slice(-2).join("/"))
+      oldFile.delete((err) => {
+        if (err) {
+          console.error("Error deleting old image from GCS:", err);
+          return res.status(500).send("Error deleting old image from GCS.");
+        }
+  
+        console.log("Old image deleted successfully.");
+  
+        // Step 3: Upload the new image to GCS
+        const timestamp = Date.now(); // Use timestamp as a unique identifier
+        const uniqueFilename = `${project_name}_${timestamp}`; // Append the timestamp to the original filename
+        const folderPath = `project/${studentId}/`;
+        const newFilePath = folderPath + uniqueFilename;
+  
+        const blob = bucket.file(newFilePath);
+        const blobStream = blob.createWriteStream();
+  
+        blobStream.on("error", (err) => {
+          console.error("Error uploading new image to GCS:", err);
+          return res.status(500).send("Error uploading new image to GCS.");
+        });
+  
+        blobStream.on("finish", () => {
+          const newImgUrl = `https://storage.googleapis.com/${bucket.name}/${blob.name}`;
+  
+          // Step 4: Update the project details in the database
+          db.query(
+            "UPDATE Projects SET project_name = ?, project_year = ?, course_id = ?, description = ?, img_path = ? WHERE project_id = ?",
+            [project_name, project_year, course_id, description, newImgUrl, id],
+            (err, results) => {
+              if (err) {
+                console.error("Error updating project in database:", err);
+                return res.status(500).send("Error updating project in database.");
+              }
+  
+              res.status(200).send("Project updated successfully.");
+              console.log("Project Updated");
+            }
+          );
+        });
+  
+        blobStream.end(file.buffer);
+      });
+    });
+  }
+  else{
+    db.query(
+      "UPDATE Projects SET project_name = ?, project_year = ?, course_id = ?, description = ? WHERE project_id = ?",
+      [project_name, project_year, course_id, description, id],
+      (err, results) => {
+        if (err) {
+          console.error("Error updating project in database:", err);
+          return res.status(500).send("Error updating project in database.");
+        }
+
+        res.status(200).send("Project updated successfully.");
         console.log("Project Updated");
       }
-    }
-  );
+    );
+
+  }
+
 });
+
+// // Existing endpoints for updating and deleting projects
+// app.put("/updateProject/:id", (req, res) => {
+//   const id = req.params.id;
+//   const { project_name, project_year, course_id, description, img_path } = req.body;
+//   db.query(
+//     "UPDATE Projects SET project_name = ?, project_year = ?, course_id = ?, description = ?, img_path = ? WHERE project_id = ?",
+//     [project_name, project_year, course_id, description, img_path, id],
+//     (err, results) => {
+//       if (err) {
+//         console.log(err);
+//       } else {
+//         res.send(results);
+//         console.log("Project Updated");
+//       }
+//     }
+//   );
+// });
 
 app.delete("/delProject/:id", (req, res) => {
   const id = req.params.id;

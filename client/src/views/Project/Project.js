@@ -34,8 +34,8 @@ function Project() {
     const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
     const [projectIdToDelete, setProjectIdToDelete] = useState(null);
     const [searchTerm, setSearchTerm] = useState("");
-    const [sortBy, setSortBy] = useState(""); 
-    const [sortOrder, setSortOrder] = useState(""); 
+    const [sortBy, setSortBy] = useState("");
+    const [sortOrder, setSortOrder] = useState("");
 
     const goToProjectDetail = (id) => {
         navigate(`/Project/${id}`);
@@ -136,18 +136,31 @@ function Project() {
         <div>
             <div className="header">
                 <h1>Project</h1>
+                <br />
+                <ul className='breadcrumb'>
+                    <li className='breadcrumb-list'>
+                        <a className='home' href='/Project'>Project/</a>
+                    </li>
+                </ul>
+                <select className="sortby" onClick={(event) => handleSort(event.target.value.split("_")[0], event.target.value.split("_")[1])}>
+                        <option value="">Sort By</option>
+                        <option value="projectNameAZ">Project Name A-Z</option>
+                        <option value="projectNameZA">Project Name Z-A</option>
+                        <option value="yearDescending">Year Descending</option>
+                        <option value="yearAscending">Year Ascending</option>
+                    </select>
                 <Search searchTerm={searchTerm} handleSearch={handleSearch} />
                 <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'></link>
             </div>
             <div className="other-page">
                 <div>
-                    <select className="sortby" onClick={(event) => handleSort(event.target.value.split("_")[0], event.target.value.split("_")[1])}>
-                    <option value="">Sort By</option>
-                    <option value="projectNameAZ">Project Name A-Z</option>
-                    <option value="projectNameZA">Project Name Z-A</option>
-                    <option value="yearDescending">Year Descending</option>
-                    <option value="yearAscending">Year Ascending</option>
-                </select>
+                    {/* <select className="sortby" onClick={(event) => handleSort(event.target.value.split("_")[0], event.target.value.split("_")[1])}>
+                        <option value="">Sort By</option>
+                        <option value="projectNameAZ">Project Name A-Z</option>
+                        <option value="projectNameZA">Project Name Z-A</option>
+                        <option value="yearDescending">Year Descending</option>
+                        <option value="yearAscending">Year Ascending</option>
+                    </select> */}
 
                     <div className="row">
                         {/* {mockData.map((val, key) => (
@@ -178,9 +191,9 @@ function Project() {
                         {sortProjectList()
                             .filter((project) =>
                                 project.project_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                                project.project_year.toString().includes(searchTerm) || 
-                                project.course_id.toLowerCase().includes(searchTerm.toLowerCase()) || 
-                                project.description.toLowerCase().includes(searchTerm.toLowerCase()) 
+                                project.project_year.toString().includes(searchTerm) ||
+                                project.course_id.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                                project.description.toLowerCase().includes(searchTerm.toLowerCase())
                             ).map((val, key) => (
                                 <div key={key} className="project-container">
                                     <div className="project-details" onClick={() => goToProjectDetail(val.project_id)}>

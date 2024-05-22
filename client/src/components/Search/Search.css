@@ -7,6 +7,14 @@
     border: 2px solid #DD5900;
     border-radius: 5px;
     padding-left: 0.9375rem;
-    margin-right: 13%;
+    margin-right: 100px;
     margin-top: 40px;
 }
+
+@media (max-width: 768px) {
+    .search {
+        margin-right: 20px;
+        top: -60px;
+        width: 130px;
+    }
+  }
