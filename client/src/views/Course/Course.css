@@ -1,12 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;600&display=swap');
-
-body {
-    font-family: 'Kanit', sans-serif;
-    background-color: #f7f7f7;
-    margin: 0;
-    padding: 0;
-}
-
 .header {
     display: flex;
     justify-content: center;
@@ -22,128 +13,34 @@ body {
     margin: 0;
 }
 
-.header2 {
+/* .controls {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #e3e3e3;
-    padding: 15px 20px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 0 0 5px 5px;
-}
-
-.dropdown-label {
-    font-size: 18px;
-    margin-right: 10px;
-}
-
-.dropdown-menu {
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    background-color: white;
-    cursor: pointer;
-    outline: none;
-    transition: background-color 0.3s, color 0.3s;
-    margin-left: 10px;
-}
-
-.dropdown-menu:hover {
-    background-color: #DD5900;
-    color: #fff;
-}
+    margin: 20px 0;
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px;
+} */
 
 .other-page {
     padding: 20px;
+    
 }
 
 .grid-container {
-    display: grid;
-    grid-gap: 20px;
-}
-
-/* For screens larger than 1024px, show maximum of 4 columns */
-@media (min-width: 1024px) {
-    .grid-container {
-        grid-template-columns: repeat(3, minmax(200px, 1fr));
-    }
-}
-
-/* For screens between 768px and 1024px, show maximum of 3 columns */
-@media (max-width: 1023px) and (min-width: 768px) {
-    .grid-container {
-        grid-template-columns: repeat(2, minmax(200px, 1fr));
-    }
-}
-
-/* For screens smaller than 768px, let it auto fit */
-@media (max-width: 767px) {
-    .grid-container {
-        grid-template-columns: repeat(1, minmax(200px, 1fr));
-    }
-}
-
-
-
-
-.coursecard {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 120px;
-    padding: 1rem;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    background: #E3E3E3;
-    box-shadow: 3px 3px 10px #a7a7a7;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
+    flex-wrap: wrap;
+    justify-content: start;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.coursecard:hover {
-    background: #DD5900;
-    color: #fff;
-}
-
-.left-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.right-content {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-}
-
-.course-id {
-    font-weight: bold;
-    margin-right: 5px;
-    margin-bottom: 5px;
-}
-
-.academic-year {
-    color: #555;
-}
-
-.course-name {
-    font-weight: bold;
-}
-
-.gradetext {
-    font-size: 24px;
-    color: #555;
-}
-
-@media (max-width: 600px) {
-    .header h1 {
-        font-size: 24px;
-    }
-
-    .coursecard {
-        height: 80px;
-        font-size: 14px;
+@media (max-width: 768px) {
+    .grid-container {
+        flex-direction: column;
+        align-items: center;
     }
 }
