@@ -76,22 +76,22 @@ function GradeCalculation(studentsData) {
 
 function CourseTeacher() {
     const {id} = useParams();
-    console.log({id});
-    const subject = 'FRA100'
 
     const navigate = useNavigate();
 
     const goToCourseEdit = () => {
-        navigate("/CourseEdit");
+        console.log('navigate used')
+        navigate(`/CourseEdit/${id}`);
     };
 
     const [studentsData, setStudentsData] = useState([]);
 
 
     useEffect(() => {
+
         getStudentsData();
         console.log('Get Data');
-    }, [id]);
+    }, []);
 
     const getStudentsData = () => {
         Axios.get(`http://localhost:3001/students/${id}`).then((response) => {
@@ -113,10 +113,10 @@ function CourseTeacher() {
                         <a className='home' href='/'>My class</a>
                     </li>
                     <li className='breadcrumb-list'>
-                        <p className='current-page'> <b>{subject}</b> </p>
+                        <p className='current-page'> <b>{id}</b> </p>
                     </li>
                 </ul>
-                <p className='subject'>{subject}</p>
+                <p className='subject'>{id}</p>
                 <Search/>
             </div>
             <div className='student-list'>
@@ -149,14 +149,14 @@ function CourseTeacher() {
                     </tr>
                     {studentsData.map((student) => (
                         <tr>
-                            <td className='td' >{student.first_name} {student.last_name}</td>
+                            <td className='td' >{student.student_firstname} {student.student_lastname}</td>
                             <td className='td'>{student.student_id}</td>
                             <td className='td'>{student.course_student_score}</td>
-                            <td className='td'>{student.grade}</td>
+                            <td className='td'>{student.course_student_grade}</td>
                         </tr>
                     ))}
                 </table>
-                <button className='edit-score' onClick={goToCourseEdit}>
+                <button className='edit-score' onClick={() => goToCourseEdit()}>
                     Edit
                 </button>
             </div>

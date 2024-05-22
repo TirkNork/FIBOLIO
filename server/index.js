@@ -39,9 +39,8 @@ const data = [
 
 app.get("/students/:id", (req, res) => {
     const id = req.params.id;
-    const sub = 'FRA100';
     const sql = `
-                SELECT c.student_id, c.course_student_score, p.student_firstname, p.student_surname 
+                SELECT c.student_id, c.course_student_score, c.course_student_grade, p.student_firstname, p.student_surname 
                 FROM fra502test.Personal_Information as p
                 JOIN fra502test.CourseStudent as c ON c.student_id = p.student_id
                 WHERE c.course_id = ?
@@ -58,26 +57,84 @@ app.get("/students/:id", (req, res) => {
     });
 });
 
-// app.get('/students', (req, res) => {
-//     res.json(data)
-// });
+app.post("/updateScore/:id", (req, res) => {
+    const id = req.params.id;
+    const scores = req.body; // Assuming req.body is an array of score objects
 
-// app.put("/updateScore/:id", (req, res) => {
+    // Start a transaction
+    db.beginTransaction(err => {
+        if (err) {
+            return res.status(500).send({ error: "An error occurred while starting the transaction." });
+        }
+
+        const updatePromises = scores.map(score => {
+            return new Promise((resolve, reject) => {
+                const { student_firstname, student_lastname, student_id, course_student_score } = score;
+                const sql = `
+                    UPDATE fra502test.CourseStudent 
+                    SET course_student_score = ?
+                    WHERE course_id = ? 
+                    AND student_id = ?;
+                `;
+
+                db.query(sql, [course_student_score, id, student_id], (err, results) => {
+                    if (err) {
+                        return reject(err);
+                    }
+                    resolve(results);
+                });
+            });
+        });
+
+        Promise.all(updatePromises)
+            .then(results => {
+                // Commit the transaction if all updates succeed
+                db.commit(err => {
+                    if (err) {
+                        return db.rollback(() => {
+                            res.status(500).send({ error: "An error occurred while committing the transaction." });
+                        });
+                    }
+                    res.json({
+                        message: 'Scores updated successfully',
+                        results
+                    });
+                });
+            })
+            .catch(error => {
+                // Rollback the transaction in case of any failure
+                db.rollback(() => {
+                    console.error("There was an error updating the project!", error);
+                    res.status(500).send({ error: "An error occurred while updating the scores." });
+                });
+            });
+    });
+});
+
+
+// app.post("/updateScore/:id", (req, res) => {
 //     const id = req.params.id
-//     const {first_name, last_year, student_id, score} = req.body;
-//     res.json({first_name, last_year, student_id, score})
-//     // db.query(
-//     //   "UPDATE Projects SET project_name = ?, project_year = ?, course_id = ?, description = ?, img_path = ? WHERE project_id = ?",
-//     //   [project_name, project_year, course_id, description, img_path, id],
-//     //   (err, results) => {
-//     //     if (err) {
-//     //       console.log(err)
-//     //     } else {
-//     //       res.send(results)
-//     //       console.log('Project Updated')
-//     //     }
-//     //   }
-//     // )
+//     const {student_firstname, student_lastname, student_id, course_student_score} = req.body;
+
+//     res.json({student_firstname, student_lastname, student_id, course_student_score})
+
+//     const sql = `
+//                 UPDATE fra502test.CourseStudent as c 
+//                 SET course_student_score = ?
+//                 WHERE course_id = ? 
+//                 AND student_id = ?;
+//                 `
+                
+//     db.query(sql, [course_student_score, id, student_id],
+//       (err, results) => {
+//         if (err) {
+//           console.log(err)
+//         } else {
+//           res.send(results)
+//           console.log('Score Updated')
+//         }
+//       }
+//     )
 //   })
 
 app.listen(PORT, () => {
