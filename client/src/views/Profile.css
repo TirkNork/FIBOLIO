@@ -1,0 +1,186 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url('../font/Poppins-Medium.ttf') format('truetype');
+    /* Add additional font weights and styles if needed */
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .Profile {
+    font-family: 'Poppins', Arial, sans-serif;
+    text-align: center;
+    position: relative;
+    background-color: #F1F1F1;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh; /* 100% height */
+  }
+  
+  .container {
+    width: 1250px;
+    display: flex;
+    justify-content: center; /* Center the flex items horizontally */
+    margin: 0 auto; /* Center the container on the page */
+  }
+  
+  .section {
+    height: 500px; /* Adjust height as needed */
+    margin-top: 70px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+  }
+  
+  /* Odd sections occupy 1/3 of the container's width */
+  .section:nth-child(odd) {
+    flex: 1; /* Occupy one-third of the container's width */
+  }
+  
+  /* Even sections occupy 2/3 of the container's width */
+  .section:nth-child(even) {
+    flex: 2; /* Occupy two-thirds of the container's width */
+  }
+  
+  /* Style for demonstration purposes */
+  .section:nth-child(odd) {
+    background-color: #f1f1f1; /* Lighter gray for odd sections */
+  }
+  
+  .section:nth-child(even) {
+    background-color: #ffffff; /* Even lighter gray for even sections */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add drop shadow */
+  }
+  /* Style links */
+  .button-a {
+    background: none; /* ลบพื้นหลังปุ่ม */
+    border: none; /* ลบกรอบปุ่ม */
+    padding: 0; /* ลบ padding */
+    cursor: pointer; /* เปลี่ยนเคอร์เซอร์เป็น pointer เมื่อ hover */
+    font-family: 'Poppins', sans-serif; /* กำหนดฟอนต์ให้ปุ่ม */
+    margin-top: 5px; /* ระยะห่างด้านบน */
+    margin-left: 100px; /* ระยะห่างด้านซ้าย */
+  }
+  
+  .button-a a {
+    font-family: 'Poppins', sans-serif;
+    color: inherit; /* ใช้สีตามปุ่ม */
+    text-decoration: none; /* ลบขีดเส้นใต้ */
+    font-size: 16px; /* ขนาดฟอนต์ */
+    border: none; /* ลบกรอบ (ถ้ามี) */
+  }
+  
+  .button-a:hover a {
+    color: #DD5900; /* สีของลิงก์เมื่อ hover */
+  }
+  
+  .button-a:active a {
+    color: #DD5900; /* สีของลิงก์เมื่อ active */
+  }
+  
+  .button-b {
+    background: none; /* ลบพื้นหลังปุ่ม */
+    border: none; /* ลบกรอบปุ่ม */
+    padding: 0; /* ลบ padding */
+    cursor: pointer; /* เปลี่ยนเคอร์เซอร์เป็น pointer เมื่อ hover */
+    font-family: 'Poppins', sans-serif; /* กำหนดฟอนต์ให้ปุ่ม */
+    margin-top: 20px; /* ระยะห่างด้านบน */
+    margin-left: 100px; /* ระยะห่างด้านซ้าย */
+  }
+  
+  .button-b a {
+    font-family: 'Poppins', sans-serif;
+    color: inherit; /* ใช้สีตามปุ่ม */
+    text-decoration: none; /* ลบขีดเส้นใต้ */
+    font-size: 16px; /* ขนาดฟอนต์ */
+    border: none; /* ลบกรอบ (ถ้ามี) */
+  }
+  
+  .button-b:hover a {
+    color: #DD5900; /* สีของลิงก์เมื่อ hover */
+  }
+  
+  .button-b:active a {
+    color: #DD5900; /* สีของลิงก์เมื่อ active */
+  }
+  
+  h2 {
+    margin-left: 100px;
+    font-size: 20px;
+    margin-top: 55px;
+  }
+  
+  h3 {
+    margin-left: 60px;
+    margin-top: 50px;
+  }
+  
+  .user-icon {
+    position: absolute;
+    left: 214px;
+    top: 360px;
+    font-size: 1.2em;
+  }
+  
+  .NAMO {
+    position: absolute;
+    top: 290px;
+    left: 1190px;
+    opacity: 15%;
+    width: auto;
+    height: 230px;
+  }
+  
+  .user_picture {
+    width: auto;
+    height: 140px;
+    margin-left: 110px;
+    margin-top: 40px;
+  }
+  
+  .btn-editimage {
+    font-family: 'Poppins', sans-serif;
+    background-color: #DD5900;
+    color: #fff;
+    position: absolute;
+    top: 290px;
+    left: 270px;
+    width: 105px;
+    height: 35px;
+    border-radius: 30px;
+    border-color: #ffffff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .btn-exportresume {
+    font-family: 'Poppins', sans-serif;
+    background-color: #DD5900;
+    color: #fff;
+    border: none;
+    width: 160px;
+    height: 50px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    position: absolute;
+    left: 990px;
+    top: 540px;
+  }
+  
+  .btn-edit {
+    font-family: 'Poppins', sans-serif;
+    background-color: #DD5900;
+    color: #fff;
+    border: none;
+    width: 160px;
+    height: 50px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    position: absolute;
+    left: 1170px;
+    top: 540px;
+  }
