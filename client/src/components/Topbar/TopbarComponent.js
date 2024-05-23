@@ -28,24 +28,37 @@ const dropdownRef = useRef(null);
     setDropdownOpen(!dropdownOpen);
   };
 
+  const handleResize = () =>{
+    if (isMenuOpen && window.innerWidth > 580){
+      setMenuOpen(!isMenuOpen);
+    }
+    if (dropdownOpen && window.innerWidth < 580){
+      setDropdownOpen(!dropdownOpen)
+    }
+  }
+  
+
   const handleClickOutside = (event) => {
     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
       setDropdownOpen(false);
     }
   };
 
+
   useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
+    document.removeEventListener('mousedown', handleClickOutside);
+    window.addEventListener('resize' , handleResize)
+  });
+
+  useEffect(() => {
+    document.removeEventListener('mousedown', handleClickOutside);
+  },[]);
 
   return (
-  <nav className='Navbar'>
-    <div className='Left-Element'>
-    <img src={Fibolo_2} className="Fibolio_logo" alt="Fiboliologo" />
-    <ul className='Navbar-Menu' >
+  <nav className='navbar'>
+    <div className='left-element'>
+    <img src={Fibolio} className="fibolio_logo" alt="Fiboliologo" />
+    <ul className='navbar-menu' >
       
       <li className='btn-course'>
       <Link to="/PersonalInformation">Profile</Link>
@@ -65,17 +78,17 @@ const dropdownRef = useRef(null);
     </ul>
     </div>
     
-    <i  className='User-Button' onClick={toggleMenu}>
+    <i  className='user-button' onClick={toggleMenu}>
           <FontAwesomeIcon icon={faBars} />
     </i>
 
-    <div className='Dropdown-Menu'>
+    <div className='dropdown-menu'>
         <i ><FontAwesomeIcon icon={faCircleUser} /></i>
         <i onClick={toggleDropdown}><FontAwesomeIcon icon={faCaretDown} /></i>
         
         {dropdownOpen && (
         <div className="dropdown-content">
-          <Link to="#" onClick={() => setDropdownOpen(false)}>Nuttida</Link>
+          <Link to="#" onClick={() => setDropdownOpen(false)}>User Name</Link>
           <Link to="/Signin" onClick={() => setDropdownOpen(false)}>Logout</Link>
         </div>
       )}
@@ -86,7 +99,7 @@ const dropdownRef = useRef(null);
     {/* Menu for responsive Nav Bar*/}
     {isMenuOpen ?(
 
-      <ul className='responNavbar'>
+      <ul className='responsive-navbar'>
         <li>
         <Link to="/PersonalInformation" onClick={toggleMenu} >Profile</Link>
           </li>
@@ -103,12 +116,17 @@ const dropdownRef = useRef(null);
         <Link to="/Competency" onClick={toggleMenu} >Competency</Link>
         </li>
 
-        <i  className='User-Close-Button' onClick={toggleMenu}>
+        <li>
+        <Link to="/Signin" onClick={toggleMenu}>Logout</Link>
+        </li>
+
+        <i  className='user-close-button' onClick={toggleMenu}>
           <FontAwesomeIcon icon={faBars} />
         </i>
       </ul>
     ) : null}
     
+
     
   </nav>
 
