@@ -62,7 +62,7 @@ app.get('/interests/:id', (req, res) => {
 
 app.get('/hardSkills/:id', (req, res) => {
     const id = req.params.id
-    db.query("SELECT * FROM hardSkills WHERE student_id = ?",[id], (err, result) => {
+    db.query("SELECT * FROM HardSkills WHERE student_id = ?",[id], (err, result) => {
         if(err){
             console.log(err);
         }

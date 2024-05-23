@@ -52,6 +52,9 @@ function StudyBackground() {
             <svg width="800" height="500">
               <line x1="60" y1="0" x2="772" y2="0" stroke="black" strokeWidth="2" />
             </svg>
+            <svg width="800" height="500">
+              <line x1="60" y1="50" x2="772" y2="50" stroke="black" strokeWidth="1" />
+            </svg>
             {testDataList.map((item) => (
               <div key={item.student_id}>
                 High School Name: {item.high_school_name}<br />
