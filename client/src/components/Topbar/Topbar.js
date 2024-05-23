@@ -46,7 +46,8 @@ function Topbar() {
   return (
     <nav className="navbar">
       <div className="left-element">
-        <img src={Fibolio} className="fibolio_logo" alt="Fiboliologo" />
+        <Link to="/"><img src={Fibolio} className="fibolio_logo" alt="Fiboliologo" /></Link>
+        {/* <img src={Fibolio} className="fibolio_logo" alt="Fiboliologo" /> */}
         <ul className="navbar-menu">
           <li className="btn-course">
             <Link to="/PersonalInformation">Profile</Link>
