@@ -4,7 +4,7 @@ function HomeTest() {
     <div>
       <h1>HomeTest</h1>
       <button>
-        <Link to="/Test1">Go to Test1</Link>
+          <Link to="/HomePageStudent">Home Page Student</Link>
       </button>
     </div>
   );
