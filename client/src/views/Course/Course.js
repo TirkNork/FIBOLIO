@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import Axios from "axios";
+import React, { useState } from "react";
 import Coursecard from "../../components/Coursecard/Coursecard";
 import Dropdown from "../../components/Coursedropdown/Coursedropdown";
 import Searchbar from "../../components/Searchbar/Searchbar";
@@ -19,7 +18,6 @@ function Course() {
     const [sortOrder, setSortOrder] = useState('desc');
     const [sortType, setSortType] = useState('');
     const [searchTerm, setSearchTerm] = useState('');
-    const [courseList, setCourseList] = useState(mockData);
 
     const handleSortToggle = (value) => {
         const [type, order] = value.split('-');
@@ -30,12 +28,6 @@ function Course() {
     const handleSearch = (event) => {
         setSearchTerm(event.target.value);
     };
-
-    useEffect(() => {
-        Axios.get("http://localhost:3001/courses").then((response) => {
-            setCourseList(response.data);
-        });
-    }, []);
 
     const sortData = (data) => {
         return data.sort((a, b) => {
@@ -53,7 +45,7 @@ function Course() {
         });
     };
 
-    const filteredData = courseList.filter(course => 
+    const filteredData = mockData.filter(course => 
         course.coursename.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
@@ -62,7 +54,7 @@ function Course() {
     return (
         <div>
             <div className="header">
-                <h1>Published Classes</h1>
+                <h1>Course</h1>
             </div>
             <div className="controls">
                 <Dropdown handleSortToggle={handleSortToggle} sortType={sortType} sortOrder={sortOrder} />
@@ -73,7 +65,6 @@ function Course() {
                     {sortedData.map((val, key) => (
                         <Coursecard
                             key={key}
-                            id={val.id}
                             courseid={val.courseid}
                             coursename={val.coursename}
                             grade={val.grade}

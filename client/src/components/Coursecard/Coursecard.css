@@ -14,7 +14,7 @@
 }
 
 .coursecard:hover {
-    transform: translateY(-10px);
+    /* transform: translateY(-10px); */
     background-color: #DD5900;
     color: #fff;
 }
