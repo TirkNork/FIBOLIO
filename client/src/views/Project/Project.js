@@ -7,6 +7,7 @@ import "./Project.css";
 import Dot from "../../assets/images/icons8-more-53.png"
 import { debounce } from "lodash";
 import Search from "../../components/Search/Search.js";
+import Button from "../../components/Button/Button.js";
 
 const serverIP = 'http://localhost:3001'
 
@@ -222,7 +223,7 @@ function Project() {
                     </div>
                 </div>
                 <div style={{ display: "flex", justifyContent: "right", marginBottom: "20px", marginRight: "20px", marginTop: "20px" }}>
-                    <button className="button-orange" onClick={handleInsertClick}>Insert</button>
+                    <Button label="Insert" onClick={handleInsertClick}/>
                 </div>
             </div>
 
@@ -230,6 +231,7 @@ function Project() {
                 <div className="popup">
                     <p>Are you sure you want to delete this project?</p>
                     <div>
+
                         <button className="buttondelete" onClick={() => handleConfirmDelete(projectIdToDelete)}>Confirm</button>
                         <button className="buttoncancel" onClick={handleCancelDelete}>Cancel</button>
                     </div>
