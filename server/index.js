@@ -11,11 +11,11 @@ app.use(cors());
 app.use(express.json());
 
 const db = mysql.createConnection({
-  user: "root",
-  host: "35.187.247.214",
-  password: "fra502test_password",
-  database: "fra502test",
-});
+    user: "root",
+    host: "35.187.247.214",
+    password: "fra502test_password",
+    database: "fra502test",
+})
 
 const storage = multer.memoryStorage();
 const upload = multer({ 
@@ -278,7 +278,26 @@ app.delete("/delProject/:id", (req, res) => {
   });
 });
 
-
+app.get('/CourseStudent/:id', (req, res) => {
+  const id = req.params.id;
+    db.query("SELECT c.course_class, cs.course_student_grade, c.course_credit FROM fra502test.Courses AS c JOIN fra502test.CourseStudent AS cs ON c.course_id = cs.course_id WHERE cs.student_id = ?", [id], (err, result) => {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            res.send(result)
+});
+      
+app.get('/CompetencyDescription', (req, res) => {
+    db.query("SELECT * FROM fra502test.CompetencyDescription;", (err, result) => {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            res.send(result)
+        }
+    });
+});
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

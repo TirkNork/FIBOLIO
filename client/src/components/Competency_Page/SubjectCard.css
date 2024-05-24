@@ -1,0 +1,21 @@
+.block {
+    background-color: #fff;
+    width: 320px;
+    height: 260px;
+    border-radius: 15px;
+    padding: 20px;
+    padding-top: none;
+    text-align: left;
+    box-shadow: rgb(119, 119, 118) 0px 4px;
+}
+
+.link {
+    color: inherit;
+    /* Use the default text color */
+    text-decoration: none;
+    /* Remove underline */
+}
+
+h2 {
+    color: #DD5900;
+}
