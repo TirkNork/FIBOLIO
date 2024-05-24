@@ -11,7 +11,6 @@
 h1 {
     position: absolute;
     font-size: 48px;
-    /* font-family: 'Poppins'; */
     margin-top: 60px;
 }
 
@@ -19,14 +18,12 @@ h1 {
     position: absolute;
     margin-bottom: 100px;
     left: 65px;
-    /* font-family: 'Poppins'; */
 }
 
 .breadcrumb-list {
     box-sizing: inherit;
     display: inline-block;
     color: #000000;
-    /* font-family: 'Poppins'; */
 
 }
 
@@ -38,21 +35,10 @@ h1 {
 
 .home {
     color: inherit;
-    /* inherit color from li*/
     text-decoration: none;
 }
 
 .home:hover {
     color: #DD5900;
     text-decoration: underline;
-}
-
-.course-detail-page {
-    padding: 20px;
-}
-
-.course-detail-page p {
-    text-align: center;
-    font-size: 18px;
-    color: #555;
 }

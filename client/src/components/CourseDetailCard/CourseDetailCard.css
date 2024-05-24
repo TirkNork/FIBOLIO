@@ -1,6 +1,6 @@
 .course-detail-card {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start; /* Align items to the start */
     align-items: flex-start;
     width: 100%;
     max-width: 800px;
@@ -10,32 +10,30 @@
     background: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
 }
 
-.course-detail-left {
+.course-detail-left{
     display: flex;
     flex-direction: column;
     text-align: left;
-    width: 50%;
-}
-
-.course-detail-right {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    width: 50%;
-}
-
-.course-detail-course-id {
-    font-size: 20px;
-    font-weight: bold;
+    width: 100%; /* Full width for both columns */
     margin: 0;
 }
 
-.course-detail-course-name {
-    font-size: 16px;
-    margin: 10px 0;
+.course-detail-course-id {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 0;
+    color: #333;
 }
+
+/* .course-detail-course-name {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #666;
+} */
 
 .course-detail-class-type,
 .course-detail-professor,
@@ -43,11 +41,24 @@
 .course-detail-academic-year,
 .course-detail-grade,
 .course-detail-description {
-    font-size: 14px;
-    margin: 5px 0;
+    font-size: 16px; /* Increased font size for better readability */
+    margin: 8px 0; /* Increased margin for better spacing */
+    color: #555;
 }
 
-.course-detail-grade {
-    font-size: 52px;
-    color: #555;
+@media (max-width: 768px) {
+    .course-detail-card {
+        flex-direction: column; /* Stack the content vertically on small screens */
+        height: auto;
+        padding: 15px;
+    }
+
+    .course-detail-left{
+        width: 100%; /* Full width for both columns */
+        margin-bottom: 20px; /* Add margin between stacked columns */
+    }
+
+    .course-detail-grade {
+        font-size: 40px; /* Adjust font size for smaller screens */
+    }
 }
