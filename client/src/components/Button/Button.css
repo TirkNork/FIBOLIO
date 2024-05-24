@@ -8,9 +8,22 @@
     color: #ffffff;
     cursor: pointer;
 
-  }
-  
-  .button:hover {
+.button:hover {
     background-color: #cf5403;
     color: #ffffff;
-  }
+}
+
+.button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: #c0c0c0;
+    color: #DD5900;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.button:active {
+    background-color: #ffffff;
+    border: 1px;
+    border-color: #DD5900;
+    color: #DD5900;
+}

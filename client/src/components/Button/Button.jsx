@@ -1,8 +1,12 @@
+
+
 import React, { useState } from "react";
 import './Button.css';
-function Button({ label, onClick }) {
+
+function Button({ label, onClick, disabled }) {
   return (
-    <button className="button" onClick={onClick}>{label}</button>
+    <button className="button" disabled={disabled} onClick={onClick}>{label}</button>
+
   );
 }
 export default Button;

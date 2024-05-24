@@ -1,13 +1,18 @@
-const express = require('express');
+const express = require("express");
 const app = express();
+
 const mysql = require('mysql');
 const cors = require('cors');
 const bcrypt = require('bcrypt');
+/ -------- Program Constants --------
+
+const PORT = 3001;
 
 app.use(cors());
 app.use(express.json());
 
 const db = mysql.createConnection({
+
     user: "root",
     host: "35.187.247.214",
     password: "fra502test_password",
@@ -116,8 +121,54 @@ app.post('/check-infoT', (req, res) => {
             return res.status(200).json({ message: 'All the Information is correct.', valid: true });
         } else {
             return res.status(200).json({ message: 'invalid information', valid: false });
+
+});
+
+app.post("/Register01", async (req, res) => {
+  console.log("Register01");
+  const { userType, studentID, name, surname, email, password } = req.body;
+  // const verifyToken = generateVerificationToken();
+  console.log("userType: ", userType, "studentID: ", studentID);
+
+  try {
+    const hash = await bcrypt.hash(password, 12);
+
+    let query;
+    let values;
+
+    if (userType === "Student") {
+      console.log("Student Database");
+      query =
+        "INSERT INTO StudentRegister (`studentID`, `name`, `surname`, `email`, `password`) VALUES (?, ?, ?, ?, ?)";
+      values = [studentID, name, surname, email, hash];
+    } else if (userType === "Instructor") {
+      query =
+        "INSERT INTO TeacherRegister (`name`, `surname`, `email`, `password`) VALUES (?, ?, ?, ?)";
+      values = [name, surname, email, hash];
+    }
+
+    db.query(query, values, (err, results) => {
+      if (err) {
+        console.log(err);
+        if (err.code === "ER_DUP_ENTRY") {
+          res.status(400).json({
+            message: "Duplicate entry for key 'StudentRegister.PRIMARY'",
+          });
+        } else {
+          res.status(500).json({ message: "Database error", error: err });
+
         }
+      } else {
+        res.json({ message: "Registration successful", results });
+        console.log("Student Register Inserted");
+      }
     });
+
+    // sendVerificationEmail(email, verifyToken);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ message: "Server error", error: err });
+  }
 });
 
 app.post('/change-password', async (req, res) => {
@@ -168,6 +219,6 @@ app.post('/change-passwordT', async (req, res) => {
     }
 });
 
-app.listen(3001, () => {
-    console.log('Server is running on port 3001');
+app.listen(PORT, () => {
+  console.log("Server is running on port: ", PORT);
 });
