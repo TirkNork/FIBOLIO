@@ -8,6 +8,7 @@ import ProjectInsert from "./views/Project/ProjectInsert.js";
 import ProjectDetails from "./views/Project/ProjectDetails.js";
 import ProjectEdit from "./views/Project/ProjectEdit.js";
 import Topbar from "./components/Topbar/Topbar.js";
+import HomePageTeacher from "./views/HomePageTeacher/HomePageTeacher.js";
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route path="/Project/:id" element={<ProjectDetails/>} />  
           <Route path="/Project/Edit/:id" element={<ProjectEdit/>} />      
           <Route path="/Test1" element={<div className="body"><Test1/></div>}></Route>    
+          <Route path="/HomePageTeacher" element={<div className="body"><HomePageTeacher/></div>}></Route>  
         </Routes>     
       </div>      
     </BrowserRouter>

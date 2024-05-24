@@ -1,0 +1,58 @@
+.coursecard {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 300px;
+    height: 200px;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.5s;
+    cursor: pointer;
+    /* border: solid 2px rgb(0, 30, 255); */
+}
+
+.coursecard:hover {
+    transform: translateY(-10px);
+    background-color: #DD5900;
+    color: #fff;
+}
+
+.coursecard-element {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    text-align: left;
+    
+    /* border: solid 2px rgb(0, 30, 255); */
+}
+
+
+.coursecard-course-id {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.coursecard-course-name {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+
+.coursecard-academic-year {
+    font-size: 14px;
+    /* color: #555; */
+    margin-top: auto;
+}
+
+@media (max-width: 768px) {
+    .coursecard {
+        width: 100%;
+        margin: 10px 0;
+    }
+}
