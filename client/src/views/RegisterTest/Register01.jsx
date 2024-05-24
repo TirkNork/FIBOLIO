@@ -33,7 +33,7 @@ const Register = () => {
         Email: "",
         StudentID: "",
         Password: "",
-        ConfirmPass: ""
+        ConfirmPass: "",
     })
 
     const handleSelectChange = (e) => {
@@ -51,7 +51,6 @@ const Register = () => {
     const handleSignUpClick = (e) => {
         e.preventDefault();
         setErrors(dataValidation(values))
-        console.log("errors: ",errors)
         console.log('signUpClick')
         if (selectedOption === 'Student') {
             console.log("student!!!")
@@ -65,6 +64,7 @@ const Register = () => {
             ) {
                 console.log('add to student table')
                 console.log("Inputs:", values);
+                console.log("errors: ",errors)
                 Axios.post('http://localhost:3001/Register01', {
                     userType: "Student",
                     studentID: values.StudentID,
@@ -157,7 +157,7 @@ const Register = () => {
             <div className="Content">
                 <div className="Topic">
                     <h1>Create Account</h1>
-                    <p>Already have an account?&nbsp; <Link to="/Test1"> Login Here</Link></p>
+                    <p>Already have an account?&nbsp; <Link to="/Login"> Login Here</Link></p>
                     <div className="segmentLine"></div>
                 </div>
 

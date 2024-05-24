@@ -1,14 +1,16 @@
-/* Use a universal selector to apply monospace font across the entire document */
-* {
-    font-family: monospace;
+/* Use vh/vw for height/width to make the container responsive */
+.BgForm {
+    float: left;
+    position: absolute;
+    top: 0px;
+    left: 0px;
 }
 
-/* Use vh/vw for height/width to make the container responsive */
 .BgContainer {
     float: left;
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 0px;
+    left: 0px;
     z-index: -1;
     width: 57.47vw; /* 800 / 1392 * 100 */
     height: 100vh; /* Full height of the viewport */
@@ -34,7 +36,7 @@
 .RegisterForms {
     width: 44.23vw; /* 615 / 1392 * 100 */
     height: 50.73vh; /* 380 / 749 * 100 */
-    position: absolute;
+    position: relative;
     display: flex;
     overflow: hidden;
     overflow-y: scroll;
