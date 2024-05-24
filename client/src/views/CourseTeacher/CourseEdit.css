@@ -1,0 +1,61 @@
+.input-new-score {
+    border: none;
+    width: 100%;
+    outline: none;
+    background-color: #F1F1F1;
+}
+
+/* remove arrow spinner */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.save,
+.cancel {
+    position: absolute;
+    display: block;
+    left: 75%;
+    font-size: 20px;
+    color: #fff;
+    background-color: #DD5900;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 30px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.cancel {
+    margin-left: -130px;
+    padding: 8px 19px;
+    color: #DD5900;
+    background-color: #fff;
+    border: #DD5900 solid 2px;
+}
+
+.student-table-edit {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 1024px) {
+    .save,
+    .cancel {
+        left: 73%;
+    }
+}
+
+@media (max-width: 768px) {
+    .save,
+    .cancel {
+        left: 70%;
+    }
+}
+
+@media (max-width: 480px) {
+    .save,
+    .cancel {
+        left: 60%;
+    }
+}

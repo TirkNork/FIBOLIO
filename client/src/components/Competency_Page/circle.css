@@ -1,0 +1,22 @@
+.circle {
+  left: -80px;
+  top: -40px;
+  width: 160px;
+  height: 160px;
+  line-height: 150px;
+  border-radius: 50%;
+  border: 10px solid #E47A33;
+  font-size: 40px;
+  color: #000000;
+  text-align: center;
+  background: #ffffff;
+  position: absolute;
+
+}
+
+.circle p {
+  position: absolute;
+  left: 50%;
+  top: 22%;
+  transform: translate(-50%, -50%);
+}

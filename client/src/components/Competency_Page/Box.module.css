@@ -1,0 +1,21 @@
+.box {
+  background-color: rgb(240, 240, 240);
+  border: 10px solid;
+  border-radius: 12px;
+  padding: 8px 16px;
+  position: relative;
+  width: 80%;
+  left: 100px;
+  margin-top: 30px;
+  height: 120px;
+
+}
+
+
+
+.title {
+  text-align: left;
+  margin-top: -10px;
+  margin-left: 80px;
+  position: relative;
+}
