@@ -1,0 +1,160 @@
+.Contain3 {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../../components/Assets/ForgotBGG.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.Contain3 .white-box {
+    width: 70vw; 
+    height: 65vh; 
+    background-color: #ffffff;
+    border-radius: 2.4vw; 
+    box-shadow: 0 0 1vw rgba(0, 0, 0, 0.1); 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.Contain3 h1 {
+    font-size: 2.5vw;
+    text-align: center;
+    color: #000000;
+    position: absolute;
+    top:  22vh;
+    left: 30vw;
+    width: 40vw;
+    height: 21vh;
+}
+.Contain3 .close-icon {
+    position: absolute;
+    top:  19.5vh;
+    left: 82vw;
+    font-size: 2vw;
+    color: #000;
+    cursor: pointer;
+}
+
+.Contain3 .Please {
+    font-size: 1.5625vw;
+    text-align: center;
+    color: #ABABAB;
+    position: absolute;
+    top: 32vh;
+    left: 28vw;
+}
+
+.Contain3 .Name {
+    font-size: 1.3vw;
+    text-align: center;
+    color: #cec6c6;
+    position: absolute;
+    top: 40vh;
+    left: 28vw;
+}
+
+.input-boxname3 input {
+    width: 20vw; 
+    height: 4.6vh; 
+    font-size: 1.3vw;
+    position: absolute;
+    top: 46vh;
+    left: 28vw;
+    border: 0.1041vw solid #fff;
+    border-radius: 0.417vw;
+    box-shadow: 0 0 10px rgba(10 , 10, 10, 0.5);
+}
+
+.Contain3 .SurName {
+    font-size: 1.3vw;
+    text-align: center;
+    color: #cec6c6;
+    position: absolute;
+    top: 40vh;
+    left: 52vw;
+}
+
+.input-boxsurname3 input {
+    width: 20vw; 
+    height: 4.6vh; 
+    font-size: 1.3vw;
+    position: absolute;
+    top: 46vh;
+    left: 52vw;
+    border: 0.1041vw solid #fff;
+    border-radius: 0.417vw;
+    box-shadow: 0 0 10px rgba(10 , 10, 10, 0.5);
+}
+
+.Contain3 .ID {
+    font-size: 1.3vw;
+    text-align: center;
+    color: #cec6c6;
+    position: absolute;
+    top: 52vh;
+    left: 28vw;
+}
+
+.input-boxID3 input {
+    width: 20vw; 
+    height: 4.6vh; 
+    font-size: 1.3vw;
+    position: absolute;
+    top: 58vh;
+    left: 28vw;
+    border: 0.1041vw solid #fff;
+    border-radius: 0.417vw;
+    box-shadow: 0 0 10px rgba(10 , 10, 10, 0.5);
+}
+
+.Contain3 .Requeast{
+    color: #000000;
+    position: absolute;
+    top: 70vh;
+    left: 35.7291667vw;
+}
+
+
+.Requeast button {
+    font-size: 1.5625vw;
+    text-align: center;
+    color: #fff;
+    border: 2px solid #dd5900;
+    box-shadow: 0 0 10px rgba(10 , 10, 10, 0.5);
+    border-radius: 8px;
+    width: 27.03125vw;
+    height: 8.1vh;
+    background: #dd5900;
+}
+
+.popup {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    text-align: center;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        top: -50px;
+    }
+    to {
+        top: 10px;
+    }
+}
+

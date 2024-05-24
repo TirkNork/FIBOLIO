@@ -1,0 +1,254 @@
+.wrapper {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../../components/Assets/FIBO.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.wrapper h1 {
+    font-size: 6.5vh;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    top: 16.667%;
+    left: 66.041667%;
+    width: 15.625%;
+    height: 6.4814%;
+}
+
+.wrapper .Welcome {
+    font-size: 10.8vh;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    top: 9%;
+    left: 11.1%;
+}
+
+.wrapper .Back {
+    font-size: 10.8vh;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    top: 19%;
+    left: 11.45%;
+}
+
+.wrapper .FIBOLIO {
+    font-size: 3vh;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    top: 41%;
+    left: 11.45%;
+}
+
+.wrapper .WelcomeText {
+    font-size: 2.55vh;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    top: 47%;
+    left: 11.7%;
+}
+
+.wrapper .Account {
+    font-size: 2.55vh;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 16%;
+}
+
+.wrapper .SignUp {
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    background: transparent 50%;
+    top: 59%;
+    left: 19.3%;
+}
+
+
+.SignUp button {
+    border-radius: 0.41667vh;
+    font-size: 1.5vh;
+    text-align: center;
+    color: #000000;
+    border-radius: 8px;
+    width: 10vh;
+    height: 4vh;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.wrapper .Email {
+    font-size: 2.5vh;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    top: 31.4%;
+    left: 58.333%;
+}
+
+
+.input-boxname input {
+    width: 31.25vw; 
+    height: 4.6vh; 
+    font-size: 1.3vw;
+    position: absolute;
+    top: 37vh;
+    left: 58.333vw;
+    border: 0.1041vw solid #fff;
+    border-radius: 0.417vw;
+    box-shadow: 0 0 10px rgba(10 , 10, 10, 0.5);
+}
+
+.input-boxname .Icon {
+    position: absolute;
+    font-size: 1.9vh;
+    left: 88.02083%;
+    top: 39.6% ;
+    transform: translateY(-50%);
+} 
+
+
+.wrapper .Password {
+    font-size: 2.5vh;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    top: 41.7%;
+    left: 58.33%;
+}
+
+.input-boxpass input {
+    width: 31.25%;
+    height: 4.6%;
+    font-size: 1.3vw;
+    position: absolute;
+    top: 47%;
+    left: 58.333%;
+    border: 0.1041vw solid #fff;
+    border-radius: 0.417vw;
+    box-shadow: 0 0 10px rgba(10 , 10, 10, 0.5);
+}
+
+.input-boxpass .Icon {
+    position: absolute;
+    font-size: 2vh;
+    left: 88.02083%;
+    top: 49.7% ;
+    transform: translateY(-50%);
+} 
+
+.wrapper .remember {
+    font-size: 3vh;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    top: 55%;
+    left: 58.33%;
+}
+
+.remember {
+    top: 50%;
+    left: 40%;
+}
+
+.custom-checkbox {
+    top: 53.5%;
+    left: 58.33%;
+    width: 2vh; /* กำหนดความกว้าง */
+    cursor: pointer; /* เปลี่ยน cursor เมื่ออยู่เหนือ checkbox */
+}
+
+.wrapper .rememberMe {
+    font-size: 2vh;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    top: 53.5vh;
+    left: 60vw;
+}
+
+.wrapper .SignIn {
+    color: #dd5900;
+    position: absolute;
+    top: 62%;
+    left: 58.33%;
+}
+
+.SignIn button {
+    font-size: 1.5vh;
+    text-align: center;
+    color: #000000;
+    border: 2px solid #dd5900;
+    box-shadow: 0 0 10px rgba(10 , 10, 10, 0.5);
+    border-radius: 8px;
+    width: 15vh;
+    height: 5vh;
+    background: #dd5900;
+    
+}
+
+.wrapper .forgot {
+    font-size: 1.8vh;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    top: 68%;
+    left: 58.6%;
+}
+
+.wrapper .policy {
+    font-size: 2vh;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    top: 78%;
+    left: 67%;
+}
+
+.wrapper .accept {
+    font-size: 2vh;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    top: 83.5%;
+    left: 67.3%;
+}
+
+.error-message {
+    color: red;
+    margin-top: 10px;
+    text-align: center;
+}
+
+
+@keyframes slideDown {
+    from {
+      top: -50px;
+    }
+    to {
+      top: 20px;
+    }
+  }
+    .popup {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    text-align: center;
+}
+
+
