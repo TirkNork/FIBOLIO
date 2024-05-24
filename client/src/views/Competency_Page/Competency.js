@@ -1,12 +1,11 @@
-import './app.css';
+import './competency.css';
 import { Link } from "react-router-dom";
-import Grid from '../../components/Competency_Page/grid';
 import CircleAndBox from '../../components/Competency_Page/CircleAndBox';
 import Axios from "axios";
 import { useState, useEffect } from "react";
 
 
-function App() {
+function Competency() {
   const [student_id, setStudent_id] = useState("63340500001");
   const [CourseStudent, setCourseStudent] = useState([]);
   const [CompetencyDescription, setCompetencyDescription] = useState([]);
@@ -102,26 +101,25 @@ function App() {
 
   return (
     <div className="subject-page">
-
-      <section className="app-section">
-
-        <div className="header">
-          <h1 className="header-text">Competency</h1>
-        </div>
-        <Grid className="app-container" rows={4}>
-          <Link to="/score" className="link">
-            <CircleAndBox title="Mechanical" detail={descriptions["Mechanical"]} points={score["Mechanical"]} color="#A60202"></CircleAndBox>
-          </Link>
+      <div className="header">
+        <h1 className="header-text">Competency</h1>
+      </div>
+      <div className="app-grid">
+        <Link to="/score" className="link">
+          <CircleAndBox title="Mechanical" detail={descriptions["Mechanical"]} points={score["Mechanical"]} color="#A60202"></CircleAndBox>
+        </Link>
+        <Link to="/score" className="link">
           <CircleAndBox title="Programming" detail={descriptions["Programming"]} points={score["Programming"]} color="#F23004"></CircleAndBox>
-          <CircleAndBox title="Electrical" detail={descriptions["Electrical"]} points={score["Electrical"]} color="#F27404"></CircleAndBox>
-          <CircleAndBox title="Robotic" detail={descriptions["Robotic"]} points={score["Robotic"]} color="#F29F04"></CircleAndBox>
+        </Link>
+        <Link to="/score" className="link"><CircleAndBox title="Electrical" detail={descriptions["Electrical"]} points={score["Electrical"]} color="#F27404"></CircleAndBox>
+        </Link>
+        <Link to="/score" className="link"><CircleAndBox title="Robotic" detail={descriptions["Robotic"]} points={score["Robotic"]} color="#F29F04"></CircleAndBox>
+        </Link>
+      </div>
 
-        </Grid>
-
-      </section>
     </div >
 
   );
 }
 
-export default App;
+export default Competency;

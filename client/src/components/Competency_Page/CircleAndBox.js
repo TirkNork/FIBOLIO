@@ -1,9 +1,9 @@
-import Cirlce from './circle';
+import Circle from './circle';
 import Box from './Box';
 
-function CircleAndBox(props){
+function CircleAndBox(props) {
     return (<Box title={props.title} detail={props.detail} color={props.color}>
-    <Cirlce  points={props.points} color={props.color}></Cirlce>
+        <Circle points={props.points} color={props.color}></Circle>
     </Box>)
 }
 

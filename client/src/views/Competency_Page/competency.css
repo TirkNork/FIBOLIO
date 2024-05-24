@@ -1,13 +1,12 @@
-.app-section {
-  padding: 0px;
-  height: 1000px;
+body {
+  background-color: #F1F1F1;
+  /* Replace with your desired background color */
+  margin: 0;
+  /* Remove default margin */
+  height: 100%;
+  width: 100%;
 }
 
-.app-container {
-  max-width: 1600px;
-  margin-left: auto;
-  margin-right: auto;
-}
 
 .subject-page {
   background-color: #F1F1F1;
@@ -23,13 +22,14 @@
 }
 
 .app-grid {
+  padding-top: 30px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  column-gap: 100px;
-  row-gap: 100px;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 5%;
+  row-gap: 20%;
   margin-left: 80px;
   margin-right: 80px;
-  padding-bottom: 80px;
+  padding-bottom: 0px;
 }
 
 .header-text {
@@ -52,4 +52,10 @@
   background: #E3E3E3;
   margin-top: 0px;
 
+}
+
+@media(max-width: 1400px) {
+  .app-grid {
+    grid-template-columns: 1fr;
+  }
 }

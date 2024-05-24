@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './index.css';
 import Competency_Page from './views/Competency_Page/Competency.js';
-import SubjectScore from './views/Competency_Page/SubjectScore.js';
+// import SubjectScore from './views/Competency_Page/SubjectScore.js';
 // import Test1 from './views/Test1/Test1.js';
 import HomeTest from './views/HomeTest/HomeTest.js';
 import Project from "./views/Project/Project.js";
@@ -25,7 +25,7 @@ function App() {
           <Route path="/Project/:id" element={<ProjectDetails/>} />  
           <Route path="/Project/Edit/:id" element={<ProjectEdit/>} />     
           <Route path="/Competency" element={<div className="body"><Competency_Page /></div>}></Route>
-          <Route path="/score" element={<div className="body"><SubjectScore /></div>}></Route>
+          {/* <Route path="/score" element={<div className="body"><SubjectScore /></div>}></Route> */}
         </Routes>     
       </div>      
     </BrowserRouter>
