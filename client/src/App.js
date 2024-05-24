@@ -20,13 +20,6 @@ function App() {
       <div className="App">
         {/* Route for all pages */}
         <Routes>
-          <Route path="/" element={<div className="body"><HomeTest /></div>}></Route>
-          <Route path="/Test1" element={<div className="body"><Test1 /></div>}></Route>
-          <Route path="/CourseTeacher/:id" element={<div className="body"><CourseTeacher /></div>}></Route>
-          <Route path="/CourseEdit/:id" element={<div className="body"><CourseEdit /></div>}></Route>
-        </Routes>
-
-      </div>
           <Route path="/" element={<div className="body"><HomeTest/></div>}></Route>
           {/* <Route path="/Test1" element={<div className="body"><Test1/></div>}></Route>   */}
           <Route path="/Project" element={<div className="body"><Project/></div>}></Route>   

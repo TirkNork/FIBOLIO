@@ -282,6 +282,26 @@ app.delete("/delProject/:id", (req, res) => {
   });
 });
 
+app.get("/students/:id", (req, res) => {
+  const id = req.params.id;
+  const sql = `
+              SELECT c.student_id, c.course_student_score, c.course_student_grade, p.student_firstname, p.student_surname 
+              FROM fra502test.Personal_Information as p
+              JOIN fra502test.CourseStudent as c ON c.student_id = p.student_id
+              WHERE c.course_id = ?
+              ORDER BY c.student_id 
+              `;
+              
+  db.query(sql, [id] , (err, result) => {
+      if(err){
+          console.log(err);
+      }
+      else{
+          res.send(result)
+      }
+  });
+});
+
 app.get('/CourseStudent', (req, res) => {
   // const id = 63340500048;
   const id = req.query.student_id;

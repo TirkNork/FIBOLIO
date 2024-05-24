@@ -8,41 +8,6 @@ import { debounce } from "lodash";
 import Search from "../../components/Search.js";
 
 
-// let studentData = [
-//     {
-//         name: 'aaa bbb',
-//         id: 1,
-//         score: 90
-//     },
-//     {
-//         name: 'eee fff',
-//         id: 2,
-//         score: 55
-//     },
-//     {
-//         name: 'ccc ddd',
-//         id: 3,
-//         score: 80
-//     },
-//     {
-//         name: 'ggg hhh',
-//         id: 4,
-//         score: 40
-//     },
-//     {
-//         name: 'iii jjj',
-//         id: 5,
-//         score: 45
-//     },
-//     {
-//         name: 'kkk lll',
-//         id: 6,
-//         score: 60
-//     }
-// ]
-
-// let grade = []
-
 let a = 0
 let bPlus = 0
 let b = 0
@@ -51,61 +16,6 @@ let c = 0
 let dPlus = 0
 let d = 0
 let f = 0
-
-// function GradeCalculation(studentsData) {
-//     a = 0
-//     bPlus = 0
-//     b = 0
-//     cPlus = 0
-//     c = 0
-//     dPlus = 0
-//     d = 0
-//     f = 0
-//     let studentScore = []
-//     studentsData.map((score) => (
-//         studentScore.push(score.score)
-//     ))
-//     studentScore.forEach((score) => {
-//         if (score > 0 && score <= 54) {
-//             grade.push('F');
-//             f += 1;
-//         }
-//         else if (score >= 55 && score <= 59) {
-//             grade.push('D');
-//             d += 1;
-//         }
-//         else if (score >= 60 && score <= 64) {
-//             grade.push('D+');
-//             dPlus += 1
-//         }
-//         else if (score >= 65 && score <= 69) {
-//             grade.push('C');
-//             c += 1;
-//         }
-//         else if (score >= 70 && score <= 74) {
-//             grade.push('c+');
-//             cPlus += 1
-//         }
-//         else if (score >= 75 && score <= 79) {
-//             grade.push('B');
-//             b += 1;
-//         }
-//         else if (score >= 80 && score <= 84) {
-//             grade.push('B+');
-//             bPlus += 1
-//         }
-//         else if (score >= 85 && score <= 100) {
-//             grade.push('A');
-//             a += 1;
-//         }
-//     });
-
-//     for (let i = 0; i < studentsData.length; i++) {
-//         studentsData[i].grade = grade[i];
-//     }
-
-//     return studentsData
-// }
 
 function CourseTeacher() {
     const { id } = useParams();
