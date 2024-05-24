@@ -1,4 +1,4 @@
-.custom-button {
+/* .custom-button {
     padding: 10px 20px;
     font-size: 16px;
     background-color: #DD5900;
@@ -13,8 +13,24 @@
 .custom-button:hover {
     background-color: #c95d16;
 }
-  
-.custom-button:disabled {
+   */
+.button {
+    height: 55px;
+    width: 200px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #DD5900;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #cf5403;
+    color: #ffffff;
+}
+
+.button:disabled {
     opacity: 0.5;
     cursor: not-allowed;
     background-color: #c0c0c0;
@@ -22,7 +38,7 @@
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
-.custom-button:active {
+.button:active {
     background-color: #ffffff;
     border: 1px;
     border-color: #DD5900;

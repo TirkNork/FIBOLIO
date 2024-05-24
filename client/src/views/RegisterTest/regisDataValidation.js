@@ -43,7 +43,7 @@ function dataValidation(values) {
   if (values.ConfirmPass === "") {
     error.ConfirmPass = "Confirm Password should not be empty.";
   } else if (values.ConfirmPass !== values.Password) {
-    error.ConfirmPass = "Password is not the same.";
+    error.ConfirmPass = "Passwords don't match.";
   } else {
     error.ConfirmPass = "";
   }

@@ -1,99 +1,106 @@
+/* Use a universal selector to apply monospace font across the entire document */
 * {
     font-family: monospace;
 }
 
+/* Use vh/vw for height/width to make the container responsive */
 .BgContainer {
     float: left;
     position: absolute;
     top: 0;
     left: 0;
     z-index: -1;
-    width: 800px;
-    height: 749px;
+    width: 57.47vw; /* 800 / 1392 * 100 */
+    height: 100vh; /* Full height of the viewport */
     background-color: #f1f1f1;
-    border-radius: 0px 25px 25px 0px;
+    border-radius: 0 25px 25px 0;
 }
 
 .BgImg {
     position: absolute;
     right: 0; 
     top: 0; 
-    width: 700px; 
-    height: 749px; 
+    width: 50.29vw; /* 700 / 1392 * 100 */
+    height: 100vh; /* Full height of the viewport */
     overflow: hidden; 
     z-index: -2;
 }
 
 .Content {
-    padding-left: 100px;
+    padding-left: 7.18vw; /* 100 / 1392 * 100 */
     object-fit: cover;
 }
 
 .RegisterForms {
-    width: 615px;
-    height: 380px;
+    width: 44.23vw; /* 615 / 1392 * 100 */
+    height: 50.73vh; /* 380 / 749 * 100 */
     position: absolute;
     display: flex;
-    overflow: hidden; 
+    overflow: hidden;
     overflow-y: scroll;
 }
 
-.line {
-    width: 577px;
+/* Maintain line width with relative units and add margin for responsiveness */
+/* .line {
+    position: relative;
+    top: 11vh;
+    width: 41.45vw; /* 577 / 1392 * 100 */ /*
     height: 1px;
     background-color: #D9D9D9;
-    border-radius: 25px 25px 25px 25px;
-    margin-bottom: 10px;
-}
+    border-radius: 25px;
+    margin-bottom: 1vh; /* Adjust margin for better spacing */ /*
+    z-index: 3;
+} */
 
+/* Use relative units for segment line and adjust margins */
 .segmentLine {
-    width: 112px;
+    width: 8.05vw; /* 112 / 1392 * 100 */
     height: 5px;
     background-color: #DD5900;
-    border-radius: 25px 25px 25px 25px;
-    margin-top: 8px;
-    margin-bottom: 8px;
+    border-radius: 25px;
+    margin: 1vh 0; /* Adjust margin for better spacing */
 }
 
 h1 {
     position: relative;
     display: flex;
+    /* font-size: 3.45vw; 48 / 1392 * 100 */
     font-size: 48px;
     margin-bottom: 0;
 }
 
-p{
+p {
     position: relative;
     display: flex;
+    /* font-size: 1.15vw; 16 / 1392 * 100 */
     font-size: 16px;
-    margin-top: 0;
-    margin-bottom: 6px;
+    margin: 0 0 0.4vh; /* Adjust margins for better spacing */
 }
-
 
 .Logo {
     position: relative;
     display: flex;
-    padding-left: 20px;
-    padding-top: 22px;
+    padding-left: 1.44vw; /* 20 / 1392 * 100 */
+    padding-top: 2.94vh; /* 22 / 749 * 100 */
 }
 
 .kmuttLogo {
-    height: 60px;
+    height: 8.01vh; /* 60 / 749 * 100 */
 }
 
 .FIBOlogo {
-    height: 61px;
+    height: 8.14vh; /* 61 / 749 * 100 */
 }
 
-.RoleDropddown {
+/* Corrected class name and made dropdown container responsive */
+.RoleDropdown {
     position: absolute;
     display: flex;
 }
 
 .RegisterDataForm {
     position: absolute;
-    top: 90px;
+    top: 12.02vh; /* 90 / 749 * 100 */
     margin-left: 0;
     padding-left: 0;
     left: 0;
@@ -102,46 +109,70 @@ p{
 
 input[type="checkbox"] {
     position: absolute;
-    top: 590px;
-    left: 100px;
+    top: 78.77vh; /* 590 / 749 * 100 */
+    left: 7.18vw; /* 100 / 1392 * 100 */
     padding: 0;
     margin: 0;
-    width: 15px;
-    height: 15px;
+    width: 15px; /* 15 / 1392 * 100 */
+    height: 2vh; /* Adjust height for better appearance */
 }
 
 .agree {
     position: absolute;
-    top: 588px;
-    left: 130px;
+    top: 78.49vh; /* 588 / 749 * 100 */
+    left: 9.34vw; /* 130 / 1392 * 100 */
+    /* font-size: 1.15vw; 16 / 1392 * 100 */
     font-size: 16px;
+    margin-left: 1.44vw;
 }
 
 .SignUpButton {
     position: absolute;
-    top: 625px;
-    left: 300px;
+    top: 83.44vh; /* 625 / 749 * 100 */
+    left: 21.55vw; /* 300 / 1392 * 100 */
 }
 
+/* Use vh/vw for join container dimensions and add opacity */
 .joinContainer {
     position: absolute;
-    top: 80px;
+    top: 10.68vh; /* 80 / 749 * 100 */
     z-index: 0;
-    width: 600px;
-    height: 620px;
+    width: 43.10vw; /* 600 / 1392 * 100 */
+    height: 82.78vh; /* 620 / 749 * 100 */
     background-color: #f1f1f1;
-    border-radius: 0px 25px 25px 0px;
+    border-radius: 0 25px 25px 0;
     opacity: 70%;
 }
 
 .join {
     position: relative;
-    font-size: 90px;
+    font-size: 6.46vw;/* 6.46vw;  90 / 1392 * 100 */
     font-weight: bold;
-    top: 290px;
+    top: 38.72vh; /* 290 / 749 * 100 */
 }
 
 h3 {
     position: relative;
-    top: 260px;
+    top: 34.71vh; /* 260 / 749 * 100 */
+}
+
+@media (max-width: 768px) {
+    .BgImg {
+        display: none; /* Hide the background image */
+    }
+    .BgContainer {
+        width: 100%; /* Make the BgContainer full width */
+        height: auto; /* Adjust height as needed */
+        border-radius: 0; /* Remove border radius */
+    }
+
+    .RegisterForms {
+        width: 85vw; /* 615 / 1392 * 100 */
+        /* height: auto; */
+    }
+
+    .SignUpButton {
+        left: 50%;
+        transform: translateX(-50%);
+    }
 }

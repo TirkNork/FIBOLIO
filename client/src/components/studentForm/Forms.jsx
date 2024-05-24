@@ -18,17 +18,17 @@ export const StudentForm = ({ onChange, errors }) => {
     );
 };
 
-export const InstructorForm = () => {
+export const InstructorForm = ({ onChange, errors }) => {
     const instructorInputs = [
-        { name: "Name", label: "Name", type: "text", placeholder: "Enter your Name" },
-        { name: "Surname", label: "Surname", type: "text", placeholder: "Enter your Surname" },
-        { name: "Email", label: "Email", type: "email", placeholder: "Enter your Email" },
-        { name: "Password", label: "Password", type: "password", placeholder: "Create your Password" },
-        { name: "ConfirmPass", label: "Confirm Password", type: "password", placeholder: "Re-Enter your Password" }
+        { name: "Name", label: "Name", type: "text", placeholder: "Enter your Name", error: errors.Name },
+        { name: "Surname", label: "Surname", type: "text", placeholder: "Enter your Surname", error: errors.Surname },
+        { name: "Email", label: "Email", type: "email", placeholder: "Enter your Email", error: errors.Email },
+        { name: "Password", label: "Password", type: "password", placeholder: "Create your Password", error: errors.Password },
+        { name: "ConfirmPass", label: "Confirm Password", type: "password", placeholder: "Re-Enter your Password", error: errors.ConfirmPass }
     ];
     
     return (
-        <RoleForm role="instructor" inputs={instructorInputs} />
+        <RoleForm role="instructor" inputs={instructorInputs} onChange={onChange} />
     );
 };
 

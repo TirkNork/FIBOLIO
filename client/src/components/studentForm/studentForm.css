@@ -1,4 +1,4 @@
-.NameSurname {
+/* .NameSurname {
     display: grid;
     grid-template-columns: 300px auto;
     justify-content: space-evenly;
@@ -55,4 +55,79 @@ input::errors {
     color: red;
     align-items: left;
     margin-bottom: 10px;
+} */
+
+/* General styles for the grid layout of Name and Surname fields */
+.NameSurname {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(1.98vw, 1fr)); /* Adjusts columns to fit the container */
+    gap: 1rem; /* Adds space between the columns */
+    justify-content: space-evenly;
+}
+
+label {
+    position: relative;
+    /* font-size: 1.44vw; 20 / 1392 * 100 */
+    font-size: 18px;
+    margin-bottom: 0;
+}
+
+input {
+    height: 7vh; /* 56 / 749 * 100 */
+    border-radius: 8px;
+    border: 0;
+    padding: 0;
+    margin-bottom: 1vh; /* Adjust margin for better spacing */
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.StudentID, .Email, .Password, .ConfirmPass {
+    width: 41.45vw; /* 577 / 1392 * 100 */
+}
+
+.Name, .Surname {
+    width: 19.76vw; /* 275 / 1392 * 100 */
+}
+
+.Name {
+    margin-right: 7.18vw; /* 100 / 1392 * 100 */
+}
+
+input::placeholder {
+    /* font-size: 1.44vw; 20 / 1392 * 100 */
+    font-size: 18px;
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+    /* font-size: 1.44vw; 20 / 1392 * 100 */
+    font-size: 18px;
+    padding-left: 0.86vw; /* 12 / 1392 * 100 */
+}
+
+input:focus {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+/* No pseudo-element '::errors', should use a class to style error inputs */
+input.error {
+    border: 1px solid red;
+}
+
+.errorText {
+    position: relative;
+    display: flex;
+    color: red;
+    align-items: flex-start; /* Aligns the text to the start */
+    margin-bottom: 1vh; /* Adjust margin for better spacing */
+}
+
+
+@media (max-width: 768px) {
+    .Name, .Surname {
+        width: 35vw; /* 275 / 1392 * 100 */
+    }
+    
+    .StudentID, .Email, .Password, .ConfirmPass {
+        width: 75vw; /* 577 / 1392 * 100 */
+    }
 }

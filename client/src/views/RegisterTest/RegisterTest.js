@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Fragment } from "react";
 import { Link } from "react-router-dom";
-import Button from "../../components/buttons/buttons";
+import Button from "../../components/Button/Button";
 
 function TestInputField() {
   const [values, setValues] = useState({});
