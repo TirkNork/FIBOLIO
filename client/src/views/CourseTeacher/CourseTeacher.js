@@ -22,7 +22,7 @@ function CourseTeacher() {
     const [searchTerm, setSearchTerm] = useState("");
     const [sortBy, setSortBy] = useState("");
     const [studentsData, setStudentsData] = useState([]);
-
+    const [courseName, setCourseName] = useState({course_id : "", course_name : ""});
 
     const navigate = useNavigate();
 
@@ -63,23 +63,27 @@ function CourseTeacher() {
         return sortedList;
     };
 
-
-
     useEffect(() => {
-
         getStudentsData();
+        getCourseName();
         console.log('Get Data');
     }, []);
 
     useEffect(() => {
-
         countStudentGrade();
         console.log('Count grade');
     }, [studentsData]);
 
-    const getStudentsData = () => {
+    const getCourseName = () => {
+        Axios.get(`http://localhost:3001/coursename/${id}`).then((response) => {
+            
+            setCourseName(response.data[0])
+        });
+        // console.log('ffff' + courseName.course_id);
+    };
+
+    const getStudentsData = () => { 
         Axios.get(`http://localhost:3001/students/${id}`).then((response) => {
-            console.log(response.data)
             setStudentsData(response.data)
         });
     };
@@ -126,10 +130,12 @@ function CourseTeacher() {
                         <a className='home' href='/'>My class</a>
                     </li>
                     <li className='breadcrumb-list'>
-                        <p className='current-page'> <b>{id}</b> </p>
+                        <p className='current-page'> <b>{courseName.course_id}</b> </p>
                     </li>
                 </ul>
-                <p className='subject'>{id}</p>
+                <p className='subject'>{courseName.course_id}</p>
+                <p className='subject'>{courseName.course_name}</p>
+
                 <Search searchTerm={searchTerm} handleSearch={handleSearch} />
                 <select className="sortby" onClick={(event) => handleSort(event.target.value)}>
                     <option value="">Sort By</option>

@@ -282,13 +282,31 @@ app.delete("/delProject/:id", (req, res) => {
   });
 });
 
+app.get("/coursename/:id", (req, res) => {
+    const id = req.params.id;
+    const sql = `
+                SELECT c.course_name, c.course_id
+                FROM fra502test.Courses as c
+                WHERE c.course_key = ?
+                `;
+                
+    db.query(sql, [id] , (err, result) => {
+        if(err){
+            console.log(err);
+        }
+        else{
+            res.send(result)
+        }
+    });
+  });
+
 app.get("/students/:id", (req, res) => {
   const id = req.params.id;
   const sql = `
               SELECT c.student_id, c.course_student_score, c.course_student_grade, p.student_firstname, p.student_surname 
               FROM fra502test.Personal_Information as p
               JOIN fra502test.CourseStudent as c ON c.student_id = p.student_id
-              WHERE c.course_id = ?
+              WHERE c.course_key = ?
               ORDER BY c.student_id 
               `;
               
