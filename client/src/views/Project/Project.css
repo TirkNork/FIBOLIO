@@ -57,9 +57,9 @@ h1 {
   border-radius: 10px;
   padding: .5rem;
   color: rgb(0, 0, 0);
-  background: #E3E3E3;
+  background: #ffffff;
   font-size: 16px;
-  box-shadow: 0 4px 4px #a7a7a7;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: left;
   cursor: pointer;
 }
