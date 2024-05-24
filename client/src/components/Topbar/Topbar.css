@@ -229,7 +229,7 @@ color: #DD5900;
 }
 
 
-@media screen and (max-width: 580px){
+@media screen and (max-width: 650px){
   .dropdown-menu{
     display: none;
   }

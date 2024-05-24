@@ -432,7 +432,6 @@ h1 {
 
 .sortby {
   display: flex;
-  /* position: absolute; */
   height: 45px;
   width: 130px;
   margin-left: auto;
@@ -440,7 +439,6 @@ h1 {
   margin-top: 40px;
   text-align: center;
   font-size: 12px;
-  /* font-family: 'Poppins'; */
   cursor: pointer;
   border-radius: 5px;
 }
@@ -457,7 +455,7 @@ h1 {
 }
 
 .sortby option{
-  font-size: 14px;
+  font-size: 12px;
   /* background-color: #000000; */
   cursor: pointer;
 }
