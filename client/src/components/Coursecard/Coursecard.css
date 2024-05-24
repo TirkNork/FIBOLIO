@@ -4,7 +4,7 @@
     align-items: flex-start;
     width: 300px;
     height: 200px;
-    margin: 20px;
+    margin: 30px;
     padding: 20px;
     border-radius: 10px;
     background: #fff;
@@ -37,7 +37,7 @@
 }
 
 .coursecard-course-id {
-    font-size: 20px;
+    font-size: 22px;
     font-weight: bold;
     margin: 0;
 }
@@ -48,20 +48,17 @@
 }
 
 .coursecard-professor {
-    font-size: 14px;
-    /* color: #555; */
+    font-size: 16px;
     margin-top: auto;
 }
 
 .coursecard-grade {
     font-size: 52px;
-    /* color: #555; */
-    margin: auto 0;
+    margin-top: 26px;
 }
 
 .coursecard-academic-year {
-    font-size: 14px;
-    /* color: #555; */
+    font-size: 16px;
     margin-top: auto;
 }
 
