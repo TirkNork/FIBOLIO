@@ -14,6 +14,8 @@ function CourseEdit() {
     const [score, setScore] = useState({ Score: '' });
     const [searchTerm, setSearchTerm] = useState("");
     const [sortBy, setSortBy] = useState("");
+    const [courseName, setCourseName] = useState({course_id : "", course_name : ""});
+
 
 
     const handleScoreChange = (event, index) => {
@@ -62,6 +64,7 @@ function CourseEdit() {
 
     useEffect(() => {
         getStudentsData();
+        getCourseName();
 
     }, [id]); 
 
@@ -69,6 +72,13 @@ function CourseEdit() {
         console.log('Score changed ' , new_score);
     }, [new_score]);
 
+    const getCourseName = () => {
+        Axios.get(`http://localhost:3001/coursename/${id}`).then((response) => {
+            
+            setCourseName(response.data[0])
+        });
+        // console.log('ffff' + courseName.course_id);
+    };
 
     const getStudentsData = () => {
         Axios.get(`http://localhost:3001/students/${id}`).then((response) => {
@@ -144,14 +154,15 @@ function CourseEdit() {
     return (
         <div>
             <div className="header">
-                <h1>{id}</h1>
+                <h1>{courseName.course_id}</h1>
+                <h1 className='course-name'>{courseName.course_name}</h1>
                 <br />
                 <ul className='breadcrumb'>
                     <li className='breadcrumb-list'>
                         <a className='home' href='/'>My class</a>
                     </li>
                     <li className='breadcrumb-list'>
-                        <p className='current-page'> <b>{id}</b> </p>
+                        <p className='current-page'> <b>{courseName.course_id}</b> </p>
                     </li>
                 </ul>
                 <select className="sortby" onClick={(event) => handleSort(event.target.value)}>
