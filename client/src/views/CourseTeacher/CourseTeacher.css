@@ -53,9 +53,21 @@ th {
     margin-top: -20px;
 }
 
+.cross{
+    position: absolute;
+    right: 0px;
+    margin-top: 10px;
+    margin-right: 10px;
+    z-index: 1;
+}
+
 @media (min-width: 1281px) {
     .pie-chart {
         display: block !important;
+    }
+    
+    .cross{
+        display: none;
     }
 }
 
@@ -70,6 +82,9 @@ th {
         height: 30%;
         width: 25%;
         left: 40%;
+        border: #000 solid 2px;
+        border-radius: 10px;
+        padding: 0 0 0 10px;
     }
 
     .student-table {
@@ -93,6 +108,7 @@ th {
 }
 
 @media (max-width: 768px) {
+
     .edit-score,
     .show-dashboard {
         left: 70%;
@@ -112,6 +128,7 @@ th {
 }
 
 @media (max-width: 480px) {
+
     .edit-score,
     .show-dashboard {
         left: 62%;

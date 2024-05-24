@@ -368,7 +368,7 @@ app.post("/updateScore/:id", (req, res) => {
                 const sql = `
                     UPDATE fra502test.CourseStudent 
                     SET course_student_score = ?, course_student_grade = ?
-                    WHERE course_id = ? 
+                    WHERE course_key = ? 
                     AND student_id = ?;
                 `;
 

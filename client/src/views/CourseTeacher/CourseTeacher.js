@@ -6,6 +6,7 @@ import { PieChart } from '@mui/x-charts/PieChart';
 import { useNavigate, useParams } from "react-router-dom";
 import { debounce } from "lodash";
 import Search from "../../components/Search/Search.js";
+import Cross from "../../assets/images/cancel.png";
 
 
 let a = 0
@@ -22,7 +23,7 @@ function CourseTeacher() {
     const [searchTerm, setSearchTerm] = useState("");
     const [sortBy, setSortBy] = useState("");
     const [studentsData, setStudentsData] = useState([]);
-    const [courseName, setCourseName] = useState({course_id : "", course_name : ""});
+    const [courseName, setCourseName] = useState({ course_id: "", course_name: "" });
 
     const navigate = useNavigate();
 
@@ -76,13 +77,13 @@ function CourseTeacher() {
 
     const getCourseName = () => {
         Axios.get(`http://localhost:3001/coursename/${id}`).then((response) => {
-            
+
             setCourseName(response.data[0])
         });
         // console.log('ffff' + courseName.course_id);
     };
 
-    const getStudentsData = () => { 
+    const getStudentsData = () => {
         Axios.get(`http://localhost:3001/students/${id}`).then((response) => {
             setStudentsData(response.data)
         });
@@ -147,6 +148,7 @@ function CourseTeacher() {
             </div>
             <div className='student-list'>
                 <div className="pie-chart">
+                    <img src={Cross} className="cross" onClick={showDashboard} />
                     <PieChart
                         margin={{ bottom: 50 }}
                         series={[
