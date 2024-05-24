@@ -94,25 +94,24 @@
 
 .notification {
     position: fixed;
-    top: 10%;
+    top: 10px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #fff;
+    background-color: white;
     border: 1px solid #ccc;
-    padding: 20px;
+    padding: 10px 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     z-index: 1000;
-    animation: slideDown 0.5s ease-in-out;
+    text-align: center;
+    animation: slideDown 0.3s ease-out;
 }
 
 @keyframes slideDown {
     from {
         top: -50px;
-        opacity: 0;
     }
     to {
-        top: 10%;
-        opacity: 1;
+        top: 10px;
     }
 }

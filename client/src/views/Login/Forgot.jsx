@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './Forgot.css';
+import { useNavigate } from 'react-router-dom'; 
 
 const Forgot = () => {
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
     const [showNotification, setShowNotification] = useState(false);
+    const navigate = useNavigate();
 
     const handleRequestPasswordReset = async (e) => {
         e.preventDefault();
@@ -16,10 +18,10 @@ const Forgot = () => {
             setShowNotification(true);
             setTimeout(() => {
                 setShowNotification(false);
-                window.location.href = '/Verification'; 
+                navigate('/check', { state: { email: email } }); 
             }, 3000);
         } catch (error) {
-            setMessage(error.response.data.message);
+            setMessage(error.response.data.message || 'An error occurred');
             setShowNotification(true);
             setTimeout(() => {
                 setShowNotification(false);

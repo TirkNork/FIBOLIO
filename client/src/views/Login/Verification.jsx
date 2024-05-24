@@ -1,12 +1,14 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios'; // เพิ่มนี้
+import { useNavigate, useLocation } from 'react-router-dom';
+import axios from 'axios';
 import './Verification.css';
 
 const Verification = () => {
     const [inputValue, setInputValue] = useState(['', '', '', '', '', '']);
     const inputRefs = useRef([]);
     const navigate = useNavigate();
+    const location = useLocation();
+    const { email } = location.state || {};
 
     useEffect(() => {
         if (inputRefs.current[0]) {
@@ -33,11 +35,11 @@ const Verification = () => {
 
         try {
             const otp = inputValue.join('');
-            const response = await axios.post('http://localhost:3001/verify-otp', { otp });
+            const response = await axios.post('http://localhost:3001/verify-otp', { otp, email });
             alert(response.data.message);
 
             if (response.data.success) {
-                navigate('/change-password');
+                navigate('/change-password', { state: { email } });
             }
         } catch (error) {
             alert(error.response.data.message);
@@ -46,7 +48,7 @@ const Verification = () => {
 
     const handleResendCode = async () => {
         try {
-            const response = await axios.post('http://localhost:3001/resend-otp');
+            const response = await axios.post('http://localhost:3001/resend-otp', { email });
             alert(response.data.message);
         } catch (error) {
             alert(error.response.data.message);
@@ -60,7 +62,7 @@ const Verification = () => {
                 <span className="close-icon" onClick={handleClose}>&times;</span>
                 <h1>OTP Verification</h1>
                 <div className="Please">
-                    <p>Please enter OTP Code sent to your Email.</p>
+                    <p>Please enter OTP Code that has been sent to <strong>{email}</strong></p>
                 </div>
 
                 {[...Array(6)].map((_, index) => (

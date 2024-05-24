@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaUser, FaEye, FaRegEye, FaRegEyeSlash } from "react-icons/fa";
+import { FaUser, FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Login.css';
@@ -35,22 +35,21 @@ const Login = () => {
         }
     }, [rememberMe, email, password]);
     
-
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
     };
 
-    const handleSwitch = (event) => {
+    const handleSwitch = async (event) => {
         event.preventDefault();
-        axios.post('http://localhost:3001/login', { email, password })
-            .then(res => {
-                setMessage(res.data.message);
-                if (res.data.message === "Login Successfully") {
-                    navigate('/Home', { state: { studentID: res.data.studentID } });
-                }
-                
-            })
-            .catch(err => console.log(err));
+        try {
+            const res = await axios.post('http://localhost:3001/login', { email, password });
+            setMessage(res.data.message);
+            if (res.data.message === "Login Successfully") {
+                navigate('/Home', { state: { studentID: res.data.studentID } });
+            }
+        } catch (err) {
+            console.error(err);
+        }
     };
 
     const handleSignUp = () => {

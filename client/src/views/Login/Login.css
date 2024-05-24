@@ -9,7 +9,7 @@
 }
 
 .wrapper h1 {
-    font-size: 3.6458vw;
+    font-size: 6.5vh;
     text-align: center;
     color: #fff;
     position: absolute;
@@ -20,7 +20,7 @@
 }
 
 .wrapper .Welcome {
-    font-size: 5.73vw;
+    font-size: 10.8vh;
     text-align: center;
     color: #fff;
     position: absolute;
@@ -29,7 +29,7 @@
 }
 
 .wrapper .Back {
-    font-size: 5.73vw;
+    font-size: 10.8vh;
     text-align: center;
     color: #fff;
     position: absolute;
@@ -38,7 +38,7 @@
 }
 
 .wrapper .FIBOLIO {
-    font-size: 1.5vw;
+    font-size: 3vh;
     text-align: center;
     color: #fff;
     position: absolute;
@@ -47,7 +47,7 @@
 }
 
 .wrapper .WelcomeText {
-    font-size: 1.302vw;
+    font-size: 2.55vh;
     text-align: center;
     color: #fff;
     position: absolute;
@@ -56,7 +56,7 @@
 }
 
 .wrapper .Account {
-    font-size: 1.302vw;
+    font-size: 2.55vh;
     text-align: center;
     color: #fff;
     position: absolute;
@@ -75,18 +75,18 @@
 
 
 .SignUp button {
-    border-radius: 0.41667%;
-    font-size: 0.78125vw;
+    border-radius: 0.41667vh;
+    font-size: 1.5vh;
     text-align: center;
     color: #000000;
     border-radius: 8px;
-    width: 5vw;
-    height: 2vw;
+    width: 10vh;
+    height: 4vh;
     background: rgba(255, 255, 255, 0.8);
 }
 
 .wrapper .Email {
-    font-size: 1.302vw;
+    font-size: 2.5vh;
     text-align: center;
     color: #fff;
     position: absolute;
@@ -109,14 +109,15 @@
 
 .input-boxname .Icon {
     position: absolute;
-    font-size: 0.9vw;
+    font-size: 1.9vh;
     left: 88.02083%;
     top: 39.6% ;
     transform: translateY(-50%);
 } 
 
+
 .wrapper .Password {
-    font-size: 1.302vw;
+    font-size: 2.5vh;
     text-align: center;
     color: #fff;
     position: absolute;
@@ -138,14 +139,14 @@
 
 .input-boxpass .Icon {
     position: absolute;
-    font-size: 0.9vw;
+    font-size: 2vh;
     left: 88.02083%;
     top: 49.7% ;
     transform: translateY(-50%);
 } 
 
 .wrapper .remember {
-    font-size: 1.302vw;
+    font-size: 3vh;
     text-align: center;
     color: #fff;
     position: absolute;
@@ -161,12 +162,12 @@
 .custom-checkbox {
     top: 53.5%;
     left: 58.33%;
-    width: 1vw; /* กำหนดความกว้าง */
+    width: 2vh; /* กำหนดความกว้าง */
     cursor: pointer; /* เปลี่ยน cursor เมื่ออยู่เหนือ checkbox */
 }
 
 .wrapper .rememberMe {
-    font-size: 1.041667vw;
+    font-size: 2vh;
     text-align: center;
     color: #fff;
     position: absolute;
@@ -182,7 +183,7 @@
 }
 
 .SignIn button {
-    font-size: 0.78125vw;
+    font-size: 2vh;
     text-align: center;
     color: #000000;
     border: 2px solid #dd5900;
@@ -194,7 +195,7 @@
 }
 
 .wrapper .forgot {
-    font-size: 0.8vw;
+    font-size: 1.8vh;
     text-align: center;
     color: #fff;
     position: absolute;
@@ -203,7 +204,7 @@
 }
 
 .wrapper .policy {
-    font-size: 1.041667vw;
+    font-size: 2vh;
     text-align: center;
     color: #fff;
     position: absolute;
@@ -212,7 +213,7 @@
 }
 
 .wrapper .accept {
-    font-size: 1.041667vw;
+    font-size: 2vh;
     text-align: center;
     color: #fff;
     position: absolute;
@@ -225,6 +226,7 @@
     margin-top: 10px;
     text-align: center;
 }
+
 
 @keyframes slideDown {
     from {
@@ -247,3 +249,5 @@
     z-index: 1000;
     text-align: center;
 }
+
+

@@ -9,6 +9,7 @@ import Forgot from './views//Login/Forgot';
 import Verification from './views//Login/Verification';
 import Changepass from './views//Login/Changepass';
 import Home from './views//Login/Home';
+import Check from './views//Login/Check';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route path="/Forgot"element={<Forgot/>}/>
           <Route path="/Verification"element={<Verification/>}/>
           <Route path="/Changepass"element={<Changepass/>}/>
+          <Route path="/Check"element={<Check/>}/>
           <Route path="/Home"element={<Home/>}/>
         </Routes>
 
