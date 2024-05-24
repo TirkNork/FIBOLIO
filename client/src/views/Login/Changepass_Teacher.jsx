@@ -25,14 +25,14 @@ const Changepass = () => {
         if (password !== confirmPassword) {
             setMessage("Passwords don't match");
             setShowNotification(true);
-            setTimeout(() => setShowNotification(false), 3000);
+            setTimeout(() => setShowNotification(false), 1000);
             return;
         }
 
         if (!passwordPattern.test(password)) {
             setMessage('Password must contain at least one digit, one lowercase letter, one uppercase letter, and be at least 8 characters long.');
             setShowNotification(true);
-            setTimeout(() => setShowNotification(false), 3000);
+            setTimeout(() => setShowNotification(false), 1000);
             return;
         }
 
@@ -45,11 +45,11 @@ const Changepass = () => {
                 if (response.data.success) {
                     navigate('/login');
                 }
-            }, 3000);
+            }, 2000);
         } catch (error) {
             setMessage(error.response.data.message);
             setShowNotification(true);
-            setTimeout(() => setShowNotification(false), 3000);
+            setTimeout(() => setShowNotification(false), 2000);
         }
     };
 

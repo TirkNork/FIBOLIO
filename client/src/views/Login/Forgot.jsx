@@ -22,14 +22,14 @@ const Forgot = () => {
                 setTimeout(() => {
                     setShowNotification(false);
                     navigate(response.data.route, { state: { email } });
-                }, 3000);
+                }, 2000);
             }
         } catch (error) {
             setMessage(error.response.data.message || 'An error occurred');
             setShowNotification(true);
             setTimeout(() => {
                 setShowNotification(false);
-            }, 3000);
+            }, 2000);
         }
     };
 

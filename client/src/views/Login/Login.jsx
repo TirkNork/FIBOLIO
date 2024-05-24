@@ -46,15 +46,27 @@ const Login = () => {
             const res = await axios.post('http://localhost:3001/login', { email, password });
             setMessage(res.data.message);
             if (res.data.message === "Login Successfully") {
-                navigate('/Home', { state: { studentID: res.data.studentID } });
+                if (res.data.role === "Teacher") {
+                    navigate('/TeacherPage', { state: { teacherID: res.data.teacherID } });
+                } else {
+                    navigate('/Home', { state: { studentID: res.data.studentID } });
+                }
             }
         } catch (err) {
             console.error(err);
+            setMessage('Login failed. Please try again.');
         }
     };
 
     const handleSignUp = () => {
         navigate('/Register'); 
+    };
+
+    const handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault(); // Prevent the default form submission
+            handleSwitch(event); // Manually trigger the login function
+        }
     };
 
     useEffect(() => {
@@ -66,7 +78,7 @@ const Login = () => {
 
     return (
         <div className='wrapper'>
-            <form onSubmit={handleSwitch}>
+            <form onSubmit={handleSwitch} onKeyDown={handleKeyDown}>
                 <h1>Sign In</h1>
                 <div className="Welcome">
                     <p>Welcome</p>
@@ -84,7 +96,7 @@ const Login = () => {
                     <p>Don't have an account?</p>
                 </div>
                 <div className="SignUp">
-                    <button type="button" onClick={handleSignUp}>SIGN UP</button>
+                    <Button type="button" onClick={handleSignUp} label="SIGN UP" />
                 </div>
                 <div className="Email">
                     <p>Email Address</p>

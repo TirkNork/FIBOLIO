@@ -50,6 +50,7 @@ app.post('/login', (req, res) => {
     });
 });
 
+
 app.post('/forgot-password', (req, res) => {
     const email = req.body.email;
     const studentSql = "SELECT * FROM fra502test.StudentRegister WHERE email = ?";
@@ -63,7 +64,7 @@ app.post('/forgot-password', (req, res) => {
         
         if (studentData.length > 0) {
             // พบ email ใน StudentRegister
-            return res.status(200).json({ message: "Email address has been registered. We are taking you through identity verification.", route: "/check", email });
+            return res.status(200).json({ message: "Email address has been registered. We are proceeding with identity verification.", route: "/check", email });
         } else {
             db.query(teacherSql, [email], (teacherErr, teacherData) => {
                 if (teacherErr) {
@@ -73,7 +74,7 @@ app.post('/forgot-password', (req, res) => {
 
                 if (teacherData.length > 0) {
                     // พบ email ใน TeacherRegister
-                    return res.status(200).json({ message: "Email address has been registered as a teacher. We are taking you to the teacher verification process.", route: "/check_teacher", email });
+                    return res.status(200).json({ message: "Email address has been registered. We are proceeding with identity verification.", route: "/check_teacher", email });
                 } else {
                     // ไม่พบ email ในทั้ง StudentRegister และ TeacherRegister
                     return res.status(404).json({ message: 'Email Address is not Registered' });
@@ -88,16 +89,16 @@ app.post('/forgot-password', (req, res) => {
 app.post('/check-info', (req, res) => {
     const { email, name, surname, studentID } = req.body;
 
-    db.query('SELECT * FROM fra502test.StudentRegister WHERE email = ? AND name = ? AND surname = ? AND studentID = ?', [email, name, surname, studentID], (err, results) => {
+    db.query('SELECT * FROM fra502test.StudentRegister WHERE email = ? AND LOWER(name) = ? AND LOWER(surname) = ? AND studentID = ?', [email, name, surname, studentID], (err, results) => {
         if (err) {
             console.error(err);
             return res.status(500).json({ message: 'Failed to verify data' });
         }
 
         if (results.length > 0) {
-            return res.status(200).json({ message: 'correct information', valid: true });
+            return res.status(200).json({ message: 'All the Information is correct.', valid: true });
         } else {
-            return res.status(200).json({ message: 'incorrect information', valid: false });
+            return res.status(200).json({ message: 'invalid information', valid: false });
         }
     });
 });
@@ -105,16 +106,16 @@ app.post('/check-info', (req, res) => {
 app.post('/check-infoT', (req, res) => {
     const { email, name, surname } = req.body;
 
-    db.query('SELECT * FROM fra502test.TeacherRegister WHERE email = ? AND name = ? AND surname = ?', [email, name, surname ], (err, results) => {
+    db.query('SELECT * FROM fra502test.TeacherRegister WHERE email = ? AND LOWER(name) = ? AND LOWER(surname) = ?', [email, name, surname ], (err, results) => {
         if (err) {
             console.error(err);
             return res.status(500).json({ message: 'Failed to verify data' });
         }
 
         if (results.length > 0) {
-            return res.status(200).json({ message: 'correct information', valid: true });
+            return res.status(200).json({ message: 'All the Information is correct.', valid: true });
         } else {
-            return res.status(200).json({ message: 'incorrect information', valid: false });
+            return res.status(200).json({ message: 'invalid information', valid: false });
         }
     });
 });

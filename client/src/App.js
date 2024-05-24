@@ -11,6 +11,7 @@ import Changepass_Teacher from './views//Login/Changepass_Teacher';
 import Home from './views//Login/Home';
 import Check from './views//Login/Check';
 import Check_teacher from './views//Login/Check_teacher';
+import TeacherPage from './views//Login/TeacherPage';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route path="/Check"element={<Check/>}/>
           <Route path="/Check_teacher"element={<Check_teacher/>}/>
           <Route path="/Home"element={<Home/>}/>
+          <Route path="/TeacherPage"element={<TeacherPage/>}/>
         </Routes>
 
       </div>      

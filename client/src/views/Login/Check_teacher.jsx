@@ -29,11 +29,11 @@ const Check = () => {
                 setTimeout(() => {
                     setShowNotification(false);
                     navigate('/Changepass_Teacher', { state: { email } });
-                }, 3000);
+                }, 2000);
             } else {
                 setTimeout(() => {
                     setShowNotification(false);
-                }, 3000);
+                }, 2000);
             }
         } catch (error) {
             const errorMessage = error.response && error.response.data ? error.response.data.message : 'An error occurred';
@@ -41,7 +41,7 @@ const Check = () => {
             setShowNotification(true);
             setTimeout(() => {
                 setShowNotification(false);
-            }, 3000);
+            }, 2000);
         }
     };
 
