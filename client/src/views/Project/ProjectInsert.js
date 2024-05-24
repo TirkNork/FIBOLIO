@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Axios from "axios";
 import "./Project.css";
 import Cross from "../../assets/images/cancel.png";
+import Button from "../../components/Button/Button.js";
 
 const serverIP = 'http://localhost:3001'
 
@@ -171,7 +172,7 @@ function ProjectInsert() {
                 </div>
               )}
               {errors.image && <p className="error">{errors.image}</p>}
-              <button type="submit">Upload</button>
+              <Button label="Upload" type="submit"/>
             </form>
           </div>
         </div>
