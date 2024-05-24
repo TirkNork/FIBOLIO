@@ -1,0 +1,178 @@
+.Contain2 {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../../components/Assets/ForgotBGG.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.Contain2 .white-box {
+    width: 70vw; 
+    height: 65vh; 
+    background-color: #ffffff;
+    border-radius: 2.4vw; 
+    box-shadow: 0 0 1vw rgba(0, 0, 0, 0.1); 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+
+.Contain2 h1 {
+    font-size: 2.5vw;
+    text-align: center;
+    color: #000000;
+    position: absolute;
+    top:  22vh;
+    left: 30vw;
+    width: 40vw;
+    height: 21vh;
+}
+.Contain2 .close-icon {
+    position: absolute;
+    top:  19.5vh;
+    left: 82vw;
+    font-size: 2vw;
+    color: #000;
+    cursor: pointer;
+}
+.Contain2 .Please {
+    font-size: 1.5625vw;
+    text-align: center;
+    color: #ABABAB;
+    position: absolute;
+    top: 35vh;
+    left: 28vw;
+}
+
+.input-box1 input {
+    width: 5vw;
+    height: 8vh;
+    font-size: 4vw;
+    position: absolute;
+    text-align: center;
+    top: 45vh;
+    left: 29vw;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(10 , 10, 10, 0.5);
+}
+
+.input-box2 input {
+    width: 5vw;
+    height: 8vh;
+    font-size: 4vw;
+    position: absolute;
+    text-align: center;
+    top: 45vh;
+    left: 36vw;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(10 , 10, 10, 0.5);
+}
+
+.input-box3 input {
+    width: 5vw;
+    height: 8vh;
+    font-size: 4vw;
+    position: absolute;
+    text-align: center;
+    top: 45vh;
+    left: 43vw;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(10 , 10, 10, 0.5);
+}
+
+
+.input-box4 input {
+    width: 5vw;
+    height: 8vh;
+    font-size: 4vw;
+    position: absolute;
+    text-align: center;
+    top: 45vh;
+    left: 50vw;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(10 , 10, 10, 0.5);
+}
+
+.input-box5 input {
+    width: 5vw;
+    height: 8vh;
+    font-size: 4vw;
+    position: absolute;
+    text-align: center;
+    top: 45vh;
+    left: 57vw;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(10 , 10, 10, 0.5);
+}
+
+.input-box6 input {
+    width: 5vw;
+    height: 8vh;
+    font-size: 4vw;
+    position: absolute;
+    text-align: center;
+    top: 45vh;
+    left: 64vw;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(10 , 10, 10, 0.5);
+}
+
+.Contain2 .Requeast {
+    color: #000000;
+    position: absolute;
+    top: 63vh;
+    left: 35.7291667vw;
+}
+
+.Contain2 .Did {
+    font-size: 1.302vw;
+    text-align: center;
+    color: #ABABAB;
+    position: absolute;
+    top: 57vh;
+    left: 42.5vw;
+}
+
+.Contain2 .Resend{
+    font-size: 1.302vw;
+    text-align: center;
+    color: #000000;
+    position: absolute;
+    top: 63vh;
+    left: 46vw;
+}
+
+.Contain2 .Requeast{
+    color: #000000;
+    position: absolute;
+    top: 70vh;
+    left: 35.7291667vw;
+}
+
+
+.Requeast button {
+    font-size: 1.5625vw;
+    text-align: center;
+    color: #fff;
+    border: 2px solid #dd5900;
+    box-shadow: 0 0 10px rgba(10 , 10, 10, 0.5);
+    border-radius: 8px;
+    width: 27.03125vw;
+    height: 8.1vh;
+    background: #dd5900;
+}
+
+
