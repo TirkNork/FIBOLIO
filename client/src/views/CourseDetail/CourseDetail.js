@@ -17,6 +17,16 @@ function CourseDetail() {
     console.log("Course data:", course); // Debug statement
 
     return (
+        <div>
+        <div className="header">
+            <h1>Course Details</h1>
+            <br/>
+            <ul className='breadcrumb'>
+                <li className='breadcrumb-list'>
+                    <a className='home'>Course/</a>
+                </li>
+            </ul>
+        </div>
         <div className="course-detail-page">
             {course ? (
                 <CourseDetailCard
@@ -32,6 +42,7 @@ function CourseDetail() {
             ) : (
                 <p>Course not found</p>
             )}
+        </div>
         </div>
     );
 }

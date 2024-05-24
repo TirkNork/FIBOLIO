@@ -54,7 +54,13 @@ function Course() {
     return (
         <div>
             <div className="header">
-                {/* <h1>Course</h1> */}
+                <h1>Course</h1>
+                <br />
+                <ul className='breadcrumb'>
+                    <li className='breadcrumb-list'>
+                        <a className='home' href='/Course'>Course/</a>
+                    </li>
+                </ul>
             </div>
             <div className="controls">
                 <Dropdown handleSortToggle={handleSortToggle} sortType={sortType} sortOrder={sortOrder} />
