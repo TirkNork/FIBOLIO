@@ -18,31 +18,34 @@ function CourseDetail() {
 
     return (
         <div>
-        <div className="header">
-            <h1>Course Details</h1>
-            <br/>
-            <ul className='breadcrumb'>
-                <li className='breadcrumb-list'>
-                    <a className='home'>Course/</a>
-                </li>
-            </ul>
-        </div>
-        <div className="course-detail-page">
-            {course ? (
-                <CourseDetailCard
-                    courseid={course.courseid}
-                    coursename={course.coursename}
-                    grade={course.grade}
-                    academicYear={course.academicYear}
-                    professorname={course.professorname}
-                    classType={course.classType}
-                    credits={course.credits}
-                    fullDescription={course.fullDescription}
-                />
-            ) : (
-                <p>Course not found</p>
-            )}
-        </div>
+            <div className="header">
+                <h1>Course Details</h1>
+                <br />
+                <ul className='breadcrumb'>
+                    <li className='breadcrumb-list'>
+                        <a className='home' href='/Course'>Course</a>
+                    </li>
+                    <li className='breadcrumb-list'>
+                        <p className='current-page'> <b>Course Details</b> </p>
+                    </li>
+                </ul>
+            </div>
+            <div className="course-detail-page">
+                {course ? (
+                    <CourseDetailCard
+                        courseid={course.courseid}
+                        coursename={course.coursename}
+                        grade={course.grade}
+                        academicYear={course.academicYear}
+                        professorname={course.professorname}
+                        classType={course.classType}
+                        credits={course.credits}
+                        fullDescription={course.fullDescription}
+                    />
+                ) : (
+                    <p>Course not found</p>
+                )}
+            </div>
         </div>
     );
 }
