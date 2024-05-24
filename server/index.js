@@ -10,6 +10,7 @@ const port = 3001;
 app.use(cors());
 app.use(express.json());
 
+const PORT = process.env.PORT || 3001;
 const db = mysql.createConnection({
     user: "root",
     host: "35.187.247.214",
@@ -310,6 +311,60 @@ app.get('/CompetencyDescription', (req, res) => {
         else {
             res.send(result)
         }
+    });
+});
+
+app.post("/updateScore/:id", (req, res) => {
+    const id = req.params.id;
+    const scores = req.body; // Assuming req.body is an array of score objects
+
+    // Start a transaction
+    db.beginTransaction(err => {
+        if (err) {
+            return res.status(500).send({ error: "An error occurred while starting the transaction." });
+        }
+
+        const updatePromises = scores.map(score => {
+            return new Promise((resolve, reject) => {
+                const { student_firstname, student_lastname, student_id, course_student_score, course_student_grade } = score;
+                const sql = `
+                    UPDATE fra502test.CourseStudent 
+                    SET course_student_score = ?, course_student_grade = ?
+                    WHERE course_id = ? 
+                    AND student_id = ?;
+                `;
+
+                db.query(sql, [course_student_score, course_student_grade, id, student_id], (err, results) => {
+                    if (err) {
+                        return reject(err);
+                    }
+                    resolve(results);
+                });
+            });
+        });
+
+        Promise.all(updatePromises)
+            .then(results => {
+                // Commit the transaction if all updates succeed
+                db.commit(err => {
+                    if (err) {
+                        return db.rollback(() => {
+                            res.status(500).send({ error: "An error occurred while committing the transaction." });
+                        });
+                    }
+                    res.json({
+                        message: 'Scores updated successfully',
+                        results
+                    });
+                });
+            })
+            .catch(error => {
+                // Rollback the transaction in case of any failure
+                db.rollback(() => {
+                    console.error("There was an error updating the project!", error);
+                    res.status(500).send({ error: "An error occurred while updating the scores." });
+                });
+            });
     });
 });
 
