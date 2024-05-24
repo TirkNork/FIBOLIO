@@ -5,7 +5,7 @@ function Box(props) {
     <div>
 
       <div className={styles.box} style={{ borderColor: props.color }}>
-        <h3 className={styles.title}>{props.title}</h3>
+        <h2 className={styles.title}>{props.title}</h2>
         <h4 className={styles.title}>{props.detail}</h4>
         {props.children}
       </div>

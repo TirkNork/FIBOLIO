@@ -1,8 +1,13 @@
+* {
+  box-sizing: border-box;
+  font-family: "Kanit", sans-serif;
+
+}
+
+
 body {
   background-color: #F1F1F1;
-  /* Replace with your desired background color */
   margin: 0;
-  /* Remove default margin */
   height: 100%;
   width: 100%;
 }
@@ -10,7 +15,6 @@ body {
 
 .subject-page {
   background-color: #F1F1F1;
-
 }
 
 .top-bar {
@@ -34,13 +38,12 @@ body {
 
 .header-text {
   text-align: center;
-  padding-left: 80px;
-  padding-top: 50px;
+  padding-left: 0px;
+  padding-top: 60px;
   font-size: 48px;
-  font-family: Montserrat;
-  color: #E47A33;
+  color: black;
   margin-top: 0px;
-  position: absolute;
+
 
 }
 
@@ -51,11 +54,24 @@ body {
   width: 100%;
   background: #E3E3E3;
   margin-top: 0px;
+  padding-left: 100px;
 
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+  min-width: 400px;
 }
 
 @media(max-width: 1400px) {
   .app-grid {
     grid-template-columns: 1fr;
+  }
+
+
+
+  .subject-page {
+    padding-bottom: 400px;
   }
 }

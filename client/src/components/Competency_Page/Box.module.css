@@ -7,12 +7,15 @@
   width: 80%;
   left: 100px;
   margin-top: 30px;
-  max-height: 80px
+  height: 120px;
+
 }
+
+
 
 .title {
   text-align: left;
   margin-top: -10px;
-  margin-left: 60px;
+  margin-left: 80px;
   position: relative;
 }
