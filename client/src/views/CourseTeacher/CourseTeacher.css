@@ -66,7 +66,7 @@ th,
     table-layout: fixed;
 }
 
-th{
+th {
     font-size: 20px;
 }
 
@@ -136,7 +136,7 @@ th{
     .pie-chart {
         display: none;
         background-color: #f8f8f8;
-        height: 35%;
+        height: 30%;
         width: 25%;
         left: 40%;
     }
@@ -155,8 +155,8 @@ th{
 @media (max-width: 1024px) {
     .pie-chart {
         position: absolute;
-        height: 35%;
-        width: 35%;
+        height: 25%;
+        width: 30%;
         left: 40%;
     }
 }
@@ -175,14 +175,18 @@ th{
 
     .pie-chart {
         position: absolute;
-        height: 35%;
+        height: 27%;
         width: 40%;
         left: 30%;
+    }
+
+    .td {
+        white-space: nowrap;
+        overflow-x: scroll;
     }
 }
 
 @media (max-width: 480px) {
-
     .edit-score,
     .show-dashboard {
         left: 62%;
@@ -190,7 +194,7 @@ th{
 
     .pie-chart {
         position: absolute;
-        height: 35%;
+        height: 25%;
         width: 60%;
         left: 20%;
     }
@@ -204,17 +208,16 @@ th{
 
     .pie-chart {
         position: absolute;
-        height: 35%;
+        height: 25%;
         width: 70%;
         left: 15%;
-        margin-top: 20px;
     }
 
-    .student-table{
+    .student-table {
         margin-top: 100px;
     }
 
-    th{
+    th {
         font-size: 12px;
     }
 }
@@ -225,7 +228,7 @@ th{
         margin-right: 10px;
     }
 
-    .edit-score{
+    .edit-score {
         left: 50%;
     }
 
@@ -236,17 +239,16 @@ th{
 
     .pie-chart {
         position: absolute;
-        height: 35%;
+        height: 25%;
         width: 90%;
         left: 5%;
-        margin-top: 20px;
     }
 
-    .student-table{
+    .student-table {
         margin-top: 100px;
     }
 
-    th{
+    th {
         font-size: 12px;
     }
 }

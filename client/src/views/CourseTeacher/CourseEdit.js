@@ -149,7 +149,7 @@ function CourseEdit() {
                         <a className='home' href='/'>My class</a>
                     </li>
                     <li className='breadcrumb-list'>
-                        <p className='current-page'> <b>{subject}</b> </p>
+                        <p className='current-page'> <b>{id}</b> </p>
                     </li>
                 </ul>
                 <p className='subject'>{id}</p>

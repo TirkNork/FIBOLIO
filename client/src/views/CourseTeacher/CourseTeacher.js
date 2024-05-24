@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import './CourseTeacher.css';
 import Axios from "axios";
 import { PieChart } from '@mui/x-charts/PieChart';
-import { useNavigate, useParams  } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { debounce } from "lodash";
 import Search from "../../components/Search.js";
 
@@ -108,7 +108,7 @@ let f = 0
 // }
 
 function CourseTeacher() {
-    const {id} = useParams();
+    const { id } = useParams();
     const [searchTerm, setSearchTerm] = useState("");
     const [sortBy, setSortBy] = useState("");
     const [studentsData, setStudentsData] = useState([]);
@@ -153,7 +153,7 @@ function CourseTeacher() {
         return sortedList;
     };
 
-    
+
 
     useEffect(() => {
 
@@ -169,8 +169,9 @@ function CourseTeacher() {
 
     const getStudentsData = () => {
         Axios.get(`http://localhost:3001/students/${id}`).then((response) => {
-        console.log(response.data)
-        setStudentsData(response.data)});
+            console.log(response.data)
+            setStudentsData(response.data)
+        });
     };
 
     const countStudentGrade = () => {
@@ -184,14 +185,14 @@ function CourseTeacher() {
         f = 0;
         for (let i = 0; i < studentsData.length; i++) {
             let grade = studentsData[i].course_student_grade
-            if (grade === 'A'){a += 1;}
-            else if (grade === 'B+'){bPlus += 1;}
-            else if (grade === 'B'){b += 1;}
-            else if (grade === 'C+'){cPlus += 1;}
-            else if (grade === 'C'){c += 1;}
-            else if (grade === 'D+'){dPlus += 1;}
-            else if (grade === 'D'){d += 1;}
-            else if (grade === 'F'){f += 1;}
+            if (grade === 'A') { a += 1; }
+            else if (grade === 'B+') { bPlus += 1; }
+            else if (grade === 'B') { b += 1; }
+            else if (grade === 'C+') { cPlus += 1; }
+            else if (grade === 'C') { c += 1; }
+            else if (grade === 'D+') { dPlus += 1; }
+            else if (grade === 'D') { d += 1; }
+            else if (grade === 'F') { f += 1; }
         }
 
     };
