@@ -183,15 +183,16 @@
 }
 
 .SignIn button {
-    font-size: 2vh;
+    font-size: 1.5vh;
     text-align: center;
     color: #000000;
     border: 2px solid #dd5900;
     box-shadow: 0 0 10px rgba(10 , 10, 10, 0.5);
     border-radius: 8px;
-    width: 7.8125vw;
-    height: 2.60416667vw;
+    width: 15vh;
+    height: 5vh;
     background: #dd5900;
+    
 }
 
 .wrapper .forgot {

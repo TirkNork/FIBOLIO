@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Button from '../../components/Button/Button.jsx';
 import axios from 'axios';
-import './Changepass.css';
+import './Changepass_Teacher.css';
 import { FaUser, FaEye, FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 
 const Changepass = () => {
@@ -37,7 +37,7 @@ const Changepass = () => {
         }
 
         try {
-            const response = await axios.post('http://localhost:3001/change-password', { email, password });
+            const response = await axios.post('http://localhost:3001/change-passwordT', { email, password });
             setMessage(response.data.message);
             setShowNotification(true);
             setTimeout(() => {
@@ -54,7 +54,7 @@ const Changepass = () => {
     };
 
     return (
-        <div className='Contain1'>
+        <div className='Contain6'>
             <form onSubmit={handleSaveChange}>
                 <div className="white-box"></div>
                 <h1>Change password</h1>
@@ -91,7 +91,6 @@ const Changepass = () => {
                     />
                 </div>
 
-
                 <div className="Save">
                         <Button type="submit" label="Save Change & Continue" />
                 </div>
@@ -99,6 +98,7 @@ const Changepass = () => {
                 <div className="Back">
                         <Button type="submit" onClick={handleBackClick} label="Cancel" />
                 </div>
+  
             </form>
         </div>
     );

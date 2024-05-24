@@ -1,4 +1,4 @@
-.Contain1 {
+.Contain5 {
     display: flex;
     justify-content: center; 
     align-items: center; 
@@ -10,7 +10,7 @@
     background-repeat: no-repeat;
 }
 
-.Contain1 .white-box {
+.Contain5 .white-box {
     width: 70vw; 
     height: 65vh; 
     background-color: #ffffff;
@@ -23,7 +23,7 @@
     position: relative;
 }
 
-.Contain1 h1 {
+.Contain5 h1 {
     font-size: 2.5vw;
     text-align: center;
     color: #000000;
@@ -33,89 +33,84 @@
     width: 40vw;
     height: 21vh;
 }
-
-.Contain1 .Create{
-    font-size: 1.3020vw;
-    text-align: center;
-    color: #000000;
+.Contain5 .close-icon {
     position: absolute;
-    top: 36vh;
-    left: 29vw;
+    top:  19.5vh;
+    left: 82vw;
+    font-size: 2vw;
+    color: #000;
+    cursor: pointer;
 }
 
-.input-boxpassnew input {
-    width: 40.9vw;
-    height: 5.6vh;
-    font-size: 1.3020vw;
-    position: absolute;
-    top: 42vh;
-    left: 29vw;
-    border: 2px solid #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(10 , 10, 10, 0.5);
-}
-
-.Contain1 .Confirm{
-    font-size: 1.3020vw;
-    text-align: center;
-    color: #000000;
-    position: absolute;
-    top: 49vh;
-    left: 29vw;
-}
-
-.input-boxpassconfirm input {
-    width: 40.9vw;
-    height: 5.6vh;
-    font-size: 1.3020vw;
-    position: absolute;
-    top: 55vh;
-    left: 29vw;
-    border: 2px solid #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(10 , 10, 10, 0.5);
-}
-
-.Contain1 .Save{
+.Contain5 .Please {
     font-size: 1.5625vw;
     text-align: center;
-    color: #000000;
+    color: #ABABAB;
     position: absolute;
-    top: 69vh;
-    left: 29vw;
+    top: 32vh;
+    left: 28vw;
 }
 
-.Save button {
-    font-size: 1.3020vw;
+.Contain5 .Name {
+    font-size: 1.3vw;
+    text-align: center;
+    color: #cec6c6;
+    position: absolute;
+    top: 40vh;
+    left: 28vw;
+}
+
+.input-boxname3 input {
+    width: 20vw; 
+    height: 4.6vh; 
+    font-size: 1.3vw;
+    position: absolute;
+    top: 46vh;
+    left: 28vw;
+    border: 0.1041vw solid #fff;
+    border-radius: 0.417vw;
+    box-shadow: 0 0 10px rgba(10 , 10, 10, 0.5);
+}
+
+.Contain5 .SurName {
+    font-size: 1.3vw;
+    text-align: center;
+    color: #cec6c6;
+    position: absolute;
+    top: 40vh;
+    left: 52vw;
+}
+
+.input-boxsurname3 input {
+    width: 20vw; 
+    height: 4.6vh; 
+    font-size: 1.3vw;
+    position: absolute;
+    top: 46vh;
+    left: 52vw;
+    border: 0.1041vw solid #fff;
+    border-radius: 0.417vw;
+    box-shadow: 0 0 10px rgba(10 , 10, 10, 0.5);
+}
+
+.Contain5 .Requeast{
+    color: #000000;
+    position: absolute;
+    top: 70vh;
+    left: 35.7291667vw;
+}
+
+
+.Requeast button {
+    font-size: 1.5625vw;
     text-align: center;
     color: #fff;
     border: 2px solid #dd5900;
     box-shadow: 0 0 10px rgba(10 , 10, 10, 0.5);
     border-radius: 8px;
-    width: 18.85vw;
-    height: 6.29vh;
+    width: 27.03125vw;
+    height: 8.1vh;
     background: #dd5900;
-}
-
-.Contain1 .Back{
-    font-size: 1.5625vw;
-    text-align: center;
-    color: #4b4b4b;
-    position: absolute;
-    top: 69vh;
-    left: 51vw;
-}
-
-.Back button {
-    font-size: 1.3020vw;
-    text-align: center;
-    color: #4b4b4b;
-    border: 2px solid #666666;
-    box-shadow: 0 0 10px rgba(10 , 10, 10, 0.5);
-    border-radius: 8px;
-    width: 18.85vw;
-    height: 6.29vh;
-    background: #fffbf8;
 }
 
 .popup {
@@ -130,7 +125,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     text-align: center;
-    animation: slideDown 0.5s ease-in-out;
+    animation: slideDown 0.3s ease-out;
 }
 
 @keyframes slideDown {

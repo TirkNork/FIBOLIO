@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import Button from '../../components/Button/Button.jsx';
 import axios from 'axios';
 import './Verification.css';
 
@@ -85,7 +86,7 @@ const Verification = () => {
                 </div>
 
                 <div className="Requeast">
-                    <button type="submit">Verify & Continue</button>
+                        <Button type="submit" label="Verify & Continue" />
                 </div>
             </form>
         </div>

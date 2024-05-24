@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import Button from '../../components/Button/Button.jsx';
 import './Forgot.css';
 import { useNavigate } from 'react-router-dom'; 
 
@@ -16,10 +17,13 @@ const Forgot = () => {
             const response = await axios.post('http://localhost:3001/forgot-password', { email });
             setMessage(response.data.message);
             setShowNotification(true);
-            setTimeout(() => {
-                setShowNotification(false);
-                navigate('/check', { state: { email: email } }); 
-            }, 3000);
+
+            if (response.data.route) {
+                setTimeout(() => {
+                    setShowNotification(false);
+                    navigate(response.data.route, { state: { email } });
+                }, 3000);
+            }
         } catch (error) {
             setMessage(error.response.data.message || 'An error occurred');
             setShowNotification(true);
@@ -56,11 +60,9 @@ const Forgot = () => {
                         onChange={(e) => setEmail(e.target.value)} 
                     />
                 </div>
-
                 <div className="Request">
-                    <button type="submit">Request password reset</button>
+                        <Button type="submit" label="Request password reset" />
                 </div>
-
                 <div className="Back">
                     <a href="Login">Back to sign In</a>
                 </div>

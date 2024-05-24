@@ -16,45 +16,73 @@ const db = mysql.createConnection({
 
 app.post('/login', (req, res) => {
     const { email, password } = req.body;
-    const sql = "SELECT * FROM fra502test.StudentRegister WHERE email = ?";
+    const studentSql = "SELECT * FROM fra502test.StudentRegister WHERE email = ?";
+    const teacherSql = "SELECT * FROM fra502test.TeacherRegister WHERE email = ?";
 
-    db.query(sql, [email], (err, data) => {
-        if (err) return res.json({ message: "Connection errors" });
-        if (data.length > 0) {
-            const user = data[0];
-            bcrypt.compare(password, user.password, (err, result) => {
-                if (result) {
-                    return res.json({ message: "Login Successfully", studentID: user.studentID });
+    db.query(studentSql, [email], (studentErr, studentData) => {
+        if (studentErr) return res.json({ message: "Connection errors" });
+        if (studentData.length > 0) {
+            const user = studentData[0];
+            bcrypt.compare(password, user.password, (bcryptErr, bcryptResult) => {
+                if (bcryptResult) {
+                    return res.json({ message: "Login Successfully", studentID: user.studentID , role: "Student" });
                 } else {
                     return res.json({ message: "The password you entered is incorrect." });
                 }
             });
         } else {
-            return res.json({ message: "Email not found" });
+            db.query(teacherSql, [email], (teacherErr, teacherData) => {
+                if (teacherErr) return res.json({ message: "Connection errors" });
+                if (teacherData.length > 0) {
+                    const user = teacherData[0];
+                    bcrypt.compare(password, user.password, (bcryptErr, bcryptResult) => {
+                        if (bcryptResult) {
+                            return res.json({ message: "Login Successfully", teacherID: user.TeacherID , role: "Teacher" });
+                        } else {
+                            return res.json({ message: "The password you entered is incorrect." });
+                        }
+                    });
+                } else {
+                    return res.json({ message: "Email not found" });
+                }
+            });
         }
     });
 });
-
 
 app.post('/forgot-password', (req, res) => {
     const email = req.body.email;
-    db.query('SELECT * FROM fra502test.StudentRegister WHERE email = ?', [email], (err, results) => {
-        if (err) {
-            console.error(err);
-            return res.status(500).json({ message: 'เกิดข้อผิดพลาดในการค้นหาข้อมูล' });
+    const studentSql = "SELECT * FROM fra502test.StudentRegister WHERE email = ?";
+    const teacherSql = "SELECT * FROM fra502test.TeacherRegister WHERE email = ?";
+
+    db.query(studentSql, [email], (studentErr, studentData) => {
+        if (studentErr) {
+            console.error(studentErr);
+            return res.status(500).json({ message: "Connection errors" });
         }
+        
+        if (studentData.length > 0) {
+            // พบ email ใน StudentRegister
+            return res.status(200).json({ message: "Email address has been registered. We are taking you through identity verification.", route: "/check", email });
+        } else {
+            db.query(teacherSql, [email], (teacherErr, teacherData) => {
+                if (teacherErr) {
+                    console.error(teacherErr);
+                    return res.status(500).json({ message: "Connection errors" });
+                }
 
-        if (results.length === 0) {
-            // ไม่พบ email ในฐานข้อมูล
-            return res.status(404).json({ message: 'Email Address is not Registered' });
+                if (teacherData.length > 0) {
+                    // พบ email ใน TeacherRegister
+                    return res.status(200).json({ message: "Email address has been registered as a teacher. We are taking you to the teacher verification process.", route: "/check_teacher", email });
+                } else {
+                    // ไม่พบ email ในทั้ง StudentRegister และ TeacherRegister
+                    return res.status(404).json({ message: 'Email Address is not Registered' });
+                }
+            });
         }
-
-        const otp = Math.floor(100000 + Math.random() * 900000);
-
-        return res.status(200).json({ message: 'Email address has been registered. We are taking you through identity verification.', otp: otp , email });
-        //return res.status(200).json({ message: 'OTP code has been sent to your Email.', otp: otp , email });
     });
 });
+
 
 
 app.post('/check-info', (req, res) => {
@@ -67,9 +95,26 @@ app.post('/check-info', (req, res) => {
         }
 
         if (results.length > 0) {
-            return res.status(200).json({ message: 'ข้อมูลถูกต้อง', valid: true });
+            return res.status(200).json({ message: 'correct information', valid: true });
         } else {
-            return res.status(200).json({ message: 'ข้อมูลผิดพลาด', valid: false });
+            return res.status(200).json({ message: 'incorrect information', valid: false });
+        }
+    });
+});
+
+app.post('/check-infoT', (req, res) => {
+    const { email, name, surname } = req.body;
+
+    db.query('SELECT * FROM fra502test.TeacherRegister WHERE email = ? AND name = ? AND surname = ?', [email, name, surname ], (err, results) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).json({ message: 'Failed to verify data' });
+        }
+
+        if (results.length > 0) {
+            return res.status(200).json({ message: 'correct information', valid: true });
+        } else {
+            return res.status(200).json({ message: 'incorrect information', valid: false });
         }
     });
 });
@@ -81,6 +126,30 @@ app.post('/change-password', async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, 10);
 
         db.query('UPDATE fra502test.StudentRegister SET password = ? WHERE email = ?', [hashedPassword, email], (err, results) => {
+            if (err) {
+                console.error(err);
+                return res.status(500).json({ message: 'Failed to update password' });
+            }
+
+            if (results.affectedRows > 0) {
+                return res.status(200).json({ message: 'Password updated successfully', success: true });
+            } else {
+                return res.status(404).json({ message: 'Email not found', success: false });
+            }
+        });
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ message: 'Failed to hash password' });
+    }
+});
+
+app.post('/change-passwordT', async (req, res) => {
+    const { email, password } = req.body;
+
+    try {
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+        db.query('UPDATE fra502test.TeacherRegister SET password = ? WHERE email = ?', [hashedPassword, email], (err, results) => {
             if (err) {
                 console.error(err);
                 return res.status(500).json({ message: 'Failed to update password' });

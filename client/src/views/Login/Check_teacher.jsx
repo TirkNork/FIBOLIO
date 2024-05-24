@@ -2,12 +2,11 @@ import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Button from '../../components/Button/Button.jsx';
 import axios from 'axios';
-import './Check.css';
+import './Check_teacher.css';
 
 const Check = () => {
     const [name, setName] = useState('');
     const [surname, setSurname] = useState('');
-    const [studentID, setStudentID] = useState('');
     const [message, setMessage] = useState('');
     const [showNotification, setShowNotification] = useState(false);
     const navigate = useNavigate();
@@ -22,14 +21,14 @@ const Check = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:3001/check-info', { email, name, surname, studentID });
+            const response = await axios.post('http://localhost:3001/check-infoT', { email, name, surname });
             setMessage(response.data.message);
             setShowNotification(true);
 
             if (response.data.valid) {
                 setTimeout(() => {
                     setShowNotification(false);
-                    navigate('/Changepass', { state: { email } });
+                    navigate('/Changepass_Teacher', { state: { email } });
                 }, 3000);
             } else {
                 setTimeout(() => {
@@ -47,7 +46,7 @@ const Check = () => {
     };
 
     return (
-        <div className='Contain3'>
+        <div className='Contain5'>
             <form onSubmit={handleVerifyAndContinue}>
                 {showNotification && (
                     <div className="popup">
@@ -69,10 +68,6 @@ const Check = () => {
                     <p>Please enter your Surname </p>
                 </div>
 
-                <div className="ID">
-                    <p>Please enter your StudentID </p>
-                </div>
-
                 <div className="input-boxname3">
                     <input 
                         type="text"
@@ -91,19 +86,10 @@ const Check = () => {
                     />
                 </div>
 
-                <div className="input-boxID3">
-                    <input 
-                        type="text"
-                        placeholder='Enter your StudentID'
-                        value={studentID}
-                        onChange={(e) => setStudentID(e.target.value)} // อัปเดต state ของ StudentID
-                    />
-                </div>
-
                 <div className="Requeast">
                     <Button type="submit"label="Request password reset" />
                 </div>
-
+                
             </form>
         </div>
     );

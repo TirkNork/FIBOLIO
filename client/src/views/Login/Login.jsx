@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaUser, FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
+import Button from '../../components/Button/Button.jsx';
 import axios from 'axios';
 import './Login.css';
 
@@ -123,7 +124,7 @@ const Login = () => {
                     <p>Remember Me</p>
                 </div>
                 <div className="SignIn">
-                    <button type="submit">SIGN IN</button>
+                    <Button type="submit" label="SIGN IN" />
                 </div>
                 <div className="forgot">
                     <a href="Forgot">Forgot your password?</a>

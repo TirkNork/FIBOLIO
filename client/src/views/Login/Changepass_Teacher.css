@@ -1,4 +1,4 @@
-.Contain1 {
+.Contain6 {
     display: flex;
     justify-content: center; 
     align-items: center; 
@@ -10,7 +10,7 @@
     background-repeat: no-repeat;
 }
 
-.Contain1 .white-box {
+.Contain6 .white-box {
     width: 70vw; 
     height: 65vh; 
     background-color: #ffffff;
@@ -23,7 +23,7 @@
     position: relative;
 }
 
-.Contain1 h1 {
+.Contain6 h1 {
     font-size: 2.5vw;
     text-align: center;
     color: #000000;
@@ -34,7 +34,7 @@
     height: 21vh;
 }
 
-.Contain1 .Create{
+.Contain6 .Create{
     font-size: 1.3020vw;
     text-align: center;
     color: #000000;
@@ -55,7 +55,7 @@
     box-shadow: 0 0 10px rgba(10 , 10, 10, 0.5);
 }
 
-.Contain1 .Confirm{
+.Contain6 .Confirm{
     font-size: 1.3020vw;
     text-align: center;
     color: #000000;
@@ -76,7 +76,7 @@
     box-shadow: 0 0 10px rgba(10 , 10, 10, 0.5);
 }
 
-.Contain1 .Save{
+.Contain6 .Save{
     font-size: 1.5625vw;
     text-align: center;
     color: #000000;
@@ -97,10 +97,10 @@
     background: #dd5900;
 }
 
-.Contain1 .Back{
+.Contain6 .Back{
     font-size: 1.5625vw;
     text-align: center;
-    color: #4b4b4b;
+    color: #000000;
     position: absolute;
     top: 69vh;
     left: 51vw;
@@ -109,8 +109,8 @@
 .Back button {
     font-size: 1.3020vw;
     text-align: center;
-    color: #4b4b4b;
-    border: 2px solid #666666;
+    color: #000000;
+    border: 2px solid #000000;
     box-shadow: 0 0 10px rgba(10 , 10, 10, 0.5);
     border-radius: 8px;
     width: 18.85vw;
