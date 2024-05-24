@@ -65,6 +65,7 @@ function Course() {
                     {sortedData.map((val, key) => (
                         <Coursecard
                             key={key}
+                            id={val.id}
                             courseid={val.courseid}
                             coursename={val.coursename}
                             grade={val.grade}

@@ -1,0 +1,9 @@
+.course-detail-page {
+    padding: 20px;
+}
+
+.course-detail-page p {
+    text-align: center;
+    font-size: 18px;
+    color: #555;
+}

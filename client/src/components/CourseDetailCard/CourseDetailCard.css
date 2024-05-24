@@ -1,0 +1,53 @@
+.course-detail-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.course-detail-left {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 50%;
+}
+
+.course-detail-right {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 50%;
+}
+
+.course-detail-course-id {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.course-detail-course-name {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.course-detail-class-type,
+.course-detail-professor,
+.course-detail-credits,
+.course-detail-academic-year,
+.course-detail-grade,
+.course-detail-description {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.course-detail-grade {
+    font-size: 52px;
+    color: #555;
+}
