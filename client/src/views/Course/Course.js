@@ -54,7 +54,7 @@ function Course() {
     return (
         <div>
             <div className="header">
-                <h1>Course</h1>
+                {/* <h1>Course</h1> */}
             </div>
             <div className="controls">
                 <Dropdown handleSortToggle={handleSortToggle} sortType={sortType} sortOrder={sortOrder} />

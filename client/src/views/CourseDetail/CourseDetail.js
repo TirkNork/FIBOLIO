@@ -12,7 +12,9 @@ const mockData = [
 
 function CourseDetail() {
     const { courseId } = useParams();
+    console.log("Course ID from URL:", courseId); // Debug statement
     const course = mockData.find(c => c.id === parseInt(courseId));
+    console.log("Course data:", course); // Debug statement
 
     return (
         <div className="course-detail-page">
