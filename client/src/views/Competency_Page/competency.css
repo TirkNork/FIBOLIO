@@ -64,6 +64,16 @@ body {
   min-width: 400px;
 }
 
+h4 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  /* Limit to 2 lines */
+  -webkit-line-clamp: 2;
+  /* Add ellipsis (...) at the end */
+  text-overflow: ellipsis;
+}
+
 @media(max-width: 1400px) {
   .app-grid {
     grid-template-columns: 1fr;
