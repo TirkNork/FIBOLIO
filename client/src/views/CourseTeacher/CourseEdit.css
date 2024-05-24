@@ -10,10 +10,11 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
 
-.save, .cancel{
+.save,
+.cancel {
     position: absolute;
     display: block;
-    left: 65%;
+    left: 75%;
     font-size: 20px;
     color: #fff;
     background-color: #DD5900;
@@ -24,10 +25,46 @@ input::-webkit-inner-spin-button {
     cursor: pointer;
 }
 
-.cancel{
-    left: 57%;
+.cancel {
+    margin-left: -130px;
     padding: 8px 19px;
     color: #DD5900;
     background-color: #fff;
     border: #DD5900 solid 2px;
+}
+
+.student-table-edit {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 1024px) {
+    .save,
+    .cancel {
+        left: 73%;
+    }
+}
+
+@media (max-width: 768px) {
+    .save,
+    .cancel {
+        left: 70%;
+    }
+}
+
+@media (max-width: 480px) {
+    .save,
+    .cancel {
+        left: 60%;
+    }
+}
+
+@media (max-width: 320px) {
+    .save{
+        left: 50%;
+    }
+
+    .cancel{
+        left: 55%;
+    }
 }

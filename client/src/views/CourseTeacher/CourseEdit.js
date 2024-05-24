@@ -92,7 +92,15 @@ function CourseEdit() {
     return (
         <div>
             <div className="header">
-                <p className='subject' style={{ marginTop: "10px" }} >{subject}</p>
+                <ul className='breadcrumb'>
+                    <li className='breadcrumb-list'>
+                        <a className='home' href='/'>My class</a>
+                    </li>
+                    <li className='breadcrumb-list'>
+                        <p className='current-page'> <b>{subject}</b> </p>
+                    </li>
+                </ul>
+                <p className='subject'>{subject}</p>
                 <Search searchTerm={searchTerm} handleSearch={handleSearch} />
                 <select className="sortby" onClick={(event) => handleSort(event.target.value)}>
                     <option value="">Sort By</option>
@@ -103,23 +111,23 @@ function CourseEdit() {
                 </select>
             </div>
             <div className='student-list'>
-                <table className='student-table'>
+                <table className='student-table student-table-edit'>
                     <tr>
-                        <th className='tr'>Name</th>
-                        <th className='tr'>ID</th>
-                        <th className='tr'>Score</th>
-                        <th className='tr'>New score</th>
+                        <th>Name</th>
+                        <th>ID</th>
+                        <th>Score</th>
+                        <th>New score</th>
                     </tr>
                     {sortProjectList().filter((project) =>
-                                project.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                                project.id.toString().includes(searchTerm)
-                            ).map((val) => (
-                                <tr>
-                                    <td className='td' >{val.name}</td>
-                                    <td className='td'>{val.id}</td>
-                                    <td className='td'>{val.score}</td>
-                                    <td className='td'><input className="input-new-score" type="number" onChange={handleScoreChange} /></td>
-                                </tr>
+                        project.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                        project.id.toString().includes(searchTerm)
+                    ).map((val) => (
+                        <tr>
+                            <td className='td' >{val.name}</td>
+                            <td className='td'>{val.id}</td>
+                            <td className='td'>{val.score}</td>
+                            <td className='td'><input className="input-new-score" type="number" onChange={handleScoreChange} /></td>
+                        </tr>
                     ))}
                 </table>
                 <button className='cancel' onClick={backClick}>

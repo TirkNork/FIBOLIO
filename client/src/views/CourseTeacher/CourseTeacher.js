@@ -149,6 +149,15 @@ function CourseTeacher() {
         return sortedList;
     };
 
+    const showDashboard = () => {
+        const pieChart = document.querySelector('.pie-chart');
+        if (pieChart.style.display === "none") {
+            pieChart.style.display = "block";
+        } else {
+            pieChart.style.display = "none";
+        }
+    }
+
     return (
         <div>
             <div className="header">
@@ -186,23 +195,25 @@ function CourseTeacher() {
                                     { label: 'D', value: d, color: '#8595f2' },
                                     { label: 'F', value: f, color: '#ed85f2' }
                                 ],
+                                cx: 130,
                             },
                         ]}
                         slotProps={{
                             legend: {
                                 direction: 'row',
-                                position: { vertical: 'bottom', horizontal: 'left' },
+                                position: { vertical: 'bottom', horizontal: 'center' },
                                 padding: 0,
                             },
                         }}
                     />
                 </div>
+
                 <table className='student-table'>
                     <tr>
-                        <th className='tr'>Name</th>
-                        <th className='tr'>ID</th>
-                        <th className='tr'>Score</th>
-                        <th className='tr'>Grade</th>
+                        <th>Name</th>
+                        <th>ID</th>
+                        <th>Score</th>
+                        <th>Grade</th>
                     </tr>
                     {sortProjectList().filter((project) =>
                         project.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -214,13 +225,13 @@ function CourseTeacher() {
                             <td className='td'>{val.score}</td>
                             <td className='td'>{val.grade}</td>
                         </tr>
-                        
+
                     ))}
                 </table>
-                <button className='edit-score' onClick={goToCourseEdit}>
-                    Edit
-                </button>
-
+            </div>
+            <div className="button-container">
+                <button className='edit-score' onClick={goToCourseEdit}>Edit</button>
+                <button className="show-dashboard" onClick={showDashboard}>dashboard</button>
             </div>
         </div>
     )
