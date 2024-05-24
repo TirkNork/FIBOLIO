@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { debounce } from "lodash";
-import Search from "../../components/Search.js";
+import Search from "../../components/Search/Search.js";
 import './CourseEdit.css';
 
 function CourseEdit() {
