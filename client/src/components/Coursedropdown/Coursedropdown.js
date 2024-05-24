@@ -3,9 +3,8 @@ import "./Coursedropdown.css";
 
 function Dropdown({ handleSortToggle, sortType, sortOrder }) {
     return (
-        <div className="dropdown-container">
-            <label className="dropdown-label"></label>
-            <select className="dropdown-menu" onChange={(e) => handleSortToggle(e.target.value)}>
+        <div>
+            <select className="sortby" onChange={(e) => handleSortToggle(e.target.value)}>
                 <option value="">Sort By</option>
                 <option value="year-asc">
                     Academic Year (Ascending) {sortType === 'year' && sortOrder === 'asc' && '↑'}

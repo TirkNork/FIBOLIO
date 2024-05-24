@@ -61,8 +61,6 @@ function Course() {
                         <a className='home' href='/Course'>Course/</a>
                     </li>
                 </ul>
-            </div>
-            <div className="controls">
                 <Dropdown handleSortToggle={handleSortToggle} sortType={sortType} sortOrder={sortOrder} />
                 <Searchbar searchTerm={searchTerm} handleSearch={handleSearch} />
             </div>
