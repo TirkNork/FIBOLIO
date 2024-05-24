@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Axios from "axios";
 import Cross from "../../assets/images/cancel.png";
+import Button from "../../components/Button/Button.js";
 
 const serverIP = 'http://localhost:3001'
 
@@ -121,8 +122,8 @@ function ProjectDetails() {
                             <img src={val.img_path} />
                         </div>
                         <div className="buttondetail">
-                        <button className="button-orange" onClick={() => goToProjectEdit(val.project_id)}>Edit</button>
-                        <button className="button-orange" onClick={() => handleDeleteClick(val.project_id, val.student_id, val.img_path)}>Delete</button>
+                        <Button label="Edit" onClick={() => goToProjectEdit(val.project_id)}/>
+                        <Button label="Delete" onClick={() => handleDeleteClick(val.project_id, val.student_id, val.img_path)}/>
                         </div>
                     </div>
                 ))}

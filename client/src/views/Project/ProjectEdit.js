@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Axios from "axios";
 import Cross from "../../assets/images/cancel.png";
+import Button from "../../components/Button/Button.js";
 
 const serverIP = 'http://localhost:3001'
 
@@ -176,7 +177,7 @@ function ProjectEdit() {
             <div className="preview">
               <img src={project.img_path || ""} alt="Project Preview" />
             </div>
-            <button type="submit">Save</button>
+            <Button label="Save" type="submit"/>
           </form>
         )}
       </div>
