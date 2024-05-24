@@ -8,6 +8,8 @@ const serverIP = 'http://localhost:3001'
 
 function ProjectDetails() {
     const {id} = useParams();
+    const [student_id, setStudent_id] = useState("63340500001");
+
     const [project, setProject] = useState([]);
     const navigate = useNavigate();
     const [projectList, setProjectList] = useState([]);
@@ -50,9 +52,14 @@ function ProjectDetails() {
     }, []);
 
     const getProjectList = () => {
-        Axios.get(`${serverIP}/projects`).then((response) => {
-            setProjectList(response.data);
-        });
+        const url = `${serverIP}/projects?student_id=${student_id}`;
+        Axios.get(url)
+            .then((response) => {
+                setProjectList(response.data);
+            })
+            .catch((error) => {
+                console.error("Error fetching the project list:", error);
+            });
     };
     
     useEffect(() => {

@@ -29,6 +29,7 @@ const mockData = [
 
 function Project() {
     const navigate = useNavigate();
+    const [student_id, setStudent_id] = useState("63340500001");
     const [projectList, setProjectList] = useState([]);
     const [showDropdown, setShowDropdown] = useState([]);
     const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
@@ -93,10 +94,16 @@ function Project() {
     }, []);
 
     const getProjectList = () => {
-        Axios.get(`${serverIP}/projects`).then((response) => {
-            setProjectList(response.data);
-        });
+        const url = `${serverIP}/projects?student_id=${student_id}`;
+        Axios.get(url)
+            .then((response) => {
+                setProjectList(response.data);
+            })
+            .catch((error) => {
+                console.error("Error fetching the project list:", error);
+            });
     };
+    
 
     const delayedSearch = debounce((value) => {
         setSearchTerm(value);

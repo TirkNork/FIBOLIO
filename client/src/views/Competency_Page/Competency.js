@@ -2,41 +2,43 @@ import './app.css';
 import { Link } from "react-router-dom";
 import Grid from '../../components/Competency_Page/grid';
 import CircleAndBox from '../../components/Competency_Page/CircleAndBox';
-import Topbar from "../../components/Topbar/Topbar";
 import Axios from "axios";
 import { useState, useEffect } from "react";
 
 
 function App() {
+  const [student_id, setStudent_id] = useState("63340500001");
   const [CourseStudent, setCourseStudent] = useState([]);
   const [CompetencyDescription, setCompetencyDescription] = useState([]);
 
 
   useEffect(() => {
-    const getCourseStudent = async () => {
-      try {
-        const response = await Axios.get("http://localhost:3001/CourseStudent");
-        setCourseStudent(response.data);
-        console.log("response", response);
-      } catch (error) {
-        console.error("Error fetching course student data:", error);
-      }
-    };
     getCourseStudent();
   }, []);
 
+  const getCourseStudent = async () => {
+    try {
+      const response = await Axios.get(`http://localhost:3001/CourseStudent?student_id=${student_id}`);
+      setCourseStudent(response.data);
+      console.log("response", response);
+    } catch (error) {
+      console.error("Error fetching course student data:", error);
+    }
+  };
+
   useEffect(() => {
-    const getCompetencyDescription = async () => {
-      try {
-        const response = await Axios.get("http://localhost:3001/CompetencyDescription");
-        setCompetencyDescription(response.data);
-        console.log("response", response);
-      } catch (error) {
-        console.error("Error fetching competency description data:", error);
-      }
-    };
     getCompetencyDescription();
   }, []);
+
+  const getCompetencyDescription = async () => {
+    try {
+      const response = await Axios.get("http://localhost:3001/CompetencyDescription");
+      setCompetencyDescription(response.data);
+      console.log("response", response);
+    } catch (error) {
+      console.error("Error fetching competency description data:", error);
+    }
+  };
 
   const criteria = {
     "A": 100, "B+": 90, "B": 80, "C+": 70, "C": 60, "D+": 50, "D": 40, "F": 20
@@ -102,7 +104,6 @@ function App() {
     <div className="subject-page">
 
       <section className="app-section">
-        <Topbar></Topbar>
 
         <div className="header">
           <h1 className="header-text">Competency</h1>

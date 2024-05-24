@@ -42,7 +42,8 @@ app.get("/testTable", (req, res) => {
 });
 
 app.get("/projects", (req, res) => {
-  db.query("SELECT * FROM Projects", (err, result) => {
+  const id = req.query.student_id; // Read from query parameters
+  db.query("SELECT * FROM Projects WHERE student_id = ?", [id], (err, result) => {
     if (err) {
       console.error(err);
       return res.status(500).send("Error fetching projects from the database.");
@@ -51,6 +52,8 @@ app.get("/projects", (req, res) => {
     res.status(200).send(result); // Return the projects
   });
 });
+
+
 
 app.get("/projects/:id", (req, res) => {
   const id = req.params.id;
@@ -278,14 +281,25 @@ app.delete("/delProject/:id", (req, res) => {
   });
 });
 
-app.get('/CourseStudent/:id', (req, res) => {
-  const id = req.params.id;
-    db.query("SELECT c.course_class, cs.course_student_grade, c.course_credit FROM fra502test.Courses AS c JOIN fra502test.CourseStudent AS cs ON c.course_id = cs.course_id WHERE cs.student_id = ?", [id], (err, result) => {
-        if (err) {
-            console.log(err);
-        }
-        else {
-            res.send(result)
+app.get('/CourseStudent', (req, res) => {
+  // const id = 63340500048;
+  const id = req.query.student_id;
+  const query = `
+    SELECT c.course_class, cs.course_student_grade, c.course_credit
+    FROM fra502test.Courses AS c
+    JOIN fra502test.CourseStudent AS cs
+    ON c.course_id = cs.course_id
+    WHERE cs.student_id = ?
+  `;
+
+  db.query(query, [id], (err, result) => {
+    if (err) {
+      console.error("Error executing query:", err);
+      res.status(500).send("Internal Server Error");
+    } else {
+      res.json(result);
+    }
+  });
 });
       
 app.get('/CompetencyDescription', (req, res) => {

@@ -9,7 +9,7 @@ const serverIP = 'http://localhost:3001'
 function ProjectInsert() {
   const navigate = useNavigate();
 
-  const [student_id, setStudent_id] = useState("1");
+  const [student_id, setStudent_id] = useState("63340500001");
   const [year, setYear] = useState("");
   const [projectName, setProjectName] = useState("");
   const [course, setCourse] = useState("");
