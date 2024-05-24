@@ -58,13 +58,3 @@ input::-webkit-inner-spin-button {
         left: 60%;
     }
 }
-
-@media (max-width: 320px) {
-    .save{
-        left: 50%;
-    }
-
-    .cancel{
-        left: 55%;
-    }
-}

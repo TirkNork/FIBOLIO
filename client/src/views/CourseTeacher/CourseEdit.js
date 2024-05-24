@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { debounce } from "lodash";
-import Search from "../../components/Search.js";
+import Search from "../../components/Search/Search.js";
 import './CourseEdit.css';
 
 function CourseEdit() {
@@ -144,6 +144,8 @@ function CourseEdit() {
     return (
         <div>
             <div className="header">
+                <h1>{id}</h1>
+                <br />
                 <ul className='breadcrumb'>
                     <li className='breadcrumb-list'>
                         <a className='home' href='/'>My class</a>
@@ -152,8 +154,6 @@ function CourseEdit() {
                         <p className='current-page'> <b>{id}</b> </p>
                     </li>
                 </ul>
-                <p className='subject'>{id}</p>
-                <Search searchTerm={searchTerm} handleSearch={handleSearch} />
                 <select className="sortby" onClick={(event) => handleSort(event.target.value)}>
                     <option value="">Sort By</option>
                     <option value="studentNameAZ">Student Name A-Z</option>
@@ -161,6 +161,7 @@ function CourseEdit() {
                     <option value="idDescending">Student ID Descending</option>
                     <option value="idAscending">Student ID Ascending</option>
                 </select>
+                <Search searchTerm={searchTerm} handleSearch={handleSearch} />
             </div>
             <div className='student-list'>
                 <table className='student-table student-table-edit'>

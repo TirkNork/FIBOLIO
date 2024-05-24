@@ -1,7 +1,6 @@
 * {
   box-sizing: border-box;
   font-family: "Kanit", sans-serif;
-  
 }
 
 .other-page {
@@ -17,13 +16,11 @@
   background-color: #E3E3E3;
   padding-left: 100px;
   height: 160px;
-  
 }
 
 h1 {
   position: absolute;
   font-size: 48px;
-  /* font-family: 'Poppins'; */
   margin-top: 60px;
 }
 
@@ -31,36 +28,32 @@ h1 {
   position: absolute;
   margin-bottom: 100px;
   left: 65px;
-  /* font-family: 'Poppins'; */
 }
 
-.breadcrumb-list{
+.breadcrumb-list {
   box-sizing: inherit;
-  display:inline-block;
-  color:#000000;
-  /* font-family: 'Poppins'; */
-  
+  display: inline-block;
+  color: #000000;
 }
 
 .current-page::before {
   color: #818a91;
   content: "/";
-  
-} 
+}
 
-.home{
-  color: inherit; /* inherit color from li*/ 
+.home {
+  color: inherit;
+  /* inherit color from li*/
   text-decoration: none;
 }
 
-.home:hover{
+.home:hover {
   color: #DD5900;
   text-decoration: underline;
 }
 
 .widecard {
   margin: 20px 20px 20px 20px;
-  /* transition: .3s; */
   border-radius: 10px;
   padding: .5rem;
   color: rgb(0, 0, 0);
@@ -69,10 +62,7 @@ h1 {
   box-shadow: 0 4px 4px #a7a7a7;
   text-align: left;
   cursor: pointer;
-  /* display: grid; */
-  /* position: relative; */
 }
-
 
 .widecard:hover {
   background: #DD5900;
@@ -97,7 +87,6 @@ h1 {
   font-size: 16px;
   border: none;
   border-radius: 5px;
-
 }
 
 .button-gray:hover {
@@ -115,16 +104,12 @@ h1 {
   background-color: #DD5900;
   color: #ffffff;
   cursor: pointer;
-  /* font-family: 'Poppins'; */
-  /* box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);  */
 }
 
 .button-orange:hover {
   background-color: #cf5403;
   color: #ffffff;
-  /* box-shadow: inset 0 4px 10px 0 rgba(0,0,0,0.5);  */
 }
-
 
 .config {
   border: 2px solid #ccc;
@@ -136,14 +121,12 @@ h1 {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-
 .form-container {
   display: flex;
   flex-direction: column;
 }
 
 .container {
-  /* flex: 1; */
   display: flex;
   flex-direction: column;
 }
@@ -152,29 +135,22 @@ h1 {
   margin-right: 20px;
 }
 
-
-
 .form {
   margin-top: 20px;
-  /* font-family: 'Poppins'; */
 }
 
 .form input[type="file"] {
   margin-bottom: 10px;
-  /* font-family: 'Poppins'; */
 }
 
 .mb-3 {
-  /* padding: 10px; */
   margin-right: auto;
   margin-bottom: 10px;
 }
 
 .button-right {
   padding: auto;
-  /* font-family: 'Poppins'; */
 }
-
 
 .project-edit-box {
   border: 2px solid #ccc;
@@ -197,14 +173,11 @@ h1 {
   background-color: #ffffff;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   font-size: 16px;
-
 }
-
 
 .project-edit-box form {
   display: flex;
   flex-direction: column;
-  /* font-family: 'Poppins'; */
 }
 
 .project-edit-box label {
@@ -220,8 +193,6 @@ h1 {
   border: 1px solid #ccc;
   border-radius: 5px;
   resize: vertical;
-  /* font-family: 'Poppins'; */
-
 }
 
 .project-edit-box textarea {
@@ -240,7 +211,6 @@ h1 {
   font-size: 16px;
   border-radius: 5px;
   cursor: pointer;
-  /* font-family: 'Poppins'; */
 }
 
 .project-edit-box button:hover {
@@ -258,9 +228,7 @@ h1 {
   justify-content: flex-end;
   align-items: center;
   order: 2;
-
 }
-
 
 .project-container {
   position: relative;
@@ -278,8 +246,6 @@ h1 {
   cursor: pointer;
 }
 
-
-
 .dot-icon {
   width: 30px;
   height: 30px;
@@ -295,7 +261,6 @@ h1 {
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   display: none;
-
 }
 
 .dot-icon-container .dropdown {
@@ -311,14 +276,11 @@ h1 {
   background: none;
   cursor: pointer;
   font-size: 14px;
-  /* font-family: 'Poppins'; */
 }
 
 .dropdown button:hover {
   background-color: #f5f5f5;
-  /* color: #c52323; */
 }
-
 
 .project-edit-box-detail .preview img {
   max-width: 100%;
@@ -334,14 +296,10 @@ h1 {
   margin-top: 10px;
 }
 
-
 .detail {
-  /* font-family: 'Poppins'; */
   font-size: 16px;
   text-align: left
 }
-
-
 
 .more-options {
   display: none;
@@ -358,7 +316,6 @@ h1 {
   position: relative;
   float: right;
   top: -10px;
-
 }
 
 .cross {
@@ -366,9 +323,7 @@ h1 {
   height: 12px;
   cursor: pointer;
   float: right;
-
 }
-
 
 .popup {
   position: fixed;
@@ -392,10 +347,8 @@ h1 {
   color: #ffffff;
   border-radius: 5px;
   border: none;
-  /* font-family: 'Poppins'; */
   cursor: pointer;
 }
-
 
 .buttondelete:hover {
   background-color: #cf5403;
@@ -410,10 +363,8 @@ h1 {
   color: #000000;
   border-radius: 5px;
   border: none;
-  /* font-family: 'Poppins'; */
   cursor: pointer;
 }
-
 
 .buttoncancel:hover {
   background-color: #dbdbdb;
@@ -429,18 +380,19 @@ h1 {
   margin-top: 20px;
 }
 
-
 .sortby {
   display: flex;
   height: 45px;
-  width: 130px;
+  width: 13%;
+  min-width: 130px;
   margin-left: auto;
   margin-right: 20px;
   margin-top: 40px;
-  text-align: center;
-  font-size: 12px;
+  padding-left: 0.8rem;
+  font-size: 14px;
   cursor: pointer;
   border-radius: 5px;
+  border: 2px solid #DD5900;
 }
 
 .sortby:hover {
@@ -449,14 +401,13 @@ h1 {
 
 @media (max-width: 768px) {
   .sortby {
-      position: absolute;
-      right: 0px;
+    position: absolute;
+    right: 0px;
   }
 }
 
-.sortby option{
-  font-size: 12px;
-  /* background-color: #000000; */
+.sortby option {
+  font-size: 14px;
   cursor: pointer;
 }
 

@@ -1,4 +1,4 @@
-.search{
+.search {
     position: relative;
     display: block;
     float: right;
@@ -10,10 +10,11 @@
     margin-right: 100px;
     margin-top: 40px;
 }
+
 @media (max-width: 768px) {
     .search {
         margin-right: 20px;
         top: -60px;
         width: 130px;
     }
-  }
+}
