@@ -121,13 +121,14 @@ function CourseTeacher() {
     return (
         <div>
             <div className="header">
-            <h1>{id}</h1>
+                <h1>{id}</h1>
                 <br />
                 <ul className='breadcrumb'>
                     <li className='breadcrumb-list'>
                         <a className='home' href='/'>My class</a>
                     </li>
                     <li className='breadcrumb-list'>
+                        <p className='current-page'> <b>{id}</b> </p>
                     </li>
                 </ul>
                 {/* <p className='subject'>{id}</p> */}
