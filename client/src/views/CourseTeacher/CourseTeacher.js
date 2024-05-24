@@ -125,7 +125,8 @@ function CourseTeacher() {
     return (
         <div>
             <div className="header">
-                <h1>{id}</h1>
+                <h1>{courseName.course_id}</h1>
+                <h1 className='course-name'>{courseName.course_name}</h1>
                 <br />
                 <ul className='breadcrumb'>
                     <li className='breadcrumb-list'>
@@ -135,10 +136,6 @@ function CourseTeacher() {
                         <p className='current-page'> <b>{courseName.course_id}</b> </p>
                     </li>
                 </ul>
-                <p className='subject'>{courseName.course_id}</p>
-                <p className='subject'>{courseName.course_name}</p>
-
-                <Search searchTerm={searchTerm} handleSearch={handleSearch} />
                 <select className="sortby" onClick={(event) => handleSort(event.target.value)}>
                     <option value="">Sort By</option>
                     <option value="studentNameAZ">Student Name A-Z</option>
