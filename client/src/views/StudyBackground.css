@@ -1,0 +1,87 @@
+.HighSchool {
+    font-weight: bold;
+    font-size: 16px;
+    position: absolute;
+    left: 620px;
+    top: 220px;
+}
+
+.University {
+    font-weight: bold;
+    font-size: 16px;
+    position: absolute;
+    left: 620px;
+    top: 375px;
+}
+
+.line_SB {
+    width: 712px; /* กำหนดความยาวของเส้น */
+    height: 0.8px; /* กำหนดความหนาของเส้น */
+    background-color: black; /* กำหนดสีของเส้น */
+    position: absolute;
+    left: 620px;
+    top: 222px;
+}
+
+.line2_SB {
+    width: 712px; /* กำหนดความยาวของเส้น */
+    height: 0.8px; /* กำหนดความหนาของเส้น */
+    background-color: black; /* กำหนดสีของเส้น */
+    position: absolute;
+    left: 620px;
+    top: 380px;
+}
+
+.text_SB {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 232px;
+    right: 620px;
+    padding: 0;
+    width: 300px;
+    font-size: 16px;
+    text-align: right;
+    line-height: 0.3;
+}
+
+.text2_SB {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 387px;
+    right: 620px;
+    padding: 0;
+    width: 300px;
+    font-size: 16px;
+    text-align: right;
+    line-height: 0.3;
+}
+
+.Data_SB {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 232px;
+    left: 930px;
+    padding: 0;
+    width: 100%;
+    font-size: 16px;
+    text-align: left;
+    line-height: 2.32;
+    width: 400px;
+}
+
+.Data2_SB {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 387px;
+    left: 930px;
+    padding: 0;
+    width: 100%;
+    font-size: 16px;
+    text-align: left;
+    line-height: 2.32;
+    width: 400px;
+}

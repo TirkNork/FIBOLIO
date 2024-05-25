@@ -7,6 +7,10 @@ import PersonalInformation from "./views/PersonalInformation.js";
 import StudyBackground from "./views/StudyBackground.js";
 import Skills from "./views/Skills.js";
 import ProjectsExperiences from "./views/Projects&Experiences.js";
+import Edit_PersonalInformation from "./views/Edit_PersonalInformation.js";
+import Edit_StudyBackground from "./views/Edit_StudyBackground.js";
+import Edit_Skills from "./views/Edit_Skills.js";
+import Edit_ProjectsExperiences from "./views/Edit_ProjectsExperiences.js";
 
 
 function App() {
@@ -22,6 +26,11 @@ function App() {
           <Route path="/StudyBackground" element={<div className="body"><StudyBackground/></div>}></Route>
           <Route path="/Skills" element={<div className="body"><Skills/></div>}></Route>
           <Route path="/ProjectsExperiences" element={<div className="body"><ProjectsExperiences/></div>}></Route>
+
+          <Route path="/Edit_PersonalInformation" element={<div className="body"><Edit_PersonalInformation/></div>}></Route>
+          <Route path="/Edit_StudyBackground" element={<div className="body"><Edit_StudyBackground/></div>}></Route>
+          <Route path="/Edit_Skills" element={<div className="body"><Edit_Skills/></div>}></Route>
+          <Route path="/Edit_ProjectsExperiences" element={<div className="body"><Edit_ProjectsExperiences/></div>}></Route>
         </Routes>
        
       </div>      

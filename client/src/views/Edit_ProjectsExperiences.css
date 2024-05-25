@@ -1,0 +1,39 @@
+.highschoolname {
+    display: block;
+    text-align: left;
+    position: relative;
+    top: -275.5px;
+    left: 158px;
+    font-size: 14px;
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.experiences {
+    display: block; /* Display items as block-level elements */
+    text-align: left; /* Align text to the left */
+    margin-top: -172px;
+    margin-left: 158px;
+    font-size: 14px;
+    text-align: left;
+}
+
+.awards {
+    display: block; /* Display items as block-level elements */
+    text-align: left; /* Align text to the left */
+    margin-top: -6.5px;
+    margin-left: 158px;
+    font-size: 14px;
+    text-align: left;
+    line-height: 2.32;
+}
+
+.internships {
+    display: block; /* Display items as block-level elements */
+    text-align: left; /* Align text to the left */
+    margin-top: -6.5px;
+    margin-left: 158px;
+    font-size: 14px;
+    text-align: left;
+    line-height: 2.32;
+}

@@ -7,6 +7,7 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 import NAMO from '../assest/NAMO.svg';
 import USER from '../assest/user_picture.png';
 import Topbar from '../components/Topbar/Topbar';
+import './StudyBackground.css';
 
 function StudyBackground() {
   const [testDataList, setTestDataList] = useState([]);
@@ -27,49 +28,68 @@ function StudyBackground() {
       <Topbar/>
       <body>
         <div class="container">
-          <div class="section">
-            <button type="button" class="btn-editimage">Edit Image</button>
-            <img src={USER} className="user_picture" alt="USER"/>
-            <div className="user-icon">
-              <FontAwesomeIcon icon={faUser} />
-            </div>
-            <h2>My Account</h2>
-            <button className="button-a">
-             <Link to="/PersonalInformation">Personal Information</Link>
-            </button>
-            <button className="button-b">
+          <div className="section">
+              <img src={USER} className="user_picture" alt="USER" />
+              <div className="user-icon">
+                <FontAwesomeIcon icon={faUser} />
+              </div>
+              <h2>My Account</h2>
+              <button className="button-a">
+                <Link to="/PersonalInformation">Personal Information</Link>
+              </button>
+              <button className="button-b">
                 <Link to="/StudyBackground">Study Background</Link>
-            </button>
-            <button className="button-b">
-                  <Link to="/Skills">Skills</Link>
-            </button>
-            <button className="button-b">
+              </button>
+              <button className="button-b">
+                <Link to="/Skills">Skills</Link>
+              </button>
+              <button className="button-b">
                 <Link to="/ProjectsExperiences">Projects & Experiences</Link>
-            </button>
-          </div>
-          <div class="section">
+              </button>
+            </div>
+          <div class="section2">
             <h3>Study Background</h3>
-            <svg width="800" height="500">
-              <line x1="60" y1="0" x2="772" y2="0" stroke="black" strokeWidth="2" />
-            </svg>
-            <svg width="800" height="500">
-              <line x1="60" y1="50" x2="772" y2="50" stroke="black" strokeWidth="1" />
-            </svg>
+            <div className="line_SB"></div>
+            <div className="line2_SB"></div>
+            <div class="HighSchool">
+              <p>High School</p>
+            </div>
+            <div class="University">
+              <p>University</p>
+            </div>
             {testDataList.map((item) => (
               <div key={item.student_id}>
-                High School Name: {item.high_school_name}<br />
-                Year of Study: {item.high_school_start} to {item.high_school_stop}<br />
-                Program: {item.high_school_program}<br />
-                GPAX: {item.high_school_gpx}<br />
-                Unversity Name: {item.university_name}<br />
-                Major: {item.university_major}<br />
-                Year of Study: {item.university_start} to {item.university_stop}<br />
-                Program: {item.university_gpax}
+                <div class="Data_SB">
+                  {item.high_school_name}<br />
+                  {item.high_school_start} to {item.high_school_stop}<br />
+                  {item.high_school_program}<br />
+                  {item.high_school_gpx}<br />
+                </div>
+                <div class="Data2_SB">
+                  {item.university_name}<br />
+                  {item.university_major}<br />
+                  {item.university_start} to {item.university_stop}<br />
+                  {item.university_gpax}
+                </div>
               </div>
             ))}
             <button type="button" class="btn-exportresume">Export Resume</button>
-            <button type="button" class="btn-edit">Edit</button>
+            <button className="btn-edit">
+             <Link to="/Edit_StudyBackground">Edit</Link>
+            </button>
             <img src={NAMO} className="NAMO" alt="NAMO"/>
+            <div class="text_SB">
+              <p>High School Name:</p>
+              <p>Year of Study:</p>
+              <p>Program:</p>
+              <p>GPAX:</p>
+            </div>
+            <div class="text2_SB">
+              <p>Unversity Name:</p>
+              <p>Major:</p>
+              <p>Year of Study:</p>
+              <p>Program:</p>
+            </div>
           </div>
         </div>
       </body>

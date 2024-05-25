@@ -7,12 +7,13 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 import NAMO from '../assest/NAMO.svg';
 import USER from '../assest/user_picture.png';
 import Topbar from '../components/Topbar/Topbar';
+import './Skills.css'
 
 function Skills() {
   const [testDataList, setTestDataList] = useState([]);
 
   useEffect(() => {
-    getDataList(63340500001);
+    getDataList("01");
   }, []);
 
   const getDataList = async (studentId) => {
@@ -42,7 +43,7 @@ function Skills() {
       <body>
         <div class="container">
           <div class="section">
-            <button type="button" class="btn-editimage">Edit Image</button>
+            {/* <button type="button" class="btn-editimage">Edit Image</button> */}
             <img src={USER} className="user_picture" alt="USER"/>
             <div className="user-icon">
               <FontAwesomeIcon icon={faUser} />
@@ -55,41 +56,45 @@ function Skills() {
                 <Link to="/StudyBackground">Study Background</Link>
             </button>
             <button className="button-b">
-                  <Link to="/Skills">Skills</Link>
+                <Link to="/Skills">Skills</Link>
             </button>
             <button className="button-b">
                 <Link to="/ProjectsExperiences">Projects & Experiences</Link>
             </button>
           </div>
-          <div class="section">
+          <div class="section2">
             <h3>Skills</h3>
-            <svg width="800" height="500">
-              <line x1="60" y1="0" x2="772" y2="0" stroke="black" strokeWidth="2" />
-            </svg>
+            <div className="line"></div>
             <div>
+            <button type="button" class="btn-exportresume">Export Resume</button>
+            <button className="btn-edit">
+             <Link to="/Edit_Skills">Edit</Link>
+            </button>
+            <img src={NAMO} className="NAMO" alt="NAMO"/>
+
+            <div class="text_Skills">
+              <p>Interests:</p>
+              <p>Hard Skills:</p>
+              <p>Soft Skills:</p>
+            </div>
+
             {testDataList.interests && testDataList.interests.map((item) => (
-              <div key={item.student_id}>
-                Interests: {item.Interest_name}
+              <div key={item.Interest_id} className="Interest_Skills">
+                {item.Interest_name}
               </div>
             ))}
             </div>
-            <div>
-              {testDataList.hardSkills && testDataList.hardSkills.map((item) => (
-                <div key={item.student_id}>
-                  Hard Skills: {item.hard_skill_name}
-                </div>
-              ))}
-            </div>
-            <div>
+            {testDataList.hardSkills && testDataList.hardSkills.map((item) => (
+              <div key={item.hard_skill_id} className="hard_skill_Skills">
+                {item.hard_skill_name}
+              </div>
+            ))}
               {testDataList.softSkills && testDataList.softSkills.map((item) => (
-                <div key={item.student_id}>
-                  Soft Skills: {item.soft_skill_name}
+                <div key={item.soft_skill_id}  className="soft_skill_Skills">
+                  {item.soft_skill_name}
                 </div>
               ))}
-            </div>
-            <button type="button" class="btn-exportresume">Export Resume</button>
-            <button type="button" class="btn-edit">Edit</button>
-            <img src={NAMO} className="NAMO" alt="NAMO"/>
+            
           </div>
         </div>
       </body>

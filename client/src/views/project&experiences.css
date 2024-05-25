@@ -1,0 +1,87 @@
+.text_Project {
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-start; จัดข้อความชิดซ้าย */
+    margin-top: 12px;
+    margin-left: 200px;
+    padding: 0;
+    width: 300px;
+    font-size: 16px;
+    text-align: right;
+}
+
+.text_Experiences {
+    display: flex;
+    flex-direction: column;
+    margin-top: 116px;
+    margin-left: 200px;
+    padding: 0;
+    width: 300px;
+    font-size: 16px;
+    text-align: right;
+    line-height: 0.5;
+}
+
+.text_Awards {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0px;
+    margin-left: 200px;
+    padding: 0;
+    width: 300px;
+    font-size: 16px;
+    text-align: right;
+    line-height: 0.5;
+}
+
+.text_Internships {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0px;
+    margin-left: 200px;
+    padding: 0;
+    width: 300px;
+    font-size: 16px;
+    text-align: right;
+    line-height: 0.5;
+}
+
+.Projects_PE {
+    display: block; /* Display items as block-level elements */
+    text-align: left; /* Align text to the left */
+    position: relative;
+    top: -275.5px;
+    left: 160px;
+    font-size: 16px;
+    text-align: left;
+    margin-bottom: 18.7px;
+}
+
+.Experiences_PE {
+    display: block; /* Display items as block-level elements */
+    text-align: left; /* Align text to the left */
+    margin-top: -283px;
+    margin-left: 160px;
+    font-size: 16px;
+    text-align: left;
+}
+
+.awards_PE {
+    display: block; /* Display items as block-level elements */
+    text-align: left; /* Align text to the left */
+    margin-top: 10px;
+    margin-left: 160px;
+    font-size: 16px;
+    text-align: left;
+    line-height: 2.32;
+}
+
+.internship_PE {
+    display: block; /* Display items as block-level elements */
+    text-align: left; /* Align text to the left */
+    margin-top: 3px;
+    margin-left: 160px;
+    font-size: 16px;
+    text-align: left;
+    line-height: 2.32;
+}

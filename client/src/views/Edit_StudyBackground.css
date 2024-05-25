@@ -1,0 +1,127 @@
+.textbox_Study{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 253px;
+    left: 925px;
+    padding: 0;
+    width: 200px;
+    font-size: 16px;
+    text-align: left;
+    line-height: 2.32;
+}
+
+.textbox_highschoolname{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 460px;
+    left: 200px;
+    padding: 0;
+    width: 200px;
+    font-size: 16px;
+    text-align: left;
+    line-height: 2.32;
+}
+
+.textbox_highschoolstop{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 270px;
+    left: 1150px;
+    padding: 0;
+    width: 200px;
+    font-size: 16px;
+    text-align: left;
+    line-height: 2.32;
+}
+
+.to_school{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 257px;
+    left: 1110px;
+    padding: 0;
+    width: 200px;
+    font-size: 16px;
+    text-align: left;
+    line-height: 2.32;
+}
+.to_university{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 450px;
+    left: 1110px;
+    padding: 0;
+    width: 200px;
+    font-size: 16px;
+    text-align: left;
+    line-height: 2.32;
+}
+
+.textbox_universitystart{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 460px;
+    left: 925px;
+    padding: 0;
+    width: 200px;
+    font-size: 16px;
+    text-align: left;
+    line-height: 2.32;
+}
+
+.textbox_universitystop{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 462px;
+    left: 1150px;
+    padding: 0;
+    width: 200px;
+    font-size: 16px;
+    text-align: left;
+    line-height: 2.32;
+}
+
+.textbox_universitymajor{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 430px;
+    left: 925px;
+    padding: 0;
+    width: 392px;
+    font-size: 14px;
+    text-align: left;
+    line-height: 2.32;
+}
+.text_box_universitygpax{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 495px;
+    left: 925px;
+    padding: 0;
+    width: 200px;
+    font-size: 16px;
+    text-align: left;
+    line-height: 2.32;
+}
+
+.textbox_universityname{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 390px;
+    left: 925px;
+    padding: 0;
+    width: 392px;
+    font-size: 14px;
+    text-align: left;
+    line-height: 2.32;
+}

@@ -1,0 +1,43 @@
+.text_Skills {
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-start; จัดข้อความชิดซ้าย */
+    margin-top: 0px;
+    margin-left: -100px;
+    padding: 0;
+    width: 100%;
+    font-size: 16px;
+    text-align: right;
+    line-height: 4;
+}
+
+.Interest_Skills{
+    display: block; /* Display items as block-level elements */
+    margin-bottom: 3px; /* Add some spacing between rows */
+    text-align: left; /* Align text to the left */
+    margin-top: -252px;
+    margin-left: 201px;
+    font-size: 16px;
+}
+
+  /* Item styles */
+  .hard_skill_Skills {
+    display: block; /* Display items as block-level elements */
+    margin-bottom: 3cm; /* Add some spacing between rows */
+    text-align: left; /* Align text to the left */
+    margin-top: 70px;
+    margin-left: 201px;
+    font-size: 16px;
+    text-align: left;
+  }
+
+.soft_skill_Skills{
+    display: block; /* Display items as block-level elements */
+    margin-bottom: 3cm; /* Add some spacing between rows */
+    text-align: left; /* Align text to the left */
+    margin-top: -42px;
+    margin-left: 201px;
+    font-size: 16px;
+    text-align: left;
+}
+  

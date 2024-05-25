@@ -1,0 +1,37 @@
+.text_Skills2 {
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-start; จัดข้อความชิดซ้าย */
+    margin-top:0px ;
+    margin-left:-100px ;
+    padding: 0;
+    width: 300px;
+    font-size: 16px;
+    text-align: right;
+    line-height: 4;
+}
+
+.textbox_interests{
+    display: block; /* Display items as block-level elements */
+    text-align: left; /* Align text to the left */
+    margin-top: -253px;
+    margin-left:200px;
+    font-size: 16px;
+}
+
+.textbox_hardSkills{
+    display: block; /* Display items as block-level elements */
+    text-align: left; /* Align text to the left */
+    margin-top: 70px;
+    margin-left: 200px;
+    font-size: 16px;
+}
+
+.textbox_softSkills{
+    display: block; /* Display items as block-level elements */
+    text-align: left; /* Align text to the left */
+    margin-top: 71px;
+    margin-left: 200px;
+    font-size: 16px;
+}
+

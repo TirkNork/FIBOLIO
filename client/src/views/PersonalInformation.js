@@ -7,6 +7,7 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 import NAMO from '../assest/NAMO.svg';
 import USER from '../assest/user_picture.png';
 import Topbar from '../components/Topbar/Topbar';
+import './personal.css';
 
 function PersonalInformation() {
   const [testDataList, setTestDataList] = useState([]);
@@ -28,7 +29,7 @@ function PersonalInformation() {
       <body>
         <div class="container">
           <div class="section">
-            <button type="button" class="btn-editimage">Edit Image</button>
+            {/* <button type="button" class="btn-editimage">Edit Image</button> */}
             <img src={USER} className="user_picture" alt="USER"/>
             <div className="user-icon">
               <FontAwesomeIcon icon={faUser} />
@@ -47,31 +48,56 @@ function PersonalInformation() {
                 <Link to="/ProjectsExperiences">Projects & Experiences</Link>
             </button>
           </div>
-          <div class="section">
+          <div class="section2">
             <h3>Personal Information</h3>
-            <svg width="800" height="500">
-              <line x1="60" y1="0" x2="772" y2="0" stroke="black" strokeWidth="2" />
-            </svg>
-            {testDataList.map((item) => (
-              <div key={item.student_id}>
-                First Name: {item.student_firstname}<br />
-                Last Name: {item.student_surname}<br />
-                Student ID: {item.student_id}<br />
-                Nickname: {item.student_nickname}<br />
-                Email: {item.student_email}<br />
-                Tel: {item.student_tel}<br />
-                Address: {item.student_address}<br />
-                FRAB: {item.student_frab}
-              </div>
-            ))}
+
+            <div className="line"></div>
+            
             <button type="button" class="btn-exportresume">Export Resume</button>
-            <button type="button" class="btn-edit">Edit</button>
+            <button className="btn-edit">
+             <Link to="/Edit_PersonalInformation">Edit</Link>
+            </button>
             <img src={NAMO} className="NAMO" alt="NAMO"/>
-          </div>
+
+            <div class="text">
+            <p>First Name: </p>
+            <p>Nickname: </p>
+            <p>Student ID: </p>
+            <p>Email: </p>
+            <p>Tel: </p>
+            <p>Address: </p>
+            </div>
+
+            <div class="LastName">
+            <p>Last Name: </p>
+            </div>
+
+            <div class="FRAB">
+            <p>FRAB: </p>
+            </div>
+            
+            {testDataList.map((item) => (
+              <div key={item.student_id} >
+              <div class="PIData">
+                {item.student_firstname}<br />              
+                {item.student_nickname}<br />
+                {item.student_id}<br />               
+                {item.student_email}<br />
+                {item.student_tel}<br />
+                {item.student_address}<br />
+              </div> 
+              <div class="PIData_Surname">
+                {item.student_surname}<br />
+              </div>
+              <div class="PIData_Frab">
+                {item.student_frab}
+              </div>                  
+              </div>  
+          ))}
+        </div>
         </div>
       </body>
       <main>
-        
       </main>
     </div>
   );
