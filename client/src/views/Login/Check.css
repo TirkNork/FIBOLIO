@@ -1,4 +1,4 @@
-.Contain3 {
+.Contain_Check {
     display: flex;
     justify-content: center; 
     align-items: center; 
@@ -10,7 +10,7 @@
     background-repeat: no-repeat;
 }
 
-.Contain3 .white-box {
+.Contain_Check .white-box {
     width: 70vw; 
     height: 65vh; 
     background-color: #ffffff;
@@ -23,17 +23,17 @@
     position: relative;
 }
 
-.Contain3 h1 {
-    font-size: 2.5vw;
+.Contain_Check h1 {
+    font-size: 2.9vw;
     text-align: center;
     color: #000000;
     position: absolute;
-    top:  22vh;
-    left: 30vw;
+    top:  20vh;
+    left: 36vw;
     width: 40vw;
     height: 21vh;
 }
-.Contain3 .close-icon {
+.Contain_Check .close-icon {
     position: absolute;
     top:  19.5vh;
     left: 82vw;
@@ -42,21 +42,21 @@
     cursor: pointer;
 }
 
-.Contain3 .Please {
+.Contain_Check h2 {
     font-size: 1.5625vw;
     text-align: center;
-    color: #ABABAB;
+    color: #ccc;
     position: absolute;
-    top: 32vh;
+    top: 32.5vh;
     left: 28vw;
 }
 
-.Contain3 .Name {
-    font-size: 1.3vw;
+.Contain_Check h3 {
+    font-size: 1.2vw;
     text-align: center;
-    color: #cec6c6;
+    color: #ccc;
     position: absolute;
-    top: 40vh;
+    top: 43vh;
     left: 28vw;
 }
 
@@ -72,12 +72,12 @@
     box-shadow: 0 0 10px rgba(10 , 10, 10, 0.5);
 }
 
-.Contain3 .SurName {
-    font-size: 1.3vw;
+.Contain_Check h4 {
+    font-size: 1.2vw;
     text-align: center;
-    color: #cec6c6;
+    color: #ccc;
     position: absolute;
-    top: 40vh;
+    top: 42vh;
     left: 52vw;
 }
 
@@ -93,12 +93,12 @@
     box-shadow: 0 0 10px rgba(10 , 10, 10, 0.5);
 }
 
-.Contain3 .ID {
-    font-size: 1.3vw;
+.Contain_Check h5 {
+    font-size: 1.2vw;
     text-align: center;
-    color: #cec6c6;
+    color: #ccc;
     position: absolute;
-    top: 52vh;
+    top: 51.5vh;
     left: 28vw;
 }
 
@@ -114,7 +114,7 @@
     box-shadow: 0 0 10px rgba(10 , 10, 10, 0.5);
 }
 
-.Contain3 .Requeast{
+.Contain_Check .Requeast{
     color: #000000;
     position: absolute;
     top: 70vh;

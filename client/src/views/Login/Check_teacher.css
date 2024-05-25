@@ -1,4 +1,4 @@
-.Contain5 {
+.Contain_CheckTeacher {
     display: flex;
     justify-content: center; 
     align-items: center; 
@@ -10,7 +10,7 @@
     background-repeat: no-repeat;
 }
 
-.Contain5 .white-box {
+.Contain_CheckTeacher .white-box {
     width: 70vw; 
     height: 65vh; 
     background-color: #ffffff;
@@ -23,17 +23,18 @@
     position: relative;
 }
 
-.Contain5 h1 {
-    font-size: 2.5vw;
+.Contain_CheckTeacher h1 {
+    font-size: 2.9vw;
     text-align: center;
     color: #000000;
     position: absolute;
-    top:  22vh;
-    left: 30vw;
+    top:  20vh;
+    left: 36vw;
     width: 40vw;
     height: 21vh;
 }
-.Contain5 .close-icon {
+
+.Contain_CheckTeacher .close-icon {
     position: absolute;
     top:  19.5vh;
     left: 82vw;
@@ -42,21 +43,21 @@
     cursor: pointer;
 }
 
-.Contain5 .Please {
+.Contain_CheckTeacher h2 {
     font-size: 1.5625vw;
     text-align: center;
-    color: #ABABAB;
+    color: #ccc;
     position: absolute;
-    top: 32vh;
+    top: 32.5vh;
     left: 28vw;
 }
 
-.Contain5 .Name {
-    font-size: 1.3vw;
+.Contain_CheckTeacher h3 {
+    font-size: 1.2vw;
     text-align: center;
-    color: #cec6c6;
+    color: #ccc;
     position: absolute;
-    top: 40vh;
+    top: 42vh;
     left: 28vw;
 }
 
@@ -65,19 +66,19 @@
     height: 4.6vh; 
     font-size: 1.3vw;
     position: absolute;
-    top: 46vh;
+    top: 48vh;
     left: 28vw;
     border: 0.1041vw solid #fff;
     border-radius: 0.417vw;
     box-shadow: 0 0 10px rgba(10 , 10, 10, 0.5);
 }
 
-.Contain5 .SurName {
-    font-size: 1.3vw;
+.Contain_CheckTeacher h4 {
+    font-size: 1.2vw;
     text-align: center;
-    color: #cec6c6;
+    color: #ccc;
     position: absolute;
-    top: 40vh;
+    top: 42vh;
     left: 52vw;
 }
 
@@ -86,14 +87,14 @@
     height: 4.6vh; 
     font-size: 1.3vw;
     position: absolute;
-    top: 46vh;
+    top: 48vh;
     left: 52vw;
     border: 0.1041vw solid #fff;
     border-radius: 0.417vw;
     box-shadow: 0 0 10px rgba(10 , 10, 10, 0.5);
 }
 
-.Contain5 .Requeast{
+.Contain_CheckTeacher .Requeast{
     color: #000000;
     position: absolute;
     top: 70vh;

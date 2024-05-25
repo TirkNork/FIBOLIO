@@ -1,4 +1,4 @@
-.Contain1 {
+.Contain_Pass {
     display: flex;
     justify-content: center; 
     align-items: center; 
@@ -10,7 +10,7 @@
     background-repeat: no-repeat;
 }
 
-.Contain1 .white-box {
+.Contain_Pass .white-box {
     width: 70vw; 
     height: 65vh; 
     background-color: #ffffff;
@@ -23,18 +23,18 @@
     position: relative;
 }
 
-.Contain1 h1 {
-    font-size: 2.5vw;
+.Contain_Pass h1 {
+    font-size: 2.9vw;
     text-align: center;
     color: #000000;
     position: absolute;
-    top:  22vh;
-    left: 30vw;
+    top:  20vh;
+    left: 36vw;
     width: 40vw;
     height: 21vh;
 }
 
-.Contain1 .Create{
+.Contain_Pass h2{
     font-size: 1.3020vw;
     text-align: center;
     color: #000000;
@@ -55,7 +55,7 @@
     box-shadow: 0 0 10px rgba(10 , 10, 10, 0.5);
 }
 
-.Contain1 .Confirm{
+.Contain_Pass h3{
     font-size: 1.3020vw;
     text-align: center;
     color: #000000;
@@ -76,7 +76,7 @@
     box-shadow: 0 0 10px rgba(10 , 10, 10, 0.5);
 }
 
-.Contain1 .Save{
+.Contain_Pass h4{
     font-size: 1.5625vw;
     text-align: center;
     color: #000000;
@@ -85,7 +85,16 @@
     left: 29vw;
 }
 
-.Save button {
+.Contain_Pass .Save{
+    font-size: 1.5625vw;
+    text-align: center;
+    color: #000000;
+    position: absolute;
+    top: 69vh;
+    left: 29vw;
+}
+
+.Save Button {
     font-size: 1.3020vw;
     text-align: center;
     color: #fff;
@@ -97,7 +106,7 @@
     background: #dd5900;
 }
 
-.Contain1 .Back{
+.Contain_Pass .Back{
     font-size: 1.5625vw;
     text-align: center;
     color: #4b4b4b;
@@ -106,7 +115,7 @@
     left: 51vw;
 }
 
-.Back button {
+.Back Button {
     font-size: 1.3020vw;
     text-align: center;
     color: #4b4b4b;

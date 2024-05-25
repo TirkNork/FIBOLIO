@@ -1,4 +1,5 @@
-.wrapper {
+.wrapper_Login {
+    position: relative;
     display: flex;
     width: 100vw;
     height: 100vh;
@@ -8,100 +9,111 @@
     background-repeat: no-repeat;
 }
 
-.wrapper h1 {
+.wrapper_Login .Logo {
+    position: absolute;
+    right: 2vw; 
+    top: 0.3vh; 
+}
+
+.wrapper_Login h1 {
     font-size: 6.5vh;
     text-align: center;
     color: #fff;
     position: absolute;
     top: 16.667%;
-    left: 66.041667%;
+    left: 67.5%;
     width: 15.625%;
     height: 6.4814%;
 }
 
-.wrapper .Welcome {
-    font-size: 10.8vh;
+.wrapper_Login h2 {
+    font-size: 10.5vh !important;
     text-align: center;
     color: #fff;
     position: absolute;
-    top: 9%;
-    left: 11.1%;
+    top: 8%;
+    left: 12%;
+    width: 15.625%;
+    height: 6.4814%;
 }
 
-.wrapper .Back {
-    font-size: 10.8vh;
+.wrapper_Login h3 {
+    font-size: 10.5vh ;
     text-align: center;
     color: #fff;
     position: absolute;
-    top: 19%;
-    left: 11.45%;
+    top: 17%;
+    left: 11%;
+    width: 15.625%;
+    height: 6.4814%;
 }
 
-.wrapper .FIBOLIO {
-    font-size: 3vh;
-    text-align: center;
-    color: #fff;
-    position: absolute;
-    top: 41%;
-    left: 11.45%;
-}
-
-.wrapper .WelcomeText {
+.wrapper_Login h4 {
     font-size: 2.55vh;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    top: 39%;
+    left: 13%;
+}
+
+.wrapper_Login h5 {
+    font-size: 2vh;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    top: 45%;
+    left: 13%;
+}
+
+.wrapper_Login h6{
+    font-size: 2vh;
     text-align: center;
     color: #fff;
     position: absolute;
     top: 47%;
-    left: 11.7%;
+    left: 17%;
 }
 
-.wrapper .Account {
-    font-size: 2.55vh;
-    text-align: center;
-    color: #fff;
-    position: absolute;
-    top: 50%;
-    left: 16%;
-}
-
-.wrapper .SignUp {
+.wrapper_Login .SignUp {
     text-align: center;
     color: #fff;
     position: absolute;
     background: transparent 50%;
-    top: 59%;
-    left: 19.3%;
+    top: 57vh;
+    left: 20vw;
 }
 
 
-.SignUp button {
+.SignUp Button {
     border-radius: 0.41667vh;
     font-size: 1.5vh;
+    position: absolute;
     text-align: center;
     color: #000000;
-    border-radius: 8px;
+    border-radius: 1vh;
     width: 10vh;
     height: 4vh;
     background: rgba(255, 255, 255, 0.8);
 }
 
-.wrapper .Email {
+.wrapper_Login h7 {
     font-size: 2.5vh;
     text-align: center;
     color: #fff;
     position: absolute;
-    top: 31.4%;
-    left: 58.333%;
+    top: 34vh;
+    left:58.5vw;
 }
 
 
 .input-boxname input {
-    width: 31.25vw; 
+    width: 28vw; 
     height: 4.6vh; 
-    font-size: 1.3vw;
+    font-size: 0.3%;
     position: absolute;
     top: 37vh;
-    left: 58.333vw;
+    left:58.5vw;
     border: 0.1041vw solid #fff;
     border-radius: 0.417vw;
     box-shadow: 0 0 10px rgba(10 , 10, 10, 0.5);
@@ -110,28 +122,28 @@
 .input-boxname .Icon {
     position: absolute;
     font-size: 1.9vh;
-    left: 88.02083%;
+    left: 85.7%;
     top: 39.6% ;
     transform: translateY(-50%);
 } 
 
 
-.wrapper .Password {
+.wrapper_Login h8 {
     font-size: 2.5vh;
     text-align: center;
     color: #fff;
     position: absolute;
-    top: 41.7%;
-    left: 58.33%;
+    top: 44vh;
+    left:58.5vw;
 }
 
 .input-boxpass input {
-    width: 31.25%;
+    width: 28vw; 
     height: 4.6%;
-    font-size: 1.3vw;
+    font-size: 2vw;
     position: absolute;
     top: 47%;
-    left: 58.333%;
+    left:58.5vw;
     border: 0.1041vw solid #fff;
     border-radius: 0.417vw;
     box-shadow: 0 0 10px rgba(10 , 10, 10, 0.5);
@@ -140,86 +152,77 @@
 .input-boxpass .Icon {
     position: absolute;
     font-size: 2vh;
-    left: 88.02083%;
-    top: 49.7% ;
+    left: 85.7vw;
+    top: 49.5vh ;
     transform: translateY(-50%);
 } 
 
-.wrapper .remember {
-    font-size: 3vh;
+.wrapper_Login h9 {
     text-align: center;
     color: #fff;
     position: absolute;
-    top: 55%;
-    left: 58.33%;
+    font-size: 2.2vh;
+    top: 54.3vh;
+    left: 60.3%;
 }
 
-.remember {
-    top: 50%;
-    left: 40%;
-}
-
-.custom-checkbox {
-    top: 53.5%;
-    left: 58.33%;
-    width: 2vh; /* กำหนดความกว้าง */
-    cursor: pointer; /* เปลี่ยน cursor เมื่ออยู่เหนือ checkbox */
-}
-
-.wrapper .rememberMe {
-    font-size: 2vh;
-    text-align: center;
-    color: #fff;
+.remember .custom-checkbox  {
     position: absolute;
-    top: 53.5vh;
-    left: 60vw;
+    top: 54.5vh;
+    left: 57vw;
+    width: 8vh; 
+    border-radius: 0.417vw;
+    cursor: pointer; 
 }
 
-.wrapper .SignIn {
+.wrapper_Login .SignIn {
     color: #dd5900;
     position: absolute;
-    top: 62%;
+    top: 60.5%;
     left: 58.33%;
 }
 
-.SignIn button {
+.SignIn Button {
+    border-radius: 0.41667vh;
     font-size: 1.5vh;
+    position: absolute;
     text-align: center;
     color: #000000;
     border: 2px solid #dd5900;
     box-shadow: 0 0 10px rgba(10 , 10, 10, 0.5);
-    border-radius: 8px;
+    border-radius: 1vh;
     width: 15vh;
     height: 5vh;
+    background: rgba(255, 255, 255, 0.8);
     background: #dd5900;
     
 }
 
-.wrapper .forgot {
+.wrapper_Login .forgot {
     font-size: 1.8vh;
     text-align: center;
     color: #fff;
     position: absolute;
-    top: 68%;
+    top: 67%;
     left: 58.6%;
 }
 
-.wrapper .policy {
+.wrapper_Login h10 {
     font-size: 2vh;
     text-align: center;
     color: #fff;
     position: absolute;
-    top: 78%;
-    left: 67%;
+    top: 80%;
+    left: 65.6%;
 }
 
-.wrapper .accept {
+.wrapper_Login .accept {
     font-size: 2vh;
     text-align: center;
     color: #fff;
     position: absolute;
-    top: 83.5%;
-    left: 67.3%;
+    top: 83%;
+    left: 66%;
 }
 
 .error-message {

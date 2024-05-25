@@ -34,7 +34,7 @@ const Forgot = () => {
     };
 
     return (
-        <div className='Contain'>
+        <div className='Contain_Forgot'>
             <form onSubmit={handleRequestPasswordReset}>
                 {showNotification && (
                     <div className="notification">
@@ -43,15 +43,9 @@ const Forgot = () => {
                 )}
                 <div className="white-box"></div>
                 <h1>Forgot your password?</h1>
-
-                <div className="Please1">
-                    <p>Please enter the email address you’d like your password reset information sent to</p>
-                </div>
-
-                <div className="Email">
-                    <p>Enter Email Address</p>
-                </div>
-
+                <h2>Please enter the email address where you want to reset your password.</h2>
+                <h3>Enter Email Address</h3>
+                
                 <div className="input-boxmail">
                     <input 
                         type="email" 

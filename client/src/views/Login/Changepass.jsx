@@ -54,7 +54,7 @@ const Changepass = () => {
     };
 
     return (
-        <div className='Contain1'>
+        <div className='Contain_Pass'>
             <form onSubmit={handleSaveChange}>
                 <div className="white-box"></div>
                 <h1>Change password</h1>
@@ -65,9 +65,8 @@ const Changepass = () => {
                     </div>
                 )}
 
-                <div className="Create">
-                    <p>Create New Password</p>
-                </div>
+                <h2>Create New Password</h2>
+                
 
                 <div className="input-boxpassnew">
                     <input
@@ -78,9 +77,9 @@ const Changepass = () => {
                     />
                 </div>
 
-                <div className="Confirm">
-                    <p>Confirm New Password</p>
-                </div>
+
+                <h3>Confirm New Password</h3>
+
 
                 <div className="input-boxpassconfirm">
                     <input
@@ -93,11 +92,11 @@ const Changepass = () => {
 
 
                 <div className="Save">
-                        <Button type="submit" label="Save Change & Continue" />
+                    <Button type="submit" label="Save Change & Continue" />
                 </div>
 
                 <div className="Back">
-                        <Button type="submit" onClick={handleBackClick} label="Cancel" />
+                    <Button type="submit" onClick={handleBackClick} label="Cancel" />
                 </div>
             </form>
         </div>

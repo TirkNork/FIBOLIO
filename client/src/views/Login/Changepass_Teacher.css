@@ -1,4 +1,4 @@
-.Contain6 {
+.Contain_Changepassteacher {
     display: flex;
     justify-content: center; 
     align-items: center; 
@@ -10,7 +10,7 @@
     background-repeat: no-repeat;
 }
 
-.Contain6 .white-box {
+.Contain_Changepassteacher .white-box {
     width: 70vw; 
     height: 65vh; 
     background-color: #ffffff;
@@ -23,18 +23,18 @@
     position: relative;
 }
 
-.Contain6 h1 {
-    font-size: 2.5vw;
+.Contain_Changepassteacher h1 {
+    font-size: 2.9vw;
     text-align: center;
     color: #000000;
     position: absolute;
-    top:  22vh;
-    left: 30vw;
+    top:  20vh;
+    left: 36vw;
     width: 40vw;
     height: 21vh;
 }
 
-.Contain6 .Create{
+.Contain_Changepassteacher h2{
     font-size: 1.3020vw;
     text-align: center;
     color: #000000;
@@ -43,7 +43,7 @@
     left: 29vw;
 }
 
-.input-boxpassnew input {
+.Contain_Changepassteacher input {
     width: 40.9vw;
     height: 5.6vh;
     font-size: 1.3020vw;
@@ -55,7 +55,7 @@
     box-shadow: 0 0 10px rgba(10 , 10, 10, 0.5);
 }
 
-.Contain6 .Confirm{
+.Contain_Changepassteacher h3{
     font-size: 1.3020vw;
     text-align: center;
     color: #000000;
@@ -76,7 +76,7 @@
     box-shadow: 0 0 10px rgba(10 , 10, 10, 0.5);
 }
 
-.Contain6 .Save{
+.Contain_Changepassteacher h4{
     font-size: 1.5625vw;
     text-align: center;
     color: #000000;
@@ -85,7 +85,16 @@
     left: 29vw;
 }
 
-.Save button {
+.Contain_Changepassteacher .Save{
+    font-size: 1.5625vw;
+    text-align: center;
+    color: #000000;
+    position: absolute;
+    top: 69vh;
+    left: 29vw;
+}
+
+.Save Button {
     font-size: 1.3020vw;
     text-align: center;
     color: #fff;
@@ -97,20 +106,20 @@
     background: #dd5900;
 }
 
-.Contain6 .Back{
+.Contain_Changepassteacher .Back{
     font-size: 1.5625vw;
     text-align: center;
-    color: #000000;
+    color: #4b4b4b;
     position: absolute;
     top: 69vh;
     left: 51vw;
 }
 
-.Back button {
+.Back Button {
     font-size: 1.3020vw;
     text-align: center;
-    color: #000000;
-    border: 2px solid #000000;
+    color: #4b4b4b;
+    border: 2px solid #666666;
     box-shadow: 0 0 10px rgba(10 , 10, 10, 0.5);
     border-radius: 8px;
     width: 18.85vw;

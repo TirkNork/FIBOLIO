@@ -1,4 +1,4 @@
-.Contain {
+.Contain_Forgot {
     display: flex;
     justify-content: center; 
     align-items: center; 
@@ -10,7 +10,7 @@
     background-repeat: no-repeat;
 }
 
-.Contain .white-box {
+.Contain_Forgot .white-box {
     width: 70vw; 
     height: 65vh; 
     background-color: #ffffff;
@@ -23,27 +23,27 @@
     position: relative;
 }
 
-.Contain h1 {
-    font-size: 2.5vw;
+.Contain_Forgot h1 {
+    font-size: 2.9vw;
     text-align: center;
     color: #000000;
     position: absolute;
-    top:  22vh;
-    left: 30vw;
+    top:  20vh;
+    left: 36vw;
     width: 40vw;
     height: 21vh;
 }
 
-.Contain .Please1 {
-    font-size: 1.5625vw;
+.Contain_Forgot h2 {
+    font-size: 1.3vw;
     text-align: center;
-    color: #ABABAB;
+    color: #ccc;
     position: absolute;
     top: 35vh;
     left: 25vw;
 }
 
-.Contain .Email {
+.Contain_Forgot h3 {
     font-size: 1.3vw;
     text-align: center;
     color: #222222;
@@ -64,7 +64,7 @@
     box-shadow: 0 0 10px rgba(10 , 10, 10, 0.5);
 }
 
-.Contain .Request {
+.Contain_Forgot .Request {
     color: #000000;
     position: absolute;
     top: 63vh;
@@ -83,12 +83,12 @@
     background: #dd5900;
 }
 
-.Contain .Back {
+.Contain_Forgot  .Back {
     font-size: 1.5625vw;
     text-align: center;
     color: #000000;
     position: absolute;
-    top: 73vh;
+    top: 74vh;
     left: 44.5vw;
 }
 

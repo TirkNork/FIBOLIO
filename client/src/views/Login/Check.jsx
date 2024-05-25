@@ -47,7 +47,7 @@ const Check = () => {
     };
 
     return (
-        <div className='Contain3'>
+        <div className='Contain_Check'>
             <form onSubmit={handleVerifyAndContinue}>
                 {showNotification && (
                     <div className="popup">
@@ -57,21 +57,10 @@ const Check = () => {
                 <div className="white-box"></div>
                 <span className="close-icon" onClick={handleClose}>&times;</span>
                 <h1>Verify your account</h1>
-                <div className="Please">
-                    <p>Please enter your information below. </p>
-                </div>
-
-                <div className="Name">
-                    <p>Please enter your Name </p>
-                </div>
-
-                <div className="SurName">
-                    <p>Please enter your Surname </p>
-                </div>
-
-                <div className="ID">
-                    <p>Please enter your StudentID </p>
-                </div>
+                <h2>Please enter your information below. </h2>
+                <h3>Please enter your Name </h3>
+                <h4>Please enter your Surname </h4>
+                <h5>Please enter your StudentID </h5>
 
                 <div className="input-boxname3">
                     <input 
