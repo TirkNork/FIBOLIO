@@ -106,7 +106,7 @@ function ProjectDetails() {
                 </ul>
             </div>
             <div className="project-edit-box-detail">
-                <img src={Cross} className="cross" onClick={handleBackClick}/>
+                <img src={Cross} className="cross1" onClick={handleBackClick}/>
                 {project.map((val, key) => (
                     <div key={key}>
                         <p className="detail"><b>Project : </b>{val.project_name}</p>
