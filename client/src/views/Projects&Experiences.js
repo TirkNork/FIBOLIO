@@ -8,6 +8,7 @@ import NAMO from '../assest/NAMO.svg';
 import USER from '../assest/user_picture.png';
 import Topbar from '../components/Topbar/Topbar';
 import './project&experiences.css';
+import exportResume from './exportResume.js';
 
 function ProjectsExperiences() {
   const [testDataList, setTestDataList] = useState([]);
@@ -84,7 +85,7 @@ function ProjectsExperiences() {
                 <p>Internships:</p>
               </div>
 
-              <button type="button" class="btn-exportresume">Export Resume</button>
+              <button type="button" className="btn-exportresume" onClick={() => exportResume(testDataList)}>Export Resume</button>
               <button className="btn-edit">
               <Link to="/Edit_ProjectsExperiences">Edit</Link>
               </button>

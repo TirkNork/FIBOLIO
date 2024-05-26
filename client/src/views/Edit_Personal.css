@@ -35,7 +35,7 @@
   flex-direction: column;
   /* align-items: flex-start; จัดข้อความชิดซ้าย */
   margin-top: -130px;
-  margin-left: -50px;
+  margin-left: 18px;
   padding: 0;
   width: 300px;
   font-size: 16px;
@@ -77,7 +77,7 @@
   border-radius: 4px; /* Adjust border radius as needed */
   box-sizing: border-box; /* Ensure padding is included in the dimensions */
   margin-top: 7px; /* Add some space above the input */
-  margin-left: 180px;
+  margin-left: 147px;
 }
 
 input[type=text] {

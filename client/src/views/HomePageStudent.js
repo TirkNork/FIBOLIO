@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import './HomePageStudent.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleUser, faCaretDown } from '@fortawesome/free-solid-svg-icons';
+import Fibolio from "../assest/Fibolio.png";
 
 function HomePageStudent() {
     const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -27,23 +28,23 @@ function HomePageStudent() {
 
     return (
         <div className="HomePageStudent">
-            <h1>Fibolio</h1>
             <nav>
+            <img src={Fibolio} className="Fibolio" alt="Fibolio"/>
                 <div className="dropdown-container" ref={dropdownRef}>
-                    <div className="dropdown-home">
                         <div className="circleuser-icon">
                             <FontAwesomeIcon icon={faCircleUser} />
                         </div>
-                        <div className="caretdown-icon" onClick={toggleDropdown}>
-                            <FontAwesomeIcon icon={faCaretDown} />
+                        <div className="dropdown-home">
+                            <div className="caretdown-icon" onClick={toggleDropdown}>
+                                <FontAwesomeIcon icon={faCaretDown} />
+                            </div>
                         </div>
                     {dropdownOpen && (
                         <div className="dropdown-content">
-                        <Link to="#" onClick={() => setDropdownOpen(false)}>Nuttida</Link>
+                        <Link to="#" onClick={() => setDropdownOpen(false)}>User Name</Link>
                         <Link to="/Signin" onClick={() => setDropdownOpen(false)}>Logout</Link>
                         </div>
                     )}
-                    </div>
                 </div>
             </nav>
             <main>

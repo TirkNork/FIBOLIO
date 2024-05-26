@@ -4,6 +4,11 @@
   /* Add additional font weights and styles if needed */
 }
 
+@font-face {
+  font-family: 'Kanit';
+  src: url('../font/Kanit-Medium.ttf') format('truetype');
+}
+
 body {
   font-family: 'Poppins', sans-serif;
 }
@@ -180,12 +185,8 @@ h3 {
   cursor: pointer; /* เปลี่ยนเคอร์เซอร์เป็นมือ */
 }
 .btn-exportresume:hover{
-  background-color: #DD5900; /* White background color on hover and click */
-    color: #fff; /* Black text color on hover and click */
-    border-color: #000; /* DD5900 border color on hover and click */
-    border-width: 2px; /* Increase border width on hover and click */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add drop shadow on hover and click */
-    /* transition-duration: 0.0001s; */
+  background-color: #cf5403;
+  color: #ffffff;
 }
 
 .btn-exportresume a {
@@ -209,23 +210,19 @@ h3 {
   position: absolute;
   left: 1170px;
   top: 540px;
-  cursor: pointer; /* เปลี่ยนเคอร์เซอร์เป็นมือ */
+  cursor: pointer;
   
 }
 
-.btn-edit:hover{
-  background-color: #DD5900; /* White background color on hover and click */
-    color: #fff; /* Black text color on hover and click */
-    border-color: #000; /* DD5900 border color on hover and click */
-    border-width: 2px; /* Increase border width on hover and click */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add drop shadow on hover and click */
-    /* transition-duration: 0.0001s; */
+.btn-edit:hover {
+  background-color: #cf5403;
+  color: #ffffff;
 }
 
 .btn-edit a {
   font-family: 'Poppins', sans-serif;
-  color: inherit; /* ใช้สีตามปุ่ม */
-  text-decoration: none; /* ลบขีดเส้นใต้ */
-  font-size: 16px; /* ขนาดฟอนต์ */
-  border: none; /* ลบกรอบ (ถ้ามี) */
+  color: inherit;
+  text-decoration: none;
+  font-size: 16px;
+  border: none;
 }

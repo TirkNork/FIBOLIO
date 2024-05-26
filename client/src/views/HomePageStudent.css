@@ -17,16 +17,6 @@
     padding: 0;
   }
 
-  .HomePageStudent h1 {
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    top: 8px;
-    left: 28px;
-    font-size: 48px;
-    color: #212529;
-  }
-
   nav {
     display: flex;
     align-items: center;
@@ -35,11 +25,28 @@
     padding: 0;
   }
 
-  .dropdown-home {
+  .Fibolio {
+    margin-left: 29px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: auto;
+    margin-top: 8px;
+    /* border: solid 1px red; */
+  }
+
+  .circleuser-icon {
     position: absolute;
-    left: 492px;
+    left: 535px;
     top: 3px;
     color: #212529;
+  }
+
+  .dropdown-home {
+    position: absolute;
+    left: 524.5px;
+    top: 5px;
   }
 
   .button-container-Home {
@@ -71,4 +78,9 @@
     color: inherit; /* ใช้สีตามปุ่ม */
     text-decoration: none; /* ลบขีดเส้นใต้ */
     border: none; /* ลบกรอบ (ถ้ามี) */
+  }
+
+  .home-course:hover {
+    background-color: #cf5403;
+    color: #ffffff;
   }
