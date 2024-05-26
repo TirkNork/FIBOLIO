@@ -14,6 +14,7 @@ const mockData = [
 ];
 
 const academicYears = ['1/2563', '2/2563', '1/2564', '2/2564', '1/2565', '2/2565', '1/2566', '2/2566'];
+const classType = ['Mechanical','Programming','Mechanical']
 const grades = ['A', 'B+', 'B', 'C+', 'C', 'D+', 'D', 'F'];
 
 
@@ -42,7 +43,7 @@ function HomePageTeacher() {
       }, []);
 
     const getDataList = () => {
-        const id = '1212'
+        // const id = '1212'
         Axios.get(`http://localhost:3001/teacher/${teacher_id}`).then((response) => {
             // console.log(response.data)
             setDataCourse(response.data);
@@ -51,10 +52,10 @@ function HomePageTeacher() {
 
     const sortData = (data) => {
         return data.sort((a, b) => {
-            if (sortType === 'year') {
+            if (sortType === 'course_year') {
                 const yearComparison = academicYears.indexOf(a.academicYear) - academicYears.indexOf(b.academicYear);
                 return sortOrder === 'asc' ? yearComparison : -yearComparison;
-            } else if (sortType === 'classType') {
+            } else if (sortType === 'course_class') {
                 const classComparison = a.classType.localeCompare(b.classType);
                 return sortOrder === 'asc' ? classComparison : -classComparison;
             }
@@ -62,32 +63,37 @@ function HomePageTeacher() {
         });
     };
 
-    // const filteredData = DataCourse.filter(course => 
-    //     course.coursename.toLowerCase().includes(searchTerm.toLowerCase())
-    // );
+    const filteredData = DataCourse.filter(course => 
+        course.course_name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
-    // const sortedData = sortData(filteredData);
+    const sortedData = sortData(filteredData);
 
 
 
   return (
     <div>
             <div className="header">
-                <h1>Published Classes</h1>
-            </div>
-            <div className="controls">
+                <h1>Home Page</h1>
+                <br />
+                <ul className='breadcrumb'>
+                    <li className='breadcrumb-list'>
+                        <a className='home' href='/HomePageTeacher'>Home Page/</a>
+                    </li>
+                </ul>
                 <CoursedropdownTeacher handleSortToggle={handleSortToggle} sortType={sortType} sortOrder={sortOrder} />
                 <Searchbar searchTerm={searchTerm} handleSearch={handleSearch} />
             </div>
             <div className="other-page">
                 <div className="grid-container">
-                    {DataCourse.map((val, key) => (
+                    {sortedData.map((val, key) => (
                         <CoursecardTeacher
                             key={key}
                             id={val.course_key}
+                            coursekey={val.course_key}
                             courseid={val.course_id}
                             coursename={val.course_name}
-                            // academicYear={val.academicYear}
+                            academicYear={val.course_semester + '/' + val.course_year}
                         />
                     ))}
                 </div>

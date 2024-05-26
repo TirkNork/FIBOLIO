@@ -44,7 +44,7 @@ app.get("/testTable", (req, res) => {
 app.get("/teacher/:id", (req, res) => {
   const id = req.params.id;
   const sql = `
-        SELECT cs.teacher_id, cs.course_key, cs.course_year, cs.course_semester, c.course_id, c.course_name , c.course_key
+        SELECT cs.teacher_id, cs.course_key, cs.course_year, cs.course_semester, c.course_id, c.course_name , c.course_key , c.course_class
         FROM fra502test.CourseStudent AS cs
         JOIN fra502test.Courses AS c ON cs.course_key = c.course_key
         WHERE cs.teacher_id = ?
