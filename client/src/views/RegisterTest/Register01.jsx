@@ -156,8 +156,8 @@ const Register = () => {
 
             <div className="Content">
                 <div className="Topic">
-                    <h1>Create Account</h1>
-                    <p>Already have an account?&nbsp; <Link to="/Login"> Login Here</Link></p>
+                    <h1 className="CreateAccount">Create Account</h1>
+                    <p className="go2Login">Already have an account?&nbsp; <Link to="/Login"> Login Here</Link></p>
                     <div className="segmentLine"></div>
                 </div>
 
@@ -177,7 +177,7 @@ const Register = () => {
                 </div>
 
                 <div className="TermsNCons">
-                    <input type="checkbox" name="checkbox" onChange={handleCheckboxChange}/>
+                    <input className="termNcons-checkBox" type="checkbox" name="checkbox" onChange={handleCheckboxChange}/>
                     <label className="agree">I agree to the&nbsp; <Link to="/Test1">Terms and Conditions</Link></label>
                 </div>
 
@@ -192,7 +192,7 @@ const Register = () => {
             <BgImg />
             <div className="joinContainer"></div>
             <div className="join">JOIN US!</div>
-            <h3>Let's get to know yourself better together.</h3>
+            <h3 className="joinText">Let's get to know yourself better together.</h3>
         </div>
         </>
     );

@@ -63,7 +63,7 @@
     margin: 1vh 0; /* Adjust margin for better spacing */
 }
 
-h1 {
+.CreateAccount{
     position: relative;
     display: flex;
     /* font-size: 3.45vw; 48 / 1392 * 100 */
@@ -71,7 +71,7 @@ h1 {
     margin-bottom: 0;
 }
 
-p {
+.go2Login {
     position: relative;
     display: flex;
     /* font-size: 1.15vw; 16 / 1392 * 100 */
@@ -109,7 +109,7 @@ p {
     display: flex;
 }
 
-input[type="checkbox"] {
+.termNcons-checkBox {
     position: absolute;
     top: 78.77vh; /* 590 / 749 * 100 */
     left: 7.18vw; /* 100 / 1392 * 100 */
@@ -153,7 +153,7 @@ input[type="checkbox"] {
     top: 38.72vh; /* 290 / 749 * 100 */
 }
 
-h3 {
+.joinText {
     position: relative;
     top: 34.71vh; /* 260 / 749 * 100 */
 }

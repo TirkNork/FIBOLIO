@@ -10,13 +10,13 @@ const RoleDropdown = ({ value, onChange }) => {
 
   return (
     <div>
-      <label>Who are you?</label>
-      <select id="roleSelect" value={value} onChange={onChange}>
-        <option value="" disabled selected>
+      <label className='role'>Who are you?</label>
+      <select className='selectRole' id="roleSelect" value={value} onChange={onChange}>
+        <option className="roleOption" value="" disabled selected>
           Select your account Role.
         </option>
-        <option value="Student">Student</option>
-        <option value="Instructor">Instructor</option>
+        <option className="roleOption" value="Student">Student</option>
+        <option className="roleOption" value="Instructor">Instructor</option>
       </select>
       {/* <p>Selected option: {selectedOption}</p> */}
     </div>

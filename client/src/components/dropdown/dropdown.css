@@ -25,7 +25,7 @@ label {
 } */
 
 /* General styles for select dropdown */
-select {
+.selectRole {
     position: relative;
     display: block; /* Changed to block to better control dimensions */
     height: 7vh; /* 56 / 749 * 100 */
@@ -37,7 +37,7 @@ select {
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
-option {
+.roleOption {
     height: auto; /* Use auto height for better responsiveness */
     border-radius: 8px;
     width: 100%; /* Full width to fit the select element */
@@ -45,7 +45,7 @@ option {
 }
 
 /* General styles for labels */
-label {
+.role {
     position: relative;
     display: flex;
     margin-left: 0;
@@ -54,18 +54,18 @@ label {
 /* 
 /* Media query for screens smaller than 768px */
 @media (max-width: 768px) {
-    select {
+    .selectRole {
         height: 6vh; /* Larger height for better touch interaction */
         width: 75vw; /* Full width for smaller screens */
         font-size: 18px; /* Larger font size for readability */
         padding-left: 3vw; /* Increased padding for better spacing */
     }
 
-    option {
+    .roleOption {
         font-size: 4vw; /* Larger font size for readability */
     }
 
-    label {
+    .role {
         font-size: 4vw; /* Larger font size for readability */
     }
 }
