@@ -5,7 +5,8 @@ import "./Project.css";
 import Cross from "../../assets/images/cancel.png";
 import Button from "../../components/Button/Button.js";
 
-const serverIP = 'http://localhost:3001'
+// const serverIP = 'http://localhost:3001'
+const serverIP = 'http://34.142.188.255:3001'
 
 function ProjectInsert() {
   const navigate = useNavigate();

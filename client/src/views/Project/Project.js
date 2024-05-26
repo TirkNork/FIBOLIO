@@ -9,7 +9,8 @@ import { debounce } from "lodash";
 import Search from "../../components/Search/Search.js";
 import Button from "../../components/Button/Button.js";
 
-const serverIP = 'http://localhost:3001'
+// const serverIP = 'http://localhost:3001'
+const serverIP = 'http://34.142.188.255:3001'
 
 const mockData = [
     {
