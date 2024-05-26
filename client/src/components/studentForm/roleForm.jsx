@@ -11,7 +11,7 @@ const RoleForm = ({ role, inputs, onChange }) => {
                     <div className="NameSurname">
                         {inputs.filter(input => input.name === "Name" || input.name === "Surname").map(input => (
                             <div key={input.name}>
-                                <label>{input.label}</label>
+                                <label className="inputLabel">{input.label}</label>
                                 <input
                                     className={input.name}
                                     type={input.type}
@@ -28,7 +28,7 @@ const RoleForm = ({ role, inputs, onChange }) => {
                 {inputs.map(input => (
                     !hasNameSurnameInputs || (hasNameSurnameInputs && input.name !== "Name" && input.name !== "Surname")) && (
                         <div key={input.name}>
-                            <label>{input.label}</label>
+                            <label className="inputLabel">{input.label}</label>
                             <input
                                 className={input.name}
                                 type={input.type}
