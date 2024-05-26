@@ -18,9 +18,6 @@ let dPlus = 0
 let d = 0
 let f = 0
 
-// const serverIP = 'http://localhost:3001'
-const serverIP = 'http://34.142.188.255:3001'
-
 function CourseTeacher() {
     const { id } = useParams();
     const [searchTerm, setSearchTerm] = useState("");
@@ -79,7 +76,7 @@ function CourseTeacher() {
     }, [studentsData]);
 
     const getCourseName = () => {
-        Axios.get(`${serverIP}/coursename/${id}`).then((response) => {
+        Axios.get(`http://localhost:3001/coursename/${id}`).then((response) => {
 
             setCourseName(response.data[0])
         });
@@ -87,7 +84,7 @@ function CourseTeacher() {
     };
 
     const getStudentsData = () => {
-        Axios.get(`${serverIP}/students/${id}`).then((response) => {
+        Axios.get(`http://localhost:3001/students/${id}`).then((response) => {
             setStudentsData(response.data)
         });
     };

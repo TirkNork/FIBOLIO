@@ -5,8 +5,6 @@ import { debounce } from "lodash";
 import Search from "../../components/Search/Search.js";
 import './CourseEdit.css';
 
-// const serverIP = 'http://localhost:3001'
-const serverIP = 'http://34.142.188.255:3001'
 function CourseEdit() {
     const navigate = useNavigate();
     const { id } = useParams();
@@ -75,7 +73,7 @@ function CourseEdit() {
     }, [new_score]);
 
     const getCourseName = () => {
-        Axios.get(`${serverIP}/coursename/${id}`).then((response) => {
+        Axios.get(`http://localhost:3001/coursename/${id}`).then((response) => {
 
             setCourseName(response.data[0])
         });
@@ -83,7 +81,7 @@ function CourseEdit() {
     };
 
     const getStudentsData = () => {
-        Axios.get(`${serverIP}/students/${id}`).then((response) => {
+        Axios.get(`http://localhost:3001/students/${id}`).then((response) => {
             // console.log(response.data)
             setStudentsData(response.data);
             setNew_score(response.data);
@@ -98,7 +96,7 @@ function CourseEdit() {
             console.log('New scores before sending:', updatedScores);
 
             // Now, updatedScores contains the actual updated scores
-            const response = await Axios.post(`${serverIP}/updateScore/${id}`, updatedScores);
+            const response = await Axios.post(`http://localhost:3001/updateScore/${id}`, updatedScores);
             console.log('Response:', response.data);
             navigate(`/CourseTeacher/${id}`);
         } catch (error) {

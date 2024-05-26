@@ -4,8 +4,7 @@ import CircleAndBox from '../../components/Competency_Page/CircleAndBox';
 import Axios from "axios";
 import { useState, useEffect } from "react";
 
-// const serverIP = 'http://localhost:3001'
-const serverIP = 'http://34.142.188.255:3001'
+
 function Competency() {
   const [student_id, setStudent_id] = useState("63340500001");
   const [CourseStudent, setCourseStudent] = useState([]);
@@ -18,7 +17,7 @@ function Competency() {
 
   const getCourseStudent = async () => {
     try {
-      const response = await Axios.get(`${serverIP}/CourseStudent?student_id=${student_id}`);
+      const response = await Axios.get(`http://localhost:3001/CourseStudent?student_id=${student_id}`);
       setCourseStudent(response.data);
       console.log("response", response);
     } catch (error) {
@@ -32,7 +31,7 @@ function Competency() {
 
   const getCompetencyDescription = async () => {
     try {
-      const response = await Axios.get(`${serverIP}/CompetencyDescription`);
+      const response = await Axios.get("http://localhost:3001/CompetencyDescription");
       setCompetencyDescription(response.data);
       console.log("response", response);
     } catch (error) {
